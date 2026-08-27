@@ -63,13 +63,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* impede que a imagem ultrapasse o quadrado */
+  overflow: hidden;
 }
 
 .logo-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* preenche o espaço mantendo a proporção */
+  object-fit: cover;
   border-radius: 8px;
   display: block;
 }
