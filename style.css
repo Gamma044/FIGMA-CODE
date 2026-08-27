@@ -4,16 +4,16 @@
    ================================ */
 
 :root {
-  --bg-dark: #0f0f0f;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #222222;
-  --text-primary: #f5f0e8;
-  --text-secondary: #b8b0a4;
-  --accent: #c9a66b;
-  --accent-hover: #dbb87a;
-  --border: #2e2e2e;
+  --bg-dark: #505050;
+  --bg-card: #5C5C5C;
+  --bg-card-hover: #686868;
+  --text-primary: #f0f0f0;
+  --text-secondary: #d0d0d0;
+  --accent: #808080;
+  --accent-hover: #747474;
+  --border: #686868;
   --radius: 16px;
-  --shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
