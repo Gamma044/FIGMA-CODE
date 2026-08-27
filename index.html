@@ -9,86 +9,120 @@
 <body>
 
     <!-- Header Navigation -->
-    <header>
+    <header class="header">
         <div class="logo">
-            <div class="logo-icon">A</div>
-            <span>AURA DELUXE</span>
+            <div class="logo-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 22 22 22"></polygon>
+                    <polyline points="7 14 12 9 17 14"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">AURA DELUXE</span>
         </div>
-        <nav>
+        <nav class="nav-menu">
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BENEFÍCIOS</a></li>
-                <li><a href="#">ESPECIFICAÇÕES</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#beneficios">BENEFÍCIOS</a></li>
+                <li><a href="#especificacoes">ESPECIFICAÇÕES</a></li>
             </ul>
         </nav>
-        <button class="btn-comprar">COMPRAR</button>
+        <button class="btn-nav">COMPRAR</button>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Aurora Coffee Machine">
-        </div>
-        <div class="hero-content">
-            <span class="badge">NOVO LANÇAMENTO</span>
-            <h1>AURORA COFFEE</h1>
-            <ul>
-                <li>Cafeteira de Expresso Artesanal de Luxo</li>
-                <li>Garantia de 5 Anos</li>
-                <li>Estética Rústica em Basalto Natural</li>
-                <li>Certificação Profissional SCA</li>
-            </ul>
-            <div class="price">R$ 4.998,90</div>
-            <div class="hero-buttons">
-                <button class="btn-primary">GARANTIR O MEU</button>
-                <button class="btn-secondary">SABER MAIS</button>
-            </div>
-        </div>
-    </section>
+    <!-- Main Content Container -->
+    <main class="main-container">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-card">
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Cafeteira Aurora Coffee" class="hero-img">
+                </div>
+                <div class="hero-details">
+                    <span class="badge">NOVO LANÇAMENTO</span>
+                    <h1 class="hero-title">AURORA COFFEE</h1>
+                    
+                    <ul class="hero-features">
+                        <li>Cafeteira de Expresso Artesanal de Luxo</li>
+                        <li>Garantia de 5 Anos</li>
+                        <li>Estética Rústica em Basalto Natural</li>
+                        <li>Certificação Profissional SCA</li>
+                    </ul>
 
-    <!-- Features Section -->
-    <section class="features">
-        <h2>POR QUE ESCOLHER O NOSSO PRODUTO?</h2>
-        <div class="cards-grid">
+                    <div class="price-tag">R$ 4.998,90</div>
+
+                    <div class="hero-actions">
+                        <button class="btn-primary">GARANTIR O MEU</button>
+                        <button class="btn-secondary">SABER MAIS</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 class="section-title">POR QUE ESCOLHER O NOSSO PRODUTO?</h2>
             
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24"><path d="M2 21h18v-2H2v2zm16-16h-2V3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 4h-2V7h2v2z"/></svg>
+            <div class="cards-grid">
+                
+                <!-- Card 01 -->
+                <article class="feature-card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
+                                <line x1="6" y1="2" x2="6" y2="4"></line>
+                                <line x1="10" y1="2" x2="10" y2="4"></line>
+                                <line x1="14" y1="2" x2="14" y2="4"></line>
+                            </svg>
+                        </div>
+                        <span class="card-step">01</span>
                     </div>
-                    <span class="card-number">01</span>
-                </div>
-                <h3>Menu & Extração de Elite</h3>
-                <p>Pressão perfeita e controle térmico preciso para expressos densos, cremosos e aromáticos dignos de mestre barista.</p>
-            </div>
+                    <h3 class="card-title">Menu & Extração de Elite</h3>
+                    <p class="card-description">
+                        Pressão perfeita e controle térmico preciso para expressos densos, cremosos e aromáticos dignos de mestre barista.
+                    </p>
+                </article>
 
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <!-- Card 02 -->
+                <article class="feature-card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                        </div>
+                        <span class="card-step">02</span>
                     </div>
-                    <span class="card-number">02</span>
-                </div>
-                <h3>Garantia de 5 Anos</h3>
-                <p>Construída com metais pesados e componentes de padrão comercial para garantir durabilidade e confiabilidade por décadas.</p>
-            </div>
+                    <h3 class="card-title">Garantia de 5 Anos</h3>
+                    <p class="card-description">
+                        Construída com metais pesados e componentes de padrão comercial para garantir durabilidade e confiabilidade por décadas.
+                    </p>
+                </article>
 
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <!-- Card 03 -->
+                <article class="feature-card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.12 2 9a7 7 0 0 1-10 9z"></path>
+                                <path d="M11 20c-1.5-3-1.5-6 2-10"></path>
+                            </svg>
+                        </div>
+                        <span class="card-step">03</span>
                     </div>
-                    <span class="card-number">03</span>
-                </div>
-                <h3>Estética Basalto Natural</h3>
-                <p>Cada painel é esculpido em basalto vulcânico rústico selecionado, tornando cada cafeteira Aurora uma obra de arte única.</p>
-            </div>
+                    <h3 class="card-title">Estética Basalto Natural</h3>
+                    <p class="card-description">
+                        Cada painel é esculpido em basalto vulcânico rústico selecionado, tornando cada cafeteira Aurora uma obra de arte única.
+                    </p>
+                </article>
 
-        </div>
-    </section>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
