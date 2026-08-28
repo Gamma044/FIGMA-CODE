@@ -263,7 +263,7 @@ body {
 
 /* ========== FEATURES ========== */
 .features-section {
-  padding: 1.5rem 0 6.5rem;
+  padding: 1.5rem 0 5rem;
 }
 
 .section-title {
@@ -333,68 +333,9 @@ body {
   line-height: 1.7;
 }
 
-/* ========== FOOTER ========== */
-.footer {
-  text-align: center;
-  padding: 2.8rem 5%;
-  border-top: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 960px) {
-  .hero-card {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-image-wrapper {
-    min-height: 380px;
-  }
-
-  .hero-details {
-    padding: 2.8rem 2.2rem;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .price-tag {
-    font-size: 1.5rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    text-align: center;
-  }
-
-  .header {
-    padding: 1rem 5%;
-  }
-}
-
 /* ========== ESPECIFICAÇÕES ========== */
 .specs-section {
-  padding: 4rem 0 5rem;
+  padding: 3rem 0 5rem;
 }
 
 .specs-table {
@@ -500,7 +441,7 @@ body {
 /* ========== CTA FINAL ========== */
 .final-cta {
   padding: 5rem 0;
-  background: #1f1f1f;
+  background: #222222;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   text-align: center;
@@ -509,6 +450,7 @@ body {
 .final-cta-content {
   max-width: 600px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .final-cta h2 {
@@ -531,8 +473,40 @@ body {
   color: var(--text-primary);
 }
 
-/* ========== RESPONSIVO DAS NOVAS SEÇÕES ========== */
-@media (max-width: 900px) {
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 2.8rem 5%;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 960px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image-wrapper {
+    min-height: 380px;
+  }
+
+  .hero-details {
+    padding: 2.8rem 2.2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -545,6 +519,28 @@ body {
 }
 
 @media (max-width: 600px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .price-tag {
+    font-size: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    padding: 1rem 5%;
+  }
+
   .gallery-grid {
     grid-template-columns: 1fr;
   }
