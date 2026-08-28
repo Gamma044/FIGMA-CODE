@@ -391,3 +391,165 @@ body {
     padding: 1rem 5%;
   }
 }
+
+/* ========== ESPECIFICAÇÕES ========== */
+.specs-section {
+  padding: 4rem 0 5rem;
+}
+
+.specs-table {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.specs-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1rem 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.specs-row:last-child {
+  border-bottom: none;
+}
+
+.specs-label {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.specs-value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+/* ========== GALERIA ========== */
+.gallery-section {
+  padding: 2rem 0 5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ========== DEPOIMENTOS ========== */
+.testimonials-section {
+  padding: 2rem 0 5.5rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.7rem;
+}
+
+.testimonial-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.testimonial-author span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* ========== CTA FINAL ========== */
+.final-cta {
+  padding: 5rem 0;
+  background: #1f1f1f;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.final-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.final-cta h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.final-cta p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.final-cta-price {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+/* ========== RESPONSIVO DAS NOVAS SEÇÕES ========== */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta h2 {
+    font-size: 1.45rem;
+  }
+}
