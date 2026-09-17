@@ -51,13 +51,7 @@
             </ul>
         </nav>
 
-        <!-- Grupo de Ações do Cabeçalho (Botão de Alternar Tema + Botão Comprar) -->
-        <div class="header-actions"> <!-- Contêiner flexível para agrupar o botão de tema e o botão de compra -->
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Alternar tema de cor"> <!-- Botão acessível do alternador de tema -->
-                <span id="theme-icon">🌙</span> <!-- Ícone do sol/lua trocado via JavaScript -->
-            </button>
-            <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão de ação rápida no cabeçalho apontando para o formulário/oferta -->
-        </div>
+        <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão de ação rápida no cabeçalho apontando para o formulário/oferta -->
     </header>
 
     <!-- 📌 CONTEÚDO PRINCIPAL DO SITE -->
@@ -188,38 +182,42 @@
             </div>
         </section>
 
-        <!-- ❓ SEÇÃO FAQ SANFONADA -->
-        <section class="faq-section" id="faq"> <!-- Seção semântica identificada com o ID 'faq' -->
-            <div class="faq-container"> <!-- Contêiner centralizado -->
-                <h2 class="section-title">Perguntas Frequentes</h2> <!-- Título da seção -->
+        <!-- ❓ RECURSO 2: SEÇÃO FAQ SANFONADA (ACCORDION ADAPTÁVEL E ACESSÍVEL) -->
+        <section class="faq-section" id="faq"> <!-- Seção semântica identificada com o ID 'faq' para navegação por âncora -->
+            <div class="faq-container"> <!-- Contêiner centralizado para limitar a largura e garantir ótima legibilidade -->
+                <h2 class="section-title">Perguntas Frequentes</h2> <!-- Título da seção de dúvidas mais comuns dos clientes -->
                 <p class="section-subtitle">Tudo o que você precisa saber sobre a sua cafeteira Aurora Coffee.</p> <!-- Subtítulo explicativo -->
 
-                <div class="faq-accordion"> <!-- Agrupador das sanfonas -->
+                <div class="faq-accordion"> <!-- Agrupador dos blocos de perguntas e respostas sanfonadas -->
 
-                    <details class="faq-item"> <!-- Bloco expansível 1 -->
-                        <summary class="faq-question">Quais tipos de grãos posso utilizar na Aurora Coffee?</summary>
-                        <div class="faq-answer">
+                    <!-- Pergunta 1 -->
+                    <details class="faq-item"> <!-- Elemento nativo HTML5 que expande/recolhe o conteúdo sem a necessidade de JavaScript -->
+                        <summary class="faq-question">Quais tipos de grãos posso utilizar na Aurora Coffee?</summary> <!-- Gatilho clicável com suporte nativo a acessibilidade por teclado (Tab/Enter) -->
+                        <div class="faq-answer"> <!-- Contêiner interno do texto da resposta -->
                             <p>Você pode utilizar qualquer grão de café especial de sua preferência. Recomendamos grãos com torra média ou clara e moagem fina para expresso, aproveitando todo o potencial sensorial e crema perfeita.</p>
                         </div>
                     </details>
 
-                    <details class="faq-item"> <!-- Bloco expansível 2 -->
-                        <summary class="faq-question">Como funciona a Garantia de 5 Anos?</summary>
-                        <div class="faq-answer">
+                    <!-- Pergunta 2 -->
+                    <details class="faq-item"> <!-- Segundo bloco expansível da FAQ -->
+                        <summary class="faq-question">Como funciona a Garantia de 5 Anos?</summary> <!-- Pergunta sobre a cobertura de garantia -->
+                        <div class="faq-answer"> <!-- Resposta detalhada sobre a garantia de fábrica -->
                             <p>A garantia cobre qualquer defeito de fabricação na bomba rotativa de 15 BAR, no controlador térmico PID e no acabamento em basalto. Nosso suporte exclusivo inclui coleta e devolução sem custo adicional.</p>
                         </div>
                     </details>
 
-                    <details class="faq-item"> <!-- Bloco expansível 3 -->
-                        <summary class="faq-question">O controle de temperatura PID é pré-configurado?</summary>
-                        <div class="faq-answer">
+                    <!-- Pergunta 3 -->
+                    <details class="faq-item"> <!-- Terceiro bloco expansível da FAQ -->
+                        <summary class="faq-question">O controle de temperatura PID é pré-configurado?</summary> <!-- Pergunta sobre o painel térmico PID -->
+                        <div class="faq-answer"> <!-- Resposta explicativa sobre o ajuste térmico digital -->
                             <p>Sim! O sistema PID vem calibrado de fábrica para a extração ideal a 93°C com estabilidade de ±0,5°C, mas permite que você ajuste a temperatura digitalmente conforme o perfil do seu grão.</p>
                         </div>
                     </details>
 
-                    <details class="faq-item"> <!-- Bloco expansível 4 -->
-                        <summary class="faq-question">Qual o prazo de entrega e como o produto é embalado?</summary>
-                        <div class="faq-answer">
+                    <!-- Pergunta 4 -->
+                    <details class="faq-item"> <!-- Quarto bloco expansível da FAQ -->
+                        <summary class="faq-question">Qual o prazo de entrega e como o produto é embalado?</summary> <!-- Pergunta sobre logística e transporte -->
+                        <div class="faq-answer"> <!-- Resposta sobre o envio expresso protegido -->
                             <p>Entregamos em todo o Brasil no prazo de 3 a 7 dias úteis. A máquina é enviada em uma caixa de madeira de reflorestamento com proteção em espuma de alta densidade sob medida.</p>
                         </div>
                     </details>
@@ -230,16 +228,18 @@
 
         <!-- ✉️ SEÇÃO DE CAPTURA DE LEADS / NEWSLETTER -->
         <section class="newsletter-section" id="newsletter"> <!-- Seção identificada com id="newsletter" -->
-            <div class="newsletter-container"> <!-- Caixa interna estilizada -->
-                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2>
-                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
+            <div class="newsletter-container"> <!-- Caixa interna estilizada com fundo de cartão e sombra -->
+                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2> <!-- Título secundário do formulário -->
+                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p> <!-- Subtítulo incentivando a inscrição -->
 
-                <form class="newsletter-form" action="#" method="POST"> <!-- Formulário de inscrição -->
-                    <div class="newsletter-field">
+                <!-- Formulário de Captura de E-mail -->
+                <form class="newsletter-form" action="#" method="POST"> <!-- Formulário configurado para envio de dados via método POST -->
+                    <div class="newsletter-field"> <!-- Invólucro do campo de entrada de texto -->
+                        <!-- Rótulo invisível na tela, mas lido por programas de leitores de tela para pessoas com deficiência visual (Acessibilidade) -->
                         <label for="email-input" class="sr-only">Seu e-mail principal</label> 
-                        <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required>
+                        <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required> <!-- Campo de entrada do e-mail com validação obrigatória (required) -->
                     </div>
-                    <button type="submit" class="btn-primary btn-form">Garantir Desconto ☕</button>
+                    <button type="submit" class="btn-primary btn-form">Garantir Desconto ☕</button> <!-- Botão de submissão do formulário -->
                 </form>
             </div>
         </section>
@@ -248,48 +248,8 @@
 
     <!-- 📌 RODAPÉ DA PÁGINA -->
     <footer class="footer"> <!-- Elemento semântico de rodapé -->
-        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p>
+        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p> <!-- Parágrafo de copyright com o símbolo de direito autoral (&copy;) e nome em negrito (<strong>) -->
     </footer>
-
-    <!-- ⚙️ SCRIPT DE LÓGICA PARA ALTERNÂNCIA DE TEMA (ESCURO / CLARO) -->
-    <script>
-        // Seleciona o botão de alternância e o elemento do ícone
-        const themeToggleBtn = document.getElementById('theme-toggle'); // Busca o botão pelo ID
-        const themeIcon = document.getElementById('theme-icon'); // Busca o contêiner do ícone
-
-        // Função para identificar o tema inicial do usuário (salvo no navegador ou preferência do sistema)
-        function getInitialTheme() {
-            const savedTheme = localStorage.getItem('aura_theme'); // Tenta recuperar a preferência salva no LocalStorage
-            if (savedTheme) {
-                return savedTheme; // Retorna o tema salvo previamente se existir
-            }
-            // Caso contrário, verifica se o sistema operacional prefere o modo claro
-            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
-
-        // Função para aplicar as alterações visuais de tema
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme); // Define o atributo 'data-theme' no elemento <html>
-            if (theme === 'light') {
-                themeIcon.textContent = '☀️'; // Atualiza o ícone para Sol no modo claro
-                themeToggleBtn.setAttribute('aria-label', 'Alternar para Modo Escuro'); // Atualiza a acessibilidade
-            } else {
-                themeIcon.textContent = '🌙'; // Atualiza o ícone para Lua no modo escuro
-                themeToggleBtn.setAttribute('aria-label', 'Alternar para Modo Claro'); // Atualiza a acessibilidade
-            }
-        }
-
-        // Aplica o tema na inicialização da página
-        let currentTheme = getInitialTheme(); // Obtém o tema inicial
-        applyTheme(currentTheme); // Executa a aplicação visual
-
-        // Evento de clique para alternar o tema manualmente ao clicar no botão
-        themeToggleBtn.addEventListener('click', () => {
-            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark'; // Alterna entre escuro e claro
-            localStorage.setItem('aura_theme', currentTheme); // Salva a escolha do usuário na memória local
-            applyTheme(currentTheme); // Aplica a nova escolha no site
-        });
-    </script>
 
 </body>
 </html>

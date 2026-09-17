@@ -34,10 +34,9 @@ a {
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transição suave e fluida de animação */
 }
 
-/* 🌗 RECURSO DE MODO CLARO (Suporta preferências automáticas e clique do botão via data-theme="light") */
-[data-theme="light"],
+/* 🌗 RECURSO 1: MODO CLARO AUTOMÁTICO (prefers-color-scheme: light) */
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
+  :root {
     /* Redefinição dinâmica das variáveis para paleta clara mantendo o tom nobre e sofisticado */
     --bg-dark: #F7F4F0;               /* Fundo principal passa a ser Creme / Marfim suave */
     --bg-card: #FFFFFF;               /* Cartões ganham fundo branco puro para alto contraste */
@@ -51,16 +50,13 @@ a {
   }
 
   /* Ajuste no efeito de vidro fosco do cabeçalho no modo claro */
-  html:not([data-theme="dark"]) .header,
-  [data-theme="light"] .header {
+  .header {
     background: rgba(247, 244, 240, 0.88); /* Fundo claro translúcido */
   }
 
   /* Ajuste no gradiente do título principal no modo claro */
-  html:not([data-theme="dark"]) .hero-title,
-  html:not([data-theme="dark"]) .hero__title,
-  [data-theme="light"] .hero-title,
-  [data-theme="light"] .hero__title {
+  .hero-title,
+  .hero__title {
     background: linear-gradient(135deg, #1A1714 0%, #7F6343 50%, #9A7B56 100%); /* Degradê ajustado para fundo claro */
     -webkit-background-clip: text;    /* Preserva o recorte das letras */
     background-clip: text;            /* Preserva o recorte das letras */
@@ -192,34 +188,6 @@ body {
 .nav-menu a:hover,
 .header__link:hover {
   color: var(--accent);               /* Muda a cor do link para dourado ao passar o mouse */
-}
-
-/* Grupo de Ações do Cabeçalho e Botão de Alternar Tema */
-.header-actions {
-  display: flex;                      /* Coloca o botão de alternar tema e o botão comprar lado a lado */
-  align-items: center;                /* Alinha ambos verticalmente ao centro */
-  gap: 1rem;                          /* Espaçamento entre os botões */
-}
-
-.btn-theme-toggle {
-  background: rgba(196, 164, 130, 0.12); /* Fundo translúcido em tom bronze */
-  border: 1px solid var(--border);    /* Borda sutil em acabamento metálico */
-  color: var(--text-primary);         /* Cor do texto/ícone do botão */
-  width: 38px;                        /* Largura do botão circular */
-  height: 38px;                       /* Altura do botão circular */
-  border-radius: 50%;                 /* Torna o botão em um círculo perfeito */
-  display: inline-flex;               /* Flexbox para centralizar o emoji do sol/lua */
-  align-items: center;                /* Centralização vertical */
-  justify-content: center;            /* Centralização horizontal */
-  cursor: pointer;                    /* Exibe o ponteiro de clique */
-  font-size: 1.1rem;                  /* Tamanho do emoji do tema */
-  transition: var(--transition);      /* Transição de cores e transformações */
-}
-
-.btn-theme-toggle:hover {
-  border-color: var(--accent);        /* Destaca a borda em dourado ao passar o mouse */
-  background: rgba(196, 164, 130, 0.25); /* Intensifica o fundo translúcido no hover */
-  transform: scale(1.08);             /* Leve ampliação ao passar o mouse para dar feedback tátil */
 }
 
 .btn-nav {
@@ -520,7 +488,7 @@ body {
   line-height: 1.7;                   /* Espaçamento de linhas suave */
 }
 
-/* ❓ RECURSO DE FAQ SANFONADA (<details> & <summary>) */
+/* ❓ RECURSO 2: ESTILIZAÇÃO DA FAQ SANFONADA (<details> & <summary>) */
 .faq-section {
   padding: 3rem 0 5rem;               /* Espaçamento da seção de perguntas frequentes */
 }
@@ -567,10 +535,12 @@ body {
   transition: var(--transition);      /* Transição de cores e estados */
 }
 
+/* Remove o indicador triângulo padrão do navegador WebKit/Safari */
 .faq-question::-webkit-details-marker {
   display: none;                      /* Esconde a seta padrão nos navegadores Safari/Chrome antigos */
 }
 
+/* Símbolo do indicador visual customizado de expansão (+) */
 .faq-question::after {
   content: "+";                       /* Ícone clássico de adição para indicar expansão */
   font-size: 1.4rem;                  /* Tamanho destacado do sinal */
@@ -580,21 +550,23 @@ body {
   margin-left: 1rem;                  /* Espaçamento em relação ao texto */
 }
 
+/* Transforma o (+) em (×) ou rotaciona quando aberto */
 .faq-item[open] .faq-question::after {
   transform: rotate(45deg);           /* Gira o sinal de mais em 45 graus, transformando-o num 'X' ao abrir */
 }
 
+/* Destaque de foco acessível para navegação por teclado (Tab) */
 .faq-question:focus-visible {
   outline: 2px solid var(--accent);  /* Moldura dourada acessível para navegação via teclado */
   outline-offset: -2px;               /* Ajusta o contorno para dentro da caixa */
 }
 
 .faq-answer {
-  padding: 0 1.8rem 1.6rem;           /* Preenchimento da área da resposta */
+  padding: 0 1.8rem 1.6rem;           /* Preenchimento da área da resposta (sem topo para encostar na pergunta) */
   color: var(--text-secondary);       /* Cor secundária para o texto da dúvida */
   font-size: 0.95rem;                 /* Tamanho de leitura confortável */
   line-height: 1.7;                   /* Entrelinha ampliada para boa legibilidade */
-  border-top: 1px solid rgba(196, 164, 130, 0.1); /* Linha divisória sutil */
+  border-top: 1px solid rgba(196, 164, 130, 0.1); /* Linha divisória sutil entre pergunta e resposta */
   margin-top: 0.4rem;                 /* Separação superior sutil */
   padding-top: 1.2rem;                /* Espaçamento superior interno */
 }
@@ -669,89 +641,96 @@ body {
 
 /* BREAKPOINT MEDIA QUERY (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Reorganiza o Card Hero de 2 colunas para empilhado em 1 coluna */
   .hero-card,
   .hero {
-    grid-template-columns: 1fr;      /* Layout em 1 única coluna vertical no mobile */
-    text-align: center;              /* Centraliza os textos */
+    grid-template-columns: 1fr;      /* Transforma o layout em uma única coluna vertical */
+    text-align: center;              /* Centraliza os textos e títulos para melhor leitura mobile */
   }
 
+  /* Centraliza e ajusta o padding interno do conteúdo da Hero */
   .hero-details,
   .hero__content {
-    align-items: center;             /* Centraliza elementos filhos flexíveis */
-    padding: 2.5rem 1.5rem;          /* Otimiza espaçamentos internos */
+    align-items: center;             /* Centraliza elementos filhos flexíveis na coluna */
+    padding: 2.5rem 1.5rem;          /* Otimiza os espaçamentos internos em telas pequenas */
   }
 
+  /* Reduz a altura mínima da imagem em tablets/smartphones */
   .hero-image-wrapper,
   .hero__image-wrapper {
-    min-height: 320px;               /* Ajusta altura da imagem */
+    min-height: 320px;               /* Ajusta a proporção da caixa de imagem em telas de 768px ou menos */
   }
 
+  /* Centraliza a badge e ajusta margens laterais */
   .badge,
   .tag {
-    margin-left: auto;               /* Alinha a badge no centro */
-    margin-right: auto;              /* Alinha a badge no centro */
+    margin-left: auto;               /* Alinha horizontalmente a badge no centro */
+    margin-right: auto;              /* Alinha horizontalmente a badge no centro */
   }
 
+  /* Remove os pontos da lista para texto centralizado */
   .hero-features li {
-    padding-left: 0;                 /* Centraliza itens da lista */
+    padding-left: 0;                 /* Remove o recuo da esquerda para alinhar ao centro */
   }
 
   .hero-features li::before {
-    display: none;                   /* Oculta marcadores laterais */
+    display: none;                   /* Oculta os marcadores laterais no alinhamento centralizado */
   }
 
+  /* Centraliza o grupo de botões CTA */
   .hero-actions,
   .hero__cta-group {
-    justify-content: center;         /* Centraliza botões de ação */
-    width: 100%;                     /* Ocupa 100% da largura */
+    justify-content: center;         /* Centraliza os botões de ação horizontalmente */
+    width: 100%;                     /* Garante ocupação de 100% da largura útil */
   }
 
+  /* Oculta o menu horizontal em telas estreitas */
   .nav-menu,
   .header__nav {
-    display: none;                    /* Oculta o menu em telas pequenas */
+    display: none;                    /* Oculta a navegação em celulares e tablets */
   }
 }
 
-/* Telas de Celulares Pequenos (Até 360px) */
+/* Telas de Celulares Pequenos (Ajuste adicional até 360px) */
 @media (max-width: 600px) {
   .hero-title,
   .hero__title {
-    font-size: 2.2rem;                /* Ajusta escala da fonte */
+    font-size: 2.2rem;                /* Ajusta a escala da fonte do título para caber perfeitamente em 360px */
   }
 
   .hero-actions,
   .hero__cta-group {
-    flex-direction: column;           /* Empilha botões no celular */
+    flex-direction: column;           /* Empilha os botões um abaixo do outro em smartphones */
   }
 
   .btn-primary,
   .btn-secondary,
   .btn--primary,
   .btn--outline {
-    width: 100%;                      /* Botões ocupam 100% da largura */
+    width: 100%;                      /* Expande os botões para 100% da largura em celulares */
   }
 
   .newsletter__form,
   .newsletter-form {
-    flex-direction: column;           /* Empilha inputs do formulário */
-    align-items: center;              /* Centraliza */
+    flex-direction: column;           /* Empilha o input de e-mail e botão na captura de newsletter */
+    align-items: center;              /* Centraliza os campos */
   }
 
   .newsletter__field,
   .newsletter-field {
-    width: 100%;                      /* Preenche toda a largura */
+    width: 100%;                      /* Campo de formulário preenche toda a largura da tela */
   }
 
   .header {
-    padding: 1rem 4%;                 /* Reduz padding do cabeçalho em 360px */
+    padding: 1rem 4%;                 /* Reduz espaçamentos do cabeçalho mantendo respiro em 360px */
   }
 
   .faq-question {
-    padding: 1.2rem 1.2rem;           /* Reduz padding interno no celular */
-    font-size: 0.95rem;               /* Ajusta fonte da pergunta */
+    padding: 1.2rem 1.2rem;           /* Reduz espaçamento da pergunta em telas bem pequenas */
+    font-size: 0.95rem;               /* Ajusta levemente o tamanho da fonte */
   }
 
   .faq-answer {
-    padding: 0 1.2rem 1.4rem;         /* Ajusta padding da resposta */
+    padding: 0 1.2rem 1.4rem;         /* Ajusta recuo interno da resposta no celular */
   }
 }
