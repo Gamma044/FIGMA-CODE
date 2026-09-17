@@ -8,9 +8,9 @@ a {
   text-decoration: none;             /* Remove a linha sublinhada padrão de todos os links `<a>` */
 }
 
-/* 📌 1. DECLARAÇÃO DE VARIÁVEIS NATIVAS (:root) */
+/* 📌 1. DECLARAÇÃO DE VARIÁVEIS NATIVAS (:root) - MODO ESCURO PADRÃO */
 :root {
-  /* Paleta Original de Cores de Luxo */
+  /* Paleta Original de Cores de Luxo (Modo Escuro / Dark Theme) */
   --bg-dark: #12100E;                 /* Cor de fundo principal (Espresso profundo) */
   --bg-card: #1A1714;                 /* Cor dos cartões e contêineres (Chocolate escuro) */
   --bg-card-hover: #24201C;           /* Cor do cartão ao passar o mouse sobre ele */
@@ -32,6 +32,35 @@ a {
   /* Sombra & Animações */
   --shadow: 0 30px 60px rgba(0, 0, 0, 0.6); /* Sombra suave para dar profundidade de camada */
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transição suave e fluida de animação */
+}
+
+/* 🌗 RECURSO 1: MODO CLARO AUTOMÁTICO (prefers-color-scheme: light) */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Redefinição dinâmica das variáveis para paleta clara mantendo o tom nobre e sofisticado */
+    --bg-dark: #F7F4F0;               /* Fundo principal passa a ser Creme / Marfim suave */
+    --bg-card: #FFFFFF;               /* Cartões ganham fundo branco puro para alto contraste */
+    --bg-card-hover: #EFE9E0;         /* Tom levemente escurecido no hover do card */
+    --text-primary: #1A1714;          /* Textos e títulos em café espresso muito escuro */
+    --text-secondary: #5C544D;        /* Textos secundários em tom marrom acinzentado legível */
+    --accent: #9A7B56;                /* Bronze escurecido para manter o contraste do dourado em fundo claro */
+    --accent-hover: #7F6343;          /* Destaque mais escuro ao passar o mouse no modo claro */
+    --border: rgba(154, 123, 86, 0.25);/* Bordas sutilmente marcadas em tom bronze */
+    --shadow: 0 20px 40px rgba(26, 23, 20, 0.08); /* Sombra leve e suave própria para fundos claros */
+  }
+
+  /* Ajuste no efeito de vidro fosco do cabeçalho no modo claro */
+  .header {
+    background: rgba(247, 244, 240, 0.88); /* Fundo claro translúcido */
+  }
+
+  /* Ajuste no gradiente do título principal no modo claro */
+  .hero-title,
+  .hero__title {
+    background: linear-gradient(135deg, #1A1714 0%, #7F6343 50%, #9A7B56 100%); /* Degradê ajustado para fundo claro */
+    -webkit-background-clip: text;    /* Preserva o recorte das letras */
+    background-clip: text;            /* Preserva o recorte das letras */
+  }
 }
 
 /* 📌 2. RESET UNIVERSAL */
@@ -390,7 +419,7 @@ body {
   margin-bottom: 3rem;                /* Espaço até os cartões */
 }
 
-/* 📱 RECURSO 1: LAYOUT HÍBRIDO FLEXÍVEL COM CSS GRID DINÂMICO */
+/* LAYOUT HÍBRIDO FLEXÍVEL COM CSS GRID DINÂMICO */
 .cards-grid,
 .beneficios__grid {
   display: grid;                                      /* Modelo CSS Grid para organizar os cartões de benefícios */
@@ -457,6 +486,89 @@ body {
   color: var(--text-secondary);       /* Cor de texto secundária */
   font-size: 0.92rem;                 /* Tamanho da descrição */
   line-height: 1.7;                   /* Espaçamento de linhas suave */
+}
+
+/* ❓ RECURSO 2: ESTILIZAÇÃO DA FAQ SANFONADA (<details> & <summary>) */
+.faq-section {
+  padding: 3rem 0 5rem;               /* Espaçamento da seção de perguntas frequentes */
+}
+
+.faq-container {
+  max-width: 800px;                   /* Limita a largura central para máxima legibilidade */
+  margin: 0 auto;                     /* Centraliza o contêiner na tela */
+}
+
+.faq-accordion {
+  display: flex;                      /* Utiliza flexbox para empilhar as perguntas */
+  flex-direction: column;             /* Organiza as perguntas na vertical */
+  gap: 1.2rem;                        /* Espaço elegante entre cada pergunta sanfonada */
+}
+
+.faq-item {
+  background: var(--bg-card);         /* Aplica a cor do cartão do tema */
+  border: 1px solid var(--border);    /* Borda fina metálica em tom bronze */
+  border-radius: var(--radius);       /* Cantos arredondados de 12px */
+  overflow: hidden;                   /* Recorta o conteúdo expansível para suavidade visual */
+  transition: var(--transition);      /* Animação para interação */
+}
+
+.faq-item:hover {
+  border-color: rgba(196, 164, 130, 0.4); /* Destaca a borda ao passar o mouse */
+}
+
+.faq-item[open] {
+  border-color: var(--accent);        /* Destaque dourado na borda quando o item estiver expandido */
+  background: var(--bg-card-hover);   /* Escurece levemente o fundo para diferenciar */
+}
+
+.faq-question {
+  padding: 1.4rem 1.8rem;             /* Preenchimento interno confortável da pergunta */
+  font-size: 1.05rem;                 /* Tamanho de fonte destacado */
+  font-weight: 600;                   /* Peso semi-negrito */
+  color: var(--text-primary);         /* Cor principal marfim */
+  cursor: pointer;                    /* Indica elemento clicável com a mãozinha */
+  list-style: none;                   /* Oculta a seta/triângulo padrão do navegador */
+  display: flex;                      /* Flexbox para alinhar texto e indicador customizado */
+  align-items: center;                /* Centraliza verticalmente */
+  justify-content: space-between;     /* Empurra o símbolo do indicador para a extrema direita */
+  user-select: none;                  /* Previne seleção acidental de texto durante o duplo clique */
+  transition: var(--transition);      /* Transição de cores e estados */
+}
+
+/* Remove o indicador triângulo padrão do navegador WebKit/Safari */
+.faq-question::-webkit-details-marker {
+  display: none;                      /* Esconde a seta padrão nos navegadores Safari/Chrome antigos */
+}
+
+/* Símbolo do indicador visual customizado de expansão (+) */
+.faq-question::after {
+  content: "+";                       /* Ícone clássico de adição para indicar expansão */
+  font-size: 1.4rem;                  /* Tamanho destacado do sinal */
+  font-weight: 400;                   /* Peso leve */
+  color: var(--accent);               /* Símbolo em tom dourado/bronze */
+  transition: transform 0.3s ease;    /* Animação para rotação do sinal */
+  margin-left: 1rem;                  /* Espaçamento em relação ao texto */
+}
+
+/* Transforma o (+) em (×) ou rotaciona quando aberto */
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);           /* Gira o sinal de mais em 45 graus, transformando-o num 'X' ao abrir */
+}
+
+/* Destaque de foco acessível para navegação por teclado (Tab) */
+.faq-question:focus-visible {
+  outline: 2px solid var(--accent);  /* Moldura dourada acessível para navegação via teclado */
+  outline-offset: -2px;               /* Ajusta o contorno para dentro da caixa */
+}
+
+.faq-answer {
+  padding: 0 1.8rem 1.6rem;           /* Preenchimento da área da resposta (sem topo para encostar na pergunta) */
+  color: var(--text-secondary);       /* Cor secundária para o texto da dúvida */
+  font-size: 0.95rem;                 /* Tamanho de leitura confortável */
+  line-height: 1.7;                   /* Entrelinha ampliada para boa legibilidade */
+  border-top: 1px solid rgba(196, 164, 130, 0.1); /* Linha divisória sutil entre pergunta e resposta */
+  margin-top: 0.4rem;                 /* Separação superior sutil */
+  padding-top: 1.2rem;                /* Espaçamento superior interno */
 }
 
 /* 📌 11. CAPTURA DE LEADS E NEWSLETTER (.newsletter) */
@@ -527,7 +639,7 @@ body {
 
 /* 📌 13. RESPONSIVIDADE & ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS (360px a 960px) */
 
-/* 📱 RECURSO 2: BREAKPOINT MEDIA QUERY (max-width: 768px) */
+/* BREAKPOINT MEDIA QUERY (max-width: 768px) */
 @media (max-width: 768px) {
   /* Reorganiza o Card Hero de 2 colunas para empilhado em 1 coluna */
   .hero-card,
@@ -556,13 +668,13 @@ body {
     margin-right: auto;              /* Alinha horizontalmente a badge no centro */
   }
 
-  /* Remove os pontos da lista ou ajusta o espaçamento para texto centralizado */
+  /* Remove os pontos da lista para texto centralizado */
   .hero-features li {
     padding-left: 0;                 /* Remove o recuo da esquerda para alinhar ao centro */
   }
 
   .hero-features li::before {
-    display: none;                   /* Oculta os marcadores laterais para não desalinharem o texto centralizado */
+    display: none;                   /* Oculta os marcadores laterais no alinhamento centralizado */
   }
 
   /* Centraliza o grupo de botões CTA */
@@ -572,14 +684,14 @@ body {
     width: 100%;                     /* Garante ocupação de 100% da largura útil */
   }
 
-  /* Oculta o menu horizontal para evitar quebras em telas estreitas */
+  /* Oculta o menu horizontal em telas estreitas */
   .nav-menu,
   .header__nav {
-    display: none;                    /* Oculta a navegação secundária em celulares e tablets */
+    display: none;                    /* Oculta a navegação em celulares e tablets */
   }
 }
 
-/* Telas de Celulares Pequenos (Ajuste adicional para rodar suavemente em até 360px) */
+/* Telas de Celulares Pequenos (Ajuste adicional até 360px) */
 @media (max-width: 600px) {
   .hero-title,
   .hero__title {
@@ -611,5 +723,14 @@ body {
 
   .header {
     padding: 1rem 4%;                 /* Reduz espaçamentos do cabeçalho mantendo respiro em 360px */
+  }
+
+  .faq-question {
+    padding: 1.2rem 1.2rem;           /* Reduz espaçamento da pergunta em telas bem pequenas */
+    font-size: 0.95rem;               /* Ajusta levemente o tamanho da fonte */
+  }
+
+  .faq-answer {
+    padding: 0 1.2rem 1.4rem;         /* Ajusta recuo interno da resposta no celular */
   }
 }
