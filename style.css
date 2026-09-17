@@ -3,569 +3,581 @@
    Luxury Theme (Espresso & Gold)
    ================================ */
 
+/* 📌 1. DECLARAÇÃO DE VARIÁVEIS NATIVAS (:root) */
 :root {
-  /* Paleta Original de Luxo */
-  --bg-dark: #12100E;         /* Espresso profundo */
-  --bg-card: #1A1714;         /* Chocolate escuro */
-  --bg-card-hover: #24201C;   /* Elevação suave ao passar o mouse */
-  --text-primary: #F7F4F0;     /* Creme suave / Marfim */
-  --text-secondary: #C5BCB3;   /* Bege acinzentado */
-  --accent: #C4A482;           /* Bronze / Ouro fosco */
-  --accent-hover: #D8B998;     /* Bronze iluminado */
-  --border: rgba(196, 164, 130, 0.15); /* Borda metálica translúcida */
+  /* Paleta Original de Cores de Luxo */
+  --bg-dark: #12100E;         /* Cor de fundo principal (Espresso profundo) */
+  --bg-card: #1A1714;         /* Cor dos cartões e contêineres (Chocolate escuro) */
+  --bg-card-hover: #24201C;   /* Cor do cartão ao passar o mouse sobre ele */
+  --text-primary: #F7F4F0;    /* Cor principal para textos destacados (Creme / Marfim) */
+  --text-secondary: #C5BCB3;  /* Cor secundária para textos descritivos (Bege acinzentado) */
+  --accent: #C4A482;          /* Cor de destaque principal (Bronze / Ouro fosco) */
+  --accent-hover: #D8B998;    /* Cor de destaque quando houver interação/hover */
+  --border: rgba(196, 164, 130, 0.15); /* Cor das bordas metálicas translúcidas */
 
-  /* Variáveis Utilitárias & Fontes */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-full: 999px;
-  --shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Tipografia & Fontes */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif; /* Fonte padrão sem serifa */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;         /* Fonte clássica serifada para títulos */
+
+  /* Tamanhos e Arredondamentos */
+  --radius: 12px;             /* Arredondamento padrão de bordas para os cards */
+  --radius-sm: 8px;           /* Arredondamento menor para botões e pequenos blocos */
+  --radius-full: 999px;       /* Arredondamento máximo (cria o formato de pílula em badges) */
+  
+  /* Sombra & Animações */
+  --shadow: 0 30px 60px rgba(0, 0, 0, 0.6); /* Sombra suave para dar profundidade de camada */
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transição suave e fluida de animação */
 }
 
+/* 📌 2. RESET UNIVERSAL */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;                  /* Zera todas as margens externas padrão dos elementos */
+  padding: 0;                 /* Zera todos os espaçamentos internos padrão */
+  box-sizing: border-box;     /* Faz com que bordas e paddings não alterem a largura total do elemento */
 }
 
-/* 📌 NAVEGAÇÃO SUAVE & COMPENSAÇÃO DE HEADER FIXO */
+/* 📌 3. CONFIGURAÇÕES DA PÁGINA (HTML E BODY) */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-behavior: smooth;    /* Ativa a rolagem suave ao clicar em links com âncora (#) */
+  scroll-padding-top: 90px;   /* Evita que o topo da seção seja coberto pelo cabeçalho fixo */
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);       /* Aplica a fonte sem serifa em todo o corpo da página */
+  background-color: var(--bg-dark);   /* Define a cor de fundo escura do site */
+  color: var(--text-primary);          /* Define a cor padrão dos textos principais */
+  line-height: 1.6;                    /* Define o espaçamento entre linhas para melhor leitura */
+  min-height: 100vh;                   /* Força a altura do site a ter no mínimo a altura da tela */
+  overflow-x: hidden;                  /* Oculta a barra de rolagem horizontal desnecessária */
+  -webkit-font-smoothing: antialiased; /* Suaviza a renderização de fontes nos navegadores Safari/Mac */
 }
 
-/* 📌 UTILITÁRIO DE ACESSIBILIDADE */
+/* 📌 4. UTILITÁRIO DE ACESSIBILIDADE */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  position: absolute;         /* Remove o elemento do fluxo visual da página */
+  width: 1px;                 /* Define largura mínima de 1 pixel */
+  height: 1px;                /* Define altura mínima de 1 pixel */
+  padding: 0;                 /* Remove espaçamento interno */
+  margin: -1px;               /* Aplica margem negativa para ocultar completamente */
+  overflow: hidden;           /* Esconde qualquer texto estourado */
+  clip: rect(0, 0, 0, 0);     /* Recorta visualmente a área do elemento */
+  border: 0;                  /* Esconde bordas */
 }
 
-/* ========== TIPOGRAFIA LUXO ========== */
+/* 📌 5. TIPOGRAFIA DE LUXO */
 .hero-title,
 .hero__title,
 .section-title,
 .logo-text {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif); /* Aplica a fonte Cormorant Garamond nos títulos da página */
 }
 
-/* ========== HEADER FIXO COM GLASSMORPHISM ========== */
+/* 📌 6. CABEÇALHO FIXO COM GLASSMORPHISM (.header) */
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 6%;
+  display: flex;                    /* Ativa o modelo flexbox para organizar o layout */
+  align-items: center;              /* Alinha os itens verticalmente ao centro */
+  justify-content: space-between;   /* Distribui os elementos entre os extremos da tela */
+  padding: 1.2rem 6%;               /* Define espaçamento (1.2rem em cima/baixo e 6% nos lados) */
 
-  /* Efeito de Vidro (Glassmorphism) */
-  background: rgba(18, 16, 14, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* Efeito de Vidro Fosco (Glassmorphism) */
+  background: rgba(18, 16, 14, 0.85); /* Fundo escuro semi-transparente (85% opaco) */
+  backdrop-filter: blur(20px);        /* Aplica desfoque de 20px no conteúdo que passa atrás */
+  -webkit-backdrop-filter: blur(20px);/* Garante o suporte ao desfoque no navegador Safari */
 
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  border-bottom: 1px solid var(--border); /* Adiciona uma linha metálica sutil na parte inferior */
+  position: sticky;                 /* Mantém o cabeçalho "preso" no topo ao rolar a página */
+  top: 0;                           /* Fixa a posição no topo zero */
+  z-index: 1000;                    /* Coloca o cabeçalho acima de todos os outros elementos */
 }
 
+/* Logotipo */
 .logo,
 .header__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  display: flex;                    /* Coloca o ícone e o texto lado a lado */
+  align-items: center;              /* Alinha o ícone e o texto verticalmente */
+  gap: 0.85rem;                     /* Define o espaço entre o ícone e o texto do logo */
+  text-decoration: none;            /* Remove o sublinhado do link */
+  font-size: 1.1rem;                /* Define o tamanho da fonte do logo */
+  font-weight: 600;                 /* Define o peso em negrito médio */
+  color: var(--text-primary);       /* Aplica a cor do texto principal */
 }
 
 .logo-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--bg-card);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid var(--border);
+  width: 40px;                      /* Define largura do quadrado do ícone */
+  height: 40px;                     /* Define altura do quadrado do ícone */
+  background: var(--bg-card);       /* Aplica a cor do fundo do card */
+  border-radius: 8px;               /* Arredonda os cantos da caixa da logo */
+  display: flex;                    /* Flexbox para centralizar a imagem dentro da caixa */
+  align-items: center;              /* Centraliza a imagem verticalmente */
+  justify-content: center;          /* Centraliza a imagem horizontalmente */
+  overflow: hidden;                 /* Recorta qualquer excesso da imagem */
+  border: 1px solid var(--border);  /* Adiciona a borda fina metálica */
 }
 
 .logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%;                      /* Garante que a imagem preencha toda a largura da caixa */
+  height: 100%;                     /* Garante que a imagem preencha toda a altura */
+  object-fit: cover;                /* Ajusta a imagem sem esticar ou distorcer */
 }
 
 .logo-text {
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  text-transform: uppercase;
+  font-weight: 600;                 /* Define o texto com peso semi-negrito */
+  letter-spacing: 0.2em;            /* Aumenta o espaçamento entre as letras (efeito elegante) */
+  font-size: 1.1rem;                /* Define o tamanho da fonte */
+  color: var(--text-primary);       /* Cor clara do texto */
+  text-transform: uppercase;        /* Transforma todo o texto em maiúsculo */
 }
 
 .header__logo span {
-  color: var(--accent);
+  color: var(--accent);             /* Destaca o texto "DELUXE" usando a cor ouro/bronze */
 }
 
+/* Navegação Principal */
 .nav-menu ul,
 .header__nav {
-  display: flex;
-  list-style: none;
-  gap: 2.8rem;
+  display: flex;                    /* Exibe os links de navegação em linha horizontal */
+  list-style: none;                 /* Remove as bolinhas/marcadores de lista */
+  gap: 2.8rem;                      /* Define o espaço entre cada link do menu */
 }
 
 .nav-menu a,
 .header__link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  transition: var(--transition);
-  text-transform: uppercase;
+  color: var(--text-secondary);     /* Define a cor bege/cinza secundária para os links */
+  text-decoration: none;            /* Remove o sublinhado padrão de links */
+  font-size: 0.8rem;                /* Tamanho pequeno e discreto para o menu de luxo */
+  font-weight: 500;                 /* Peso médio de leitura */
+  letter-spacing: 0.15em;           /* Aumenta o espaçamento das letras */
+  transition: var(--transition);    /* Ativa a transição suave de cores ao passar o mouse */
+  text-transform: uppercase;        /* Transforma em letras maiúsculas */
 }
 
 .nav-menu a:hover,
 .header__link:hover {
-  color: var(--accent);
+  color: var(--accent);             /* Muda a cor do link para dourado ao passar o mouse */
 }
 
 .btn-nav {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 0.6rem 1.6rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: var(--transition);
-  text-transform: uppercase;
+  background: transparent;          /* Fundo transparente para o botão do topo */
+  border: 1px solid var(--accent);  /* Borda com tom bronze/dourado */
+  color: var(--accent);             /* Texto na mesma cor da borda */
+  padding: 0.6rem 1.6rem;           /* Espaçamento interno do botão */
+  border-radius: 6px;               /* Cantos levemente arredondados */
+  font-size: 0.75rem;               /* Tamanho de fonte pequeno e minimalista */
+  font-weight: 600;                 /* Peso negrito */
+  letter-spacing: 0.12em;           /* Espaçamento entre letras */
+  cursor: pointer;                  /* Mostra a mãozinha de clique ao passar o mouse */
+  transition: var(--transition);    /* Anima a transição de fundo/cor */
+  text-transform: uppercase;        /* Letras maiúsculas */
 }
 
 .btn-nav:hover {
-  background: var(--accent);
-  color: #12100E;
+  background: var(--accent);        /* Preenche o botão de dourado ao passar o mouse */
+  color: #12100E;                   /* Muda a cor do texto para o fundo escuro (alto contraste) */
 }
 
-/* ========== MAIN CONTAINER ========== */
+/* 📌 7. CONTEÚDO PRINCIPAL (.main-container) */
 .main-container {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 5%;
+  max-width: 1180px;                /* Define a largura máxima centralizada do site */
+  margin: 0 auto;                   /* Centraliza o container horizontalmente */
+  padding: 0 5%;                    /* Adiciona espaçamento de respiro nas laterais */
 }
 
-/* ========== HERO SECTION ========== */
+/* 📌 8. SEÇÃO HERO / APRESENTAÇÃO (.hero-section) */
 .hero-section,
 .hero {
-  padding: 4.5rem 0 5.5rem;
+  padding: 4.5rem 0 5.5rem;         /* Define o espaçamento vertical superior e inferior */
 }
 
 .hero-card {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
+  display: grid;                    /* Layout em Grid de duas colunas */
+  grid-template-columns: 1.05fr 1fr;/* Coluna da imagem é levemente maior que a de texto */
+  background: var(--bg-card);       /* Fundo escuro tom chocolate do card */
+  border-radius: var(--radius);     /* Bordas arredondadas em 12px */
+  overflow: hidden;                 /* Impede que a imagem ultrapasse as bordas do card */
+  box-shadow: var(--shadow);        /* Aplica a sombra profunda para destacar do fundo */
+  border: 1px solid var(--border);  /* Borda fina metálica em volta do card */
 }
 
 .hero-image-wrapper,
 .hero__image-wrapper {
-  position: relative;
-  min-height: 520px;
+  position: relative;               /* Permite posicionamento interno se necessário */
+  min-height: 520px;                /* Altura mínima para a imagem da cafeteira */
 }
 
 .hero-img,
 .hero__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100%;                      /* Garante que a imagem ocupe toda a largura */
+  height: 100%;                     /* Garante que a imagem ocupe toda a altura do contêiner */
+  object-fit: cover;                /* Corta a imagem com precisão sem deformá-la */
+  display: block;                   /* Remove espaços vazios padrão de imagens */
 }
 
 .hero-details,
 .hero__content {
-  padding: 3.5rem 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 3.5rem 3rem;             /* Espaçamento interno confortável de texto */
+  display: flex;                    /* Flexbox para alinhar os elementos verticalmente */
+  flex-direction: column;           /* Empilha os textos e botões um abaixo do outro */
+  justify-content: center;          /* Centraliza o conteúdo no eixo vertical */
 }
 
 .badge,
 .tag {
-  display: inline-block;
-  background: rgba(196, 164, 130, 0.12);
-  color: var(--accent);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  padding: 0.4rem 0.9rem;
-  border-radius: 4px;
-  margin-bottom: 1.4rem;
-  width: fit-content;
-  text-transform: uppercase;
-  border: 1px solid rgba(196, 164, 130, 0.25);
+  display: inline-block;            /* Ajusta o tamanho do fundo exatamente ao tamanho do texto */
+  background: rgba(196, 164, 130, 0.12); /* Fundo translúcido bronze suave */
+  color: var(--accent);             /* Cor dourada do texto */
+  font-size: 0.7rem;                /* Tamanho pequeno e elegante */
+  font-weight: 600;                 /* Peso negrito */
+  letter-spacing: 0.18em;           /* Aumenta o espaço entre letras */
+  padding: 0.4rem 0.9rem;           /* Preenchimento do retângulo do selo */
+  border-radius: 4px;               /* Cantos levemente arredondados */
+  margin-bottom: 1.4rem;            /* Espaço abaixo da etiqueta */
+  width: fit-content;               /* Garante que a largura se adapte ao conteúdo */
+  text-transform: uppercase;        /* Transforma em maiúsculas */
+  border: 1px solid rgba(196, 164, 130, 0.25); /* Borda muito fina de destaque */
 }
 
-/* 📌 TÍTULO PRINCIPAL COM DEGRADÊ EM OURO FOSCO */
+/* 📌 TÍTULO PRINCIPAL COM DEGRADÊ METÁLICO */
 .hero-title,
 .hero__title {
-  font-size: 3.2rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-  margin-bottom: 1.8rem;
+  font-size: 3.2rem;                /* Tamanho grande para o título do produto */
+  font-weight: 500;                 /* Peso médio */
+  letter-spacing: 0.02em;           /* Ajuste leve no espaço das letras */
+  line-height: 1.1;                 /* Entrelinha justa para título */
+  margin-bottom: 1.8rem;            /* Espaçamento abaixo do título */
 
-  /* Aplicação do Degradê Metálico Premium */
-  background: linear-gradient(135deg, #F7F4F0 0%, #D8B998 50%, #C4A482 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  /* Efeito de Texto em Gradiente */
+  background: linear-gradient(135deg, #F7F4F0 0%, #D8B998 50%, #C4A482 100%); /* Degradê de branco a ouro */
+  -webkit-background-clip: text;    /* Corta o fundo no formato exato do texto (Chrome/Safari) */
+  background-clip: text;            /* Corta o fundo no formato das letras (Padrão CSS3) */
+  -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente */
+  color: transparent;               /* Garante transparência em outros navegadores */
 }
 
 .hero-features {
-  list-style: none;
-  margin-bottom: 2.2rem;
+  list-style: none;                 /* Remove as marcadores normais da lista */
+  margin-bottom: 2.2rem;            /* Espaço abaixo da lista de itens */
 }
 
 .hero-features li {
-  position: relative;
-  padding-left: 1.4rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+  position: relative;               /* Permite posicionar o ponto dourado customizado */
+  padding-left: 1.4rem;             /* Dá espaço na esquerda para o ponto customizado */
+  margin-bottom: 0.75rem;           /* Espaçamento entre cada item da lista */
+  color: var(--text-secondary);     /* Cor bege suave */
+  font-size: 0.95rem;               /* Tamanho de leitura de itens */
 }
 
+/* Ponto dourado minimalista antes de cada item */
 .hero-features li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
+  content: "";                      /* Cria um elemento visual sem texto */
+  position: absolute;               /* Posiciona o marcador com precisão */
+  left: 0;                          /* Alinha à extrema esquerda */
+  top: 0.6rem;                      /* Centraliza no topo relativo ao texto */
+  width: 5px;                       /* Diâmetro do marcador */
+  height: 5px;                      /* Altura do marcador */
+  background: var(--accent);        /* Cor bronze/ouro */
+  border-radius: 50%;               /* Torna o quadrado em um círculo perfeito */
 }
 
 .price-tag {
-  font-size: 2rem;
-  font-family: var(--font-serif);
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 2.2rem;
+  font-size: 2rem;                  /* Tamanho destacado para o preço */
+  font-family: var(--font-serif);   /* Aplica a fonte clássica no preço */
+  font-weight: 600;                 /* Peso negrito */
+  color: var(--accent);             /* Cor ouro/bronze */
+  margin-bottom: 2.2rem;            /* Espaço abaixo do preço */
 }
 
 .hero-actions,
 .hero__cta-group {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: flex;                    /* Alinha os botões "Garantir o Meu" e "Saber Mais" lado a lado */
+  gap: 1rem;                        /* Espaço entre os botões */
+  flex-wrap: wrap;                  /* Quebra a linha em telas muito pequenas */
 }
 
-/* ========== BOTÕES REUTILIZÁVEIS ========== */
+/* 📌 9. BOTÕES REUTILIZÁVEIS DA PÁGINA */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  display: inline-flex;             /* Modelo flexbox inline para centralizar o texto interno */
+  align-items: center;              /* Centraliza verticalmente o texto do botão */
+  justify-content: center;          /* Centraliza horizontalmente o texto do botão */
+  font-weight: 600;                 /* Texto com peso negrito */
+  text-decoration: none;            /* Remove sublinhado se for link `<a>` */
+  border-radius: 6px;               /* Cantos suavemente arredondados */
+  border: none;                     /* Remove bordas nativas do sistema */
+  cursor: pointer;                  /* Ponteiro de clique */
+  transition: var(--transition);    /* Ativa a transição suave de efeitos */
+  text-transform: uppercase;        /* Letras maiúsculas */
+  letter-spacing: 0.12em;           /* Espaçamento entre letras */
 }
 
 .btn--sm {
-  padding: 0.6rem 1.6rem;
+  padding: 0.6rem 1.6rem;           /* Tamanho pequeno de botão */
   font-size: 0.75rem;
 }
 
 .btn--lg {
-  padding: 1rem 2rem;
+  padding: 1rem 2rem;               /* Tamanho grande de botão */
   font-size: 0.8rem;
 }
 
 .btn-primary,
 .btn--primary {
-  padding: 1rem 2rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: #12100E;
+  padding: 1rem 2rem;               /* Preenchimento confortável */
+  border-radius: 6px;               /* Cantos arredondados */
+  font-size: 0.8rem;                /* Tamanho de fonte do botão principal */
+  font-weight: 600;                 /* Negrito */
+  letter-spacing: 0.12em;           /* Espaçamento entre letras */
+  cursor: pointer;                  /* Mostra mãozinha no mouse */
+  transition: var(--transition);    /* Animações fluidas */
+  border: none;                     /* Sem borda */
+  text-transform: uppercase;        /* Transforma em maiúsculas */
+  background: var(--accent);        /* Preenchimento dourado/bronze */
+  color: #12100E;                   /* Texto escuro para alto contraste */
 }
 
 .btn-primary:hover,
 .btn--primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(196, 164, 130, 0.2);
+  background: var(--accent-hover);  /* Ilumina a cor do botão ao passar o mouse */
+  transform: translateY(-2px);      /* Efeito de elevação (sobe 2 pixels) */
+  box-shadow: 0 10px 20px rgba(196, 164, 130, 0.2); /* Sombra luminosa na cor ouro */
 }
 
 .btn-secondary,
 .btn--outline {
-  padding: 1rem 2rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: var(--transition);
-  text-transform: uppercase;
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border);
+  padding: 1rem 2rem;               /* Mesma dimensão do botão principal */
+  border-radius: 6px;               /* Cantos arredondados */
+  font-size: 0.8rem;                /* Tamanho da fonte */
+  font-weight: 600;                 /* Negrito */
+  letter-spacing: 0.12em;           /* Espaçamento das letras */
+  cursor: pointer;                  /* Mostra mão de clique */
+  transition: var(--transition);    /* Transição fluida */
+  text-transform: uppercase;        /* Letras maiúsculas */
+  background: transparent;          /* Fundo vazado/transparente */
+  color: var(--text-primary);       /* Texto na cor marfim */
+  border: 1px solid var(--border);  /* Borda sutil */
 }
 
 .btn-secondary:hover,
 .btn--outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(196, 164, 130, 0.05);
+  border-color: var(--accent);      /* Ilumina a borda com tom dourado */
+  color: var(--accent);             /* Muda a cor do texto para dourado */
+  background: rgba(196, 164, 130, 0.05); /* Aplica fundo muito leve translúcido */
 }
 
-/* ========== FEATURES / BENEFÍCIOS ========== */
+/* 📌 10. SEÇÃO DE BENEFÍCIOS E CARACTERÍSTICAS (.beneficios) */
 .features-section,
 .beneficios {
-  padding: 2rem 0 6rem;
+  padding: 2rem 0 6rem;             /* Espaçamento da seção */
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  margin-bottom: 3.5rem;
-  color: var(--text-primary);
+  text-align: center;               /* Centraliza o título da seção */
+  font-size: 2rem;                  /* Tamanho do título da seção */
+  font-weight: 500;                 /* Peso médio */
+  letter-spacing: 0.08em;           /* Aumenta o espaçamento das letras */
+  margin-bottom: 3.5rem;            /* Espaço abaixo do título */
+  color: var(--text-primary);       /* Cor marfim */
 }
 
 .section-subtitle {
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 1rem;
-  margin-top: -2.5rem;
-  margin-bottom: 3rem;
+  text-align: center;               /* Centraliza o subtítulo */
+  color: var(--text-secondary);     /* Cor secundária */
+  font-size: 1rem;                  /* Tamanho do subtítulo */
+  margin-top: -2.5rem;              /* Recua para ficar próximo ao título principal */
+  margin-bottom: 3rem;              /* Espaço até os cartões */
 }
 
 .cards-grid,
 .beneficios__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  display: grid;                    /* Layout Grid para os cartões de benefícios */
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanhos rigorosamente iguais */
+  gap: 1.5rem;                      /* Espaço entre cada cartão */
 }
 
 .feature-card,
 .card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  transition: var(--transition);
+  background: var(--bg-card);       /* Fundo chocolate do card */
+  border: 1px solid var(--border);  /* Borda fina metálica */
+  border-radius: var(--radius);     /* Arredondamento em 12px */
+  padding: 2.5rem 2rem;             /* Preenchimento interno */
+  transition: var(--transition);    /* Transição suave para interação */
 }
 
 .feature-card:hover,
 .card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(196, 164, 130, 0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: var(--bg-card-hover); /* Ilumina o fundo ao passar o mouse */
+  border-color: rgba(196, 164, 130, 0.4); /* Destaca a borda metálica */
+  transform: translateY(-6px);      /* Eleva o cartão em 6px (efeito de flutuação) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Aumenta a sombra profunda */
 }
 
 .card--featured {
-  border-color: var(--accent);
-  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(196, 164, 130, 0.08) 100%);
+  border-color: var(--accent);      /* Borda em dourado para o card de destaque */
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(196, 164, 130, 0.08) 100%); /* Degradê sutil no card */
 }
 
 .icon-wrapper,
 .card__icon {
-  width: 52px;
-  height: 52px;
-  background: rgba(196, 164, 130, 0.1);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 1.5rem;
-  margin-bottom: 1.6rem;
+  width: 52px;                      /* Largura do quadrado do ícone */
+  height: 52px;                     /* Altura do quadrado do ícone */
+  background: rgba(196, 164, 130, 0.1); /* Fundo dourado translúcido */
+  border: 1px solid var(--border);  /* Borda do ícone */
+  border-radius: 10px;              /* Cantos levemente arredondados */
+  display: flex;                    /* Flexbox para centralizar o ícone/emoji */
+  align-items: center;              /* Centralização vertical */
+  justify-content: center;          /* Centralização horizontal */
+  color: var(--accent);             /* Cor do ícone */
+  font-size: 1.5rem;                /* Tamanho da fonte ou emoji dentro da caixa */
+  margin-bottom: 1.6rem;            /* Espaço abaixo do ícone */
 }
 
 .card-title,
 .card__title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.15rem;               /* Tamanho do título do card */
+  font-weight: 600;                 /* Peso negrito */
+  margin-bottom: 1rem;              /* Espaço abaixo do título do card */
 }
 
 .card-list {
-  list-style: none;
+  list-style: none;                 /* Remove os marcadores de lista */
 }
 
 .card-list li {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  padding: 0.3rem 0;
+  color: var(--text-secondary);     /* Cor cinza/bege das opções de bebida */
+  font-size: 0.9rem;                /* Tamanho dos itens */
+  padding: 0.3rem 0;                /* Espaçamento vertical entre opções */
 }
 
 .card-description,
 .card__description {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.7;
+  color: var(--text-secondary);     /* Cor de texto secundária */
+  font-size: 0.92rem;               /* Tamanho da descrição */
+  line-height: 1.7;                 /* Espaçamento de linhas suave */
 }
 
-/* ========== CAPTURA DE LEADS / NEWSLETTER ========== */
+/* 📌 11. CAPTURA DE LEADS E NEWSLETTER (.newsletter) */
 .newsletter,
 .newsletter-section {
-  padding: 4rem 0 6rem;
+  padding: 4rem 0 6rem;             /* Espaçamento vertical */
 }
 
 .newsletter__container,
 .newsletter-container {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 3.5rem 2rem;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: var(--shadow);
+  background: var(--bg-card);       /* Fundo do contêiner do formulário */
+  border: 1px solid var(--border);  /* Borda sutil em volta */
+  border-radius: var(--radius);     /* Arredondamento */
+  padding: 3.5rem 2rem;             /* Espaçamento interno */
+  text-align: center;               /* Centraliza os títulos e formulário */
+  max-width: 800px;                 /* Largura máxima centralizada */
+  margin: 0 auto;                   /* Centralização horizontal */
+  box-shadow: var(--shadow);        /* Sombra profunda */
 }
 
 .newsletter__form,
 .newsletter-form {
-  display: flex;
-  gap: 12px;
-  margin-top: 2rem;
-  justify-content: center;
+  display: flex;                    /* Coloca o campo de entrada e botão lado a lado */
+  gap: 12px;                        /* Espaço de 12px entre input e botão */
+  margin-top: 2rem;                 /* Espaço acima do formulário */
+  justify-content: center;          /* Centraliza os elementos */
 }
 
 .newsletter__field,
 .newsletter-field {
-  flex: 1;
-  max-width: 400px;
+  flex: 1;                          /* Faz o campo ocupar todo o espaço disponível */
+  max-width: 400px;                 /* Limita a largura máxima do campo em 400px */
 }
 
 .newsletter__input,
 .newsletter-input {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  outline: none;
-  transition: var(--transition);
+  width: 100%;                      /* Ocupa toda a largura do contêiner pai */
+  padding: 1rem 1.2rem;             /* Altura e espaçamento do campo de texto */
+  border-radius: 6px;               /* Arredondamento suave dos cantos */
+  border: 1px solid var(--border);  /* Borda fina metálica */
+  background-color: var(--bg-dark); /* Fundo escuro profundo para o campo */
+  color: var(--text-primary);       /* Cor do texto digitado pelo usuário */
+  font-size: 0.95rem;               /* Tamanho do texto */
+  outline: none;                    /* Remove a borda azul padrão dos navegadores ao clicar */
+  transition: var(--transition);    /* Transição de destaque */
 }
 
 .newsletter__input:focus,
 .newsletter-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(196, 164, 130, 0.2);
+  border-color: var(--accent);      /* Ilumina a borda com tom dourado ao focar/digitar */
+  box-shadow: 0 0 0 3px rgba(196, 164, 130, 0.2); /* Cria um brilho suave dourado ao redor */
 }
 
 .btn--form {
-  padding: 1rem 1.8rem;
+  padding: 1rem 1.8rem;             /* Preenchimento sob medida para o botão do formulário */
 }
 
-/* ========== FOOTER ========== */
+/* 📌 12. RODAPÉ DA PÁGINA (.footer) */
 .footer {
-  text-align: center;
-  padding: 3rem 5%;
-  border-top: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+  text-align: center;               /* Centraliza o texto do rodapé */
+  padding: 3rem 5%;                 /* Espaçamento interno do rodapé */
+  border-top: 1px solid var(--border); /* Divisória metálica na parte superior */
+  color: var(--text-secondary);     /* Cor de texto secundária */
+  font-size: 0.85rem;               /* Fonte em tamanho reduzido */
+  letter-spacing: 0.05em;           /* Ajuste sutil do espaço entre letras */
+  opacity: 0.8;                     /* Opacidade para ficar elegante e discreto */
 }
 
-/* ========== RESPONSIVO ========== */
+/* 📌 13. RESPONSIVIDADE & ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS */
+
+/* Telas de Tablets ou Laptops Pequenos (Até 960px) */
 @media (max-width: 960px) {
   .hero-card,
   .hero {
-    grid-template-columns: 1fr;
-    flex-direction: column;
-    text-align: center;
+    grid-template-columns: 1fr;    /* Muda a Hero de 2 colunas para 1 única coluna */
+    flex-direction: column;         /* Empilha o conteúdo */
+    text-align: center;             /* Centraliza os textos */
   }
 
   .hero-image-wrapper {
-    min-height: 380px;
+    min-height: 380px;              /* Ajusta a altura da imagem em telas menores */
   }
 
   .cards-grid,
   .beneficios__grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;    /* Transforma a grade de 3 cards em 1 card por linha */
+    max-width: 480px;               /* Limita a largura para visualização ideal */
+    margin: 0 auto;                 /* Centraliza a grade */
   }
 
   .nav-menu,
   .header__nav {
-    display: none;
+    display: none;                  /* Oculta os links do menu em telas menores para não quebrar */
   }
 }
 
+/* Telas de Celulares (Até 600px) */
 @media (max-width: 600px) {
   .hero-title,
   .hero__title {
-    font-size: 2.4rem;
+    font-size: 2.4rem;              /* Reduz o tamanho do título principal para caber na tela */
   }
 
   .hero-actions,
   .hero__cta-group {
-    flex-direction: column;
+    flex-direction: column;         /* Empilha os botões no celular */
   }
 
   .btn-primary,
   .btn-secondary,
   .btn--primary,
   .btn--outline {
-    width: 100%;
+    width: 100%;                    /* Botões ocupam 100% da largura da tela no celular */
   }
 
   .newsletter__form,
   .newsletter-form {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;         /* Empilha o campo de e-mail e o botão na captura de leads */
+    align-items: center;            /* Centraliza os campos */
   }
 
   .newsletter__field,
   .newsletter-field {
-    width: 100%;
+    width: 100%;                    /* Campo ocupa toda a largura no celular */
   }
 
   .header {
-    padding: 1rem 5%;
+    padding: 1rem 5%;               /* Reduz o padding do cabeçalho em celulares */
   }
 }
