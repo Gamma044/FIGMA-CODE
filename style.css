@@ -3,6 +3,9 @@
    Luxury Theme (Espresso & Gold)
    ================================ */
 
+a {
+  text-decoration: none;
+}
 /* 📌 1. DECLARAÇÃO DE VARIÁVEIS NATIVAS (:root) */
 :root {
   /* Paleta Original de Cores de Luxo */
