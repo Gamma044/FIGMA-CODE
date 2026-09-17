@@ -4,6 +4,7 @@
    ================================ */
 
 :root {
+  /* Paleta Original de Luxo */
   --bg-dark: #12100E;         /* Espresso profundo */
   --bg-card: #1A1714;         /* Chocolate escuro */
   --bg-card-hover: #24201C;   /* Elevação suave ao passar o mouse */
@@ -12,7 +13,13 @@
   --accent: #C4A482;           /* Bronze / Ouro fosco */
   --accent-hover: #D8B998;     /* Bronze iluminado */
   --border: rgba(196, 164, 130, 0.15); /* Borda metálica translúcida */
+
+  /* Variáveis Utilitárias & Fontes */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
   --radius: 12px;
+  --radius-sm: 8px;
+  --radius-full: 999px;
   --shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -23,44 +30,69 @@
   box-sizing: border-box;
 }
 
+/* 📌 NAVEGAÇÃO SUAVE & COMPENSAÇÃO DE HEADER FIXO */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* 📌 UTILITÁRIO DE ACESSIBILIDADE */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* ========== TIPOGRAFIA LUXO ========== */
 .hero-title,
+.hero__title,
 .section-title,
 .logo-text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-serif);
 }
 
-/* ========== HEADER ========== */
+/* ========== HEADER FIXO COM GLASSMORPHISM ========== */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 6%;
+
+  /* Efeito de Vidro (Glassmorphism) */
   background: rgba(18, 16, 14, 0.85);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.logo {
+.logo,
+.header__logo {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .logo-icon {
@@ -89,13 +121,19 @@ body {
   text-transform: uppercase;
 }
 
-.nav-menu ul {
+.header__logo span {
+  color: var(--accent);
+}
+
+.nav-menu ul,
+.header__nav {
   display: flex;
   list-style: none;
   gap: 2.8rem;
 }
 
-.nav-menu a {
+.nav-menu a,
+.header__link {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.8rem;
@@ -105,7 +143,8 @@ body {
   text-transform: uppercase;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.header__link:hover {
   color: var(--accent);
 }
 
@@ -128,15 +167,16 @@ body {
   color: #12100E;
 }
 
-/* ========== MAIN ========== */
+/* ========== MAIN CONTAINER ========== */
 .main-container {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 5%;
 }
 
-/* ========== HERO ========== */
-.hero-section {
+/* ========== HERO SECTION ========== */
+.hero-section,
+.hero {
   padding: 4.5rem 0 5.5rem;
 }
 
@@ -150,26 +190,30 @@ body {
   border: 1px solid var(--border);
 }
 
-.hero-image-wrapper {
+.hero-image-wrapper,
+.hero__image-wrapper {
   position: relative;
   min-height: 520px;
 }
 
-.hero-img {
+.hero-img,
+.hero__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.hero-details {
+.hero-details,
+.hero__content {
   padding: 3.5rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.badge {
+.badge,
+.tag {
   display: inline-block;
   background: rgba(196, 164, 130, 0.12);
   color: var(--accent);
@@ -184,13 +228,21 @@ body {
   border: 1px solid rgba(196, 164, 130, 0.25);
 }
 
-.hero-title {
+/* 📌 TÍTULO PRINCIPAL COM DEGRADÊ EM OURO FOSCO */
+.hero-title,
+.hero__title {
   font-size: 3.2rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.1;
   margin-bottom: 1.8rem;
-  color: var(--text-primary);
+
+  /* Aplicação do Degradê Metálico Premium */
+  background: linear-gradient(135deg, #F7F4F0 0%, #D8B998 50%, #C4A482 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .hero-features {
@@ -219,20 +271,46 @@ body {
 
 .price-tag {
   font-size: 2rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-serif);
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 2.2rem;
 }
 
-.hero-actions {
+.hero-actions,
+.hero__cta-group {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
+/* ========== BOTÕES REUTILIZÁVEIS ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.btn--sm {
+  padding: 0.6rem 1.6rem;
+  font-size: 0.75rem;
+}
+
+.btn--lg {
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+}
+
 .btn-primary,
-.btn-secondary {
+.btn--primary {
   padding: 1rem 2rem;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -242,32 +320,42 @@ body {
   transition: var(--transition);
   border: none;
   text-transform: uppercase;
-}
-
-.btn-primary {
   background: var(--accent);
   color: #12100E;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn--primary:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(196, 164, 130, 0.2);
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn--outline {
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn--outline:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(196, 164, 130, 0.05);
 }
 
 /* ========== FEATURES / BENEFÍCIOS ========== */
-.features-section {
+.features-section,
+.beneficios {
   padding: 2rem 0 6rem;
 }
 
@@ -280,13 +368,23 @@ body {
   color: var(--text-primary);
 }
 
-.cards-grid {
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+}
+
+.cards-grid,
+.beneficios__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-.feature-card {
+.feature-card,
+.card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -294,14 +392,21 @@ body {
   transition: var(--transition);
 }
 
-.feature-card:hover {
+.feature-card:hover,
+.card:hover {
   background: var(--bg-card-hover);
   border-color: rgba(196, 164, 130, 0.4);
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.icon-wrapper {
+.card--featured {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(196, 164, 130, 0.08) 100%);
+}
+
+.icon-wrapper,
+.card__icon {
   width: 52px;
   height: 52px;
   background: rgba(196, 164, 130, 0.1);
@@ -311,10 +416,12 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--accent);
+  font-size: 1.5rem;
   margin-bottom: 1.6rem;
 }
 
-.card-title {
+.card-title,
+.card__title {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -330,10 +437,66 @@ body {
   padding: 0.3rem 0;
 }
 
-.card-description {
+.card-description,
+.card__description {
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.7;
+}
+
+/* ========== CAPTURA DE LEADS / NEWSLETTER ========== */
+.newsletter,
+.newsletter-section {
+  padding: 4rem 0 6rem;
+}
+
+.newsletter__container,
+.newsletter-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.newsletter__form,
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.newsletter__field,
+.newsletter-field {
+  flex: 1;
+  max-width: 400px;
+}
+
+.newsletter__input,
+.newsletter-input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.newsletter__input:focus,
+.newsletter-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(196, 164, 130, 0.2);
+}
+
+.btn--form {
+  padding: 1rem 1.8rem;
 }
 
 /* ========== FOOTER ========== */
@@ -344,41 +507,61 @@ body {
   color: var(--text-secondary);
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVO ========== */
 @media (max-width: 960px) {
-  .hero-card {
+  .hero-card,
+  .hero {
     grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
   }
 
   .hero-image-wrapper {
     min-height: 380px;
   }
 
-  .cards-grid {
+  .cards-grid,
+  .beneficios__grid {
     grid-template-columns: 1fr;
     max-width: 480px;
     margin: 0 auto;
   }
 
-  .nav-menu {
+  .nav-menu,
+  .header__nav {
     display: none;
   }
 }
 
 @media (max-width: 600px) {
-  .hero-title {
+  .hero-title,
+  .hero__title {
     font-size: 2.4rem;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero__cta-group {
     flex-direction: column;
   }
 
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .btn--primary,
+  .btn--outline {
+    width: 100%;
+  }
+
+  .newsletter__form,
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter__field,
+  .newsletter-field {
     width: 100%;
   }
 

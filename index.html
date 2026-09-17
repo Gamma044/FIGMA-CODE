@@ -3,40 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Deluxe - Aurora Coffee</title>
-    
+    <title>Aura Deluxe — Aurora Coffee</title>
+
+    <!-- ☕ META TAGS OPEN GRAPH (Para WhatsApp, LinkedIn e Redes Sociais) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aura Deluxe — Aurora Coffee | Cafeteira de Expresso Artesanal">
+    <meta property="og:description" content="Conheça a Aurora Coffee. Estética rústica em basalto natural, certificação SCA e a extração perfeita para o seu café de luxo.">
+    <meta property="og:image" content="Gemini_Generated_Image_.png">
+    <meta property="og:url" content="https://auradeluxe.com.br">
+
+    <!-- Meta Tags para Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aura Deluxe — Aurora Coffee">
+    <meta name="twitter:description" content="Cafeteira de Expresso Artesanal de Luxo com estética em basalto natural e controle PID.">
+    <meta name="twitter:image" content="Gemini_Generated_Image_.png">
+
+    <!-- Configuração de Favicon (Ícone da Aba) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- 📌 HEADER / CABEÇALHO COM NAVEGAÇÃO -->
     <header class="header">
-        <div class="logo">
+        <a href="#home" class="logo">
             <div class="logo-icon">
                 <img src="Gemini_Generated_Image_ (1).png" alt="Logo Aura Deluxe">
             </div>
             <span class="logo-text">AURA DELUXE</span>
-        </div>
+        </a>
 
         <nav class="nav-menu">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#newsletter">Novidades</a></li>
             </ul>
         </nav>
 
-        <button class="btn-nav">Comprar</button>
+        <a href="#newsletter" class="btn-nav">Comprar</a>
     </header>
 
-    <!-- Main Content -->
+    <!-- 📌 CONTEÚDO PRINCIPAL -->
     <main class="main-container">
 
-        <!-- Hero Section -->
+        <!-- ☕ SEÇÃO HERO -->
         <section class="hero-section" id="home">
             <div class="hero-card">
                 <div class="hero-image-wrapper">
@@ -44,7 +62,7 @@
                 </div>
 
                 <div class="hero-details">
-                    <span class="badge">Novo Lançamento</span>
+                    <span class="badge">✦ Novo Lançamento 2026</span>
                     <h1 class="hero-title">Aurora Coffee</h1>
 
                     <ul class="hero-features">
@@ -57,14 +75,14 @@
                     <div class="price-tag">R$ 4.998,90</div>
 
                     <div class="hero-actions">
-                        <button class="btn-primary">Garantir o Meu</button>
-                        <button class="btn-secondary">Saber Mais</button>
+                        <a href="#newsletter" class="btn-primary">Garantir o Meu ☕</a>
+                        <a href="#beneficios" class="btn-secondary">Saber Mais</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- ⚡ SEÇÃO DE BENEFÍCIOS -->
         <section class="features-section" id="beneficios">
             <h2 class="section-title">Por que escolher o nosso produto?</h2>
 
@@ -91,7 +109,7 @@
                 </article>
 
                 <!-- Card 02 -->
-                <article class="feature-card">
+                <article class="feature-card feature-card--featured">
                     <div class="icon-wrapper">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 15 10-15-10-5z"></path>
@@ -125,11 +143,27 @@
             </div>
         </section>
 
+        <!-- ✉️ SEÇÃO DE CAPTURA DE LEADS / OFERTA EXCLUSIVA -->
+        <section class="newsletter-section" id="newsletter">
+            <div class="newsletter-container">
+                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2>
+                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
+
+                <form class="newsletter-form" action="#" method="POST">
+                    <div class="newsletter-field">
+                        <label for="email-input" class="sr-only">Seu e-mail principal</label>
+                        <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-form">Garantir Desconto ☕</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
+    <!-- 📌 RODAPÉ DA PÁGINA -->
     <footer class="footer">
-        <p>&copy; 2026 Aura Deluxe. Todos os direitos reservados.</p>
+        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p>
     </footer>
 
 </body>
