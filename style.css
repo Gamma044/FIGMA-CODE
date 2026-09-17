@@ -3,29 +3,39 @@
    Luxury Theme (Espresso & Gold)
    ================================ */
 
+/* 📌 REMOÇÃO UNIVERSAL DE SUBLINHADOS EM LINKS */
 a {
-  text-decoration: none;
+  text-decoration: none;             /* Remove a linha sublinhada padrão de todos os elementos de link `<a>` */
 }
+
 /* 📌 1. DECLARAÇÃO DE VARIÁVEIS NATIVAS (:root) */
 :root {
-  /* Paleta Original de Cores de Luxo */
-  --bg-dark: #12100E;         /* Cor de fundo principal (Espresso profundo) */
-  --bg-card: #1A1714;         /* Cor dos cartões e contêineres (Chocolate escuro) */
-  --bg-card-hover: #24201C;   /* Cor do cartão ao passar o mouse sobre ele */
-  --text-primary: #F7F4F0;    /* Cor principal para textos destacados (Creme / Marfim) */
-  --text-secondary: #C5BCB3;  /* Cor secundária para textos descritivos (Bege acinzentado) */
-  --accent: #C4A482;          /* Cor de destaque principal (Bronze / Ouro fosco) */
-  --accent-hover: #D8B998;    /* Cor de destaque quando houver interação/hover */
+  /* Paleta Original de Cores de Luxo (Espresso & Ouro) */
+  --bg-dark: #12100E;                 /* Cor de fundo principal (Espresso profundo) */
+  --bg-card: #1A1714;                 /* Cor dos cartões e contêineres (Chocolate escuro) */
+  --bg-card-hover: #24201C;           /* Cor do cartão ao passar o mouse sobre ele */
+  --text-primary: #F7F4F0;            /* Cor principal para textos destacados (Creme / Marfim) */
+  --text-secondary: #C5BCB3;          /* Cor secundária para textos descritivos (Bege acinzentado) */
+  --accent: #C4A482;                  /* Cor de destaque principal (Bronze / Ouro fosco) */
+  --accent-hover: #D8B998;            /* Cor de destaque quando houver interação/hover */
   --border: rgba(196, 164, 130, 0.15); /* Cor das bordas metálicas translúcidas */
+
+  /* Mapeamento de Atalhos de Cores (Compatibilidade TechFlow & Aura Deluxe) */
+  --bg-main: var(--bg-dark);          /* Mapeia a variável do tema principal para o fundo escuro */
+  --color-text: var(--text-primary);  /* Mapeia a cor do texto principal para marfim */
+  --color-text-muted: var(--text-secondary); /* Mapeia a cor de texto atenuado para bege */
+  --color-primary: var(--accent);     /* Mapeia a cor primária para o tom ouro/bronze */
+  --color-primary-hover: var(--accent-hover); /* Mapeia o estado de hover para ouro iluminado */
+  --color-border: var(--border);      /* Mapeia as bordas para a transparência metálica */
 
   /* Tipografia & Fontes */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif; /* Fonte padrão sem serifa */
   --font-serif: 'Cormorant Garamond', Georgia, serif;         /* Fonte clássica serifada para títulos */
 
   /* Tamanhos e Arredondamentos */
-  --radius: 12px;             /* Arredondamento padrão de bordas para os cards */
-  --radius-sm: 8px;           /* Arredondamento menor para botões e pequenos blocos */
-  --radius-full: 999px;       /* Arredondamento máximo (cria o formato de pílula em badges) */
+  --radius: 12px;                     /* Arredondamento padrão de bordas para os cards */
+  --radius-sm: 8px;                   /* Arredondamento menor para botões e pequenos blocos */
+  --radius-full: 999px;               /* Arredondamento máximo (cria o formato de pílula em badges) */
   
   /* Sombra & Animações */
   --shadow: 0 30px 60px rgba(0, 0, 0, 0.6); /* Sombra suave para dar profundidade de camada */
@@ -34,15 +44,15 @@ a {
 
 /* 📌 2. RESET UNIVERSAL */
 * {
-  margin: 0;                  /* Zera todas as margens externas padrão dos elementos */
-  padding: 0;                 /* Zera todos os espaçamentos internos padrão */
-  box-sizing: border-box;     /* Faz com que bordas e paddings não alterem a largura total do elemento */
+  margin: 0;                          /* Zera todas as margens externas padrão dos elementos */
+  padding: 0;                         /* Zera todos os espaçamentos internos padrão */
+  box-sizing: border-box;             /* Faz com que bordas e paddings não alterem a largura total do elemento */
 }
 
 /* 📌 3. CONFIGURAÇÕES DA PÁGINA (HTML E BODY) */
 html {
-  scroll-behavior: smooth;    /* Ativa a rolagem suave ao clicar em links com âncora (#) */
-  scroll-padding-top: 90px;   /* Evita que o topo da seção seja coberto pelo cabeçalho fixo */
+  scroll-behavior: smooth;            /* Ativa a rolagem suave ao clicar em links com âncora (#) */
+  scroll-padding-top: 90px;           /* Evita que o topo da seção seja coberto pelo cabeçalho fixo */
 }
 
 body {
@@ -57,30 +67,31 @@ body {
 
 /* 📌 4. UTILITÁRIO DE ACESSIBILIDADE */
 .sr-only {
-  position: absolute;         /* Remove o elemento do fluxo visual da página */
-  width: 1px;                 /* Define largura mínima de 1 pixel */
-  height: 1px;                /* Define altura mínima de 1 pixel */
-  padding: 0;                 /* Remove espaçamento interno */
-  margin: -1px;               /* Aplica margem negativa para ocultar completamente */
-  overflow: hidden;           /* Esconde qualquer texto estourado */
-  clip: rect(0, 0, 0, 0);     /* Recorta visualmente a área do elemento */
-  border: 0;                  /* Esconde bordas */
+  position: absolute;                 /* Remove o elemento do fluxo visual da página */
+  width: 1px;                         /* Define largura mínima de 1 pixel */
+  height: 1px;                        /* Define altura mínima de 1 pixel */
+  padding: 0;                         /* Remove espaçamento interno */
+  margin: -1px;                       /* Aplica margem negativa para ocultar completamente */
+  overflow: hidden;                   /* Esconde qualquer texto estourado */
+  clip: rect(0, 0, 0, 0);             /* Recorta visualmente a área do elemento */
+  border: 0;                          /* Esconde bordas */
 }
 
 /* 📌 5. TIPOGRAFIA DE LUXO */
 .hero-title,
 .hero__title,
 .section-title,
+.beneficios__title,
 .logo-text {
-  font-family: var(--font-serif); /* Aplica a fonte Cormorant Garamond nos títulos da página */
+  font-family: var(--font-serif);     /* Aplica a fonte Cormorant Garamond nos títulos da página */
 }
 
 /* 📌 6. CABEÇALHO FIXO COM GLASSMORPHISM (.header) */
 .header {
-  display: flex;                    /* Ativa o modelo flexbox para organizar o layout */
-  align-items: center;              /* Alinha os itens verticalmente ao centro */
-  justify-content: space-between;   /* Distribui os elementos entre os extremos da tela */
-  padding: 1.2rem 6%;               /* Define espaçamento (1.2rem em cima/baixo e 6% nos lados) */
+  display: flex;                      /* Ativa o modelo flexbox para organizar o layout */
+  align-items: center;                /* Alinha os itens verticalmente ao centro */
+  justify-content: space-between;     /* Distribui os elementos entre os extremos da tela */
+  padding: 1.2rem 6%;                 /* Define espaçamento (1.2rem em cima/baixo e 6% nos lados) */
 
   /* Efeito de Vidro Fosco (Glassmorphism) */
   background: rgba(18, 16, 14, 0.85); /* Fundo escuro semi-transparente (85% opaco) */
@@ -88,438 +99,460 @@ body {
   -webkit-backdrop-filter: blur(20px);/* Garante o suporte ao desfoque no navegador Safari */
 
   border-bottom: 1px solid var(--border); /* Adiciona uma linha metálica sutil na parte inferior */
-  position: sticky;                 /* Mantém o cabeçalho "preso" no topo ao rolar a página */
-  top: 0;                           /* Fixa a posição no topo zero */
-  z-index: 1000;                    /* Coloca o cabeçalho acima de todos os outros elementos */
+  position: sticky;                   /* Mantém o cabeçalho "preso" no topo ao rolar a página */
+  top: 0;                             /* Fixa a posição no topo zero */
+  z-index: 1000;                      /* Coloca o cabeçalho acima de todos os outros elementos */
 }
 
 /* Logotipo */
 .logo,
 .header__logo {
-  display: flex;                    /* Coloca o ícone e o texto lado a lado */
-  align-items: center;              /* Alinha o ícone e o texto verticalmente */
-  gap: 0.85rem;                     /* Define o espaço entre o ícone e o texto do logo */
-  text-decoration: none;            /* Remove o sublinhado do link */
-  font-size: 1.1rem;                /* Define o tamanho da fonte do logo */
-  font-weight: 600;                 /* Define o peso em negrito médio */
-  color: var(--text-primary);       /* Aplica a cor do texto principal */
+  display: flex;                      /* Coloca o ícone e o texto lado a lado */
+  align-items: center;                /* Alinha o ícone e o texto verticalmente */
+  gap: 0.85rem;                       /* Define o espaço entre o ícone e o texto do logo */
+  text-decoration: none;              /* Remove o sublinhado do link */
+  font-size: 1.1rem;                  /* Define o tamanho da fonte do logo */
+  font-weight: 600;                   /* Define o peso em negrito médio */
+  color: var(--text-primary);         /* Aplica a cor do texto principal */
 }
 
 .logo-icon {
-  width: 40px;                      /* Define largura do quadrado do ícone */
-  height: 40px;                     /* Define altura do quadrado do ícone */
-  background: var(--bg-card);       /* Aplica a cor do fundo do card */
-  border-radius: 8px;               /* Arredonda os cantos da caixa da logo */
-  display: flex;                    /* Flexbox para centralizar a imagem dentro da caixa */
-  align-items: center;              /* Centraliza a imagem verticalmente */
-  justify-content: center;          /* Centraliza a imagem horizontalmente */
-  overflow: hidden;                 /* Recorta qualquer excesso da imagem */
-  border: 1px solid var(--border);  /* Adiciona a borda fina metálica */
+  width: 40px;                        /* Define largura do quadrado do ícone */
+  height: 40px;                       /* Define altura do quadrado do ícone */
+  background: var(--bg-card);         /* Aplica a cor do fundo do card */
+  border-radius: 8px;                 /* Arredonda os cantos da caixa da logo */
+  display: flex;                      /* Flexbox para centralizar a imagem dentro da caixa */
+  align-items: center;                /* Centraliza a imagem verticalmente */
+  justify-content: center;            /* Centraliza a imagem horizontalmente */
+  overflow: hidden;                   /* Recorta qualquer excesso da imagem */
+  border: 1px solid var(--border);    /* Adiciona a borda fina metálica */
 }
 
 .logo-icon img {
-  width: 100%;                      /* Garante que a imagem preencha toda a largura da caixa */
-  height: 100%;                     /* Garante que a imagem preencha toda a altura */
-  object-fit: cover;                /* Ajusta a imagem sem esticar ou distorcer */
+  width: 100%;                        /* Garante que a imagem preencha toda a largura da caixa */
+  height: 100%;                       /* Garante que a imagem preencha toda a altura */
+  object-fit: cover;                  /* Ajusta a imagem sem esticar ou distorcer */
 }
 
 .logo-text {
-  font-weight: 600;                 /* Define o texto com peso semi-negrito */
-  letter-spacing: 0.2em;            /* Aumenta o espaçamento entre as letras (efeito elegante) */
-  font-size: 1.1rem;                /* Define o tamanho da fonte */
-  color: var(--text-primary);       /* Cor clara do texto */
-  text-transform: uppercase;        /* Transforma todo o texto em maiúsculo */
+  font-weight: 600;                   /* Define o texto com peso semi-negrito */
+  letter-spacing: 0.2em;              /* Aumenta o espaçamento entre as letras (efeito elegante) */
+  font-size: 1.1rem;                  /* Define o tamanho da fonte */
+  color: var(--text-primary);         /* Cor clara do texto */
+  text-transform: uppercase;          /* Transforma todo o texto em maiúsculo */
 }
 
 .header__logo span {
-  color: var(--accent);             /* Destaca o texto "DELUXE" usando a cor ouro/bronze */
+  color: var(--accent);               /* Destaca o texto "DELUXE" usando a cor ouro/bronze */
 }
 
 /* Navegação Principal */
 .nav-menu ul,
 .header__nav {
-  display: flex;                    /* Exibe os links de navegação em linha horizontal */
-  list-style: none;                 /* Remove as bolinhas/marcadores de lista */
-  gap: 2.8rem;                      /* Define o espaço entre cada link do menu */
+  display: flex;                      /* Exibe os links de navegação em linha horizontal */
+  list-style: none;                   /* Remove as bolinhas/marcadores de lista */
+  gap: 2.8rem;                        /* Define o espaço entre cada link do menu */
 }
 
 .nav-menu a,
 .header__link {
-  color: var(--text-secondary);     /* Define a cor bege/cinza secundária para os links */
-  text-decoration: none;            /* Remove o sublinhado padrão de links */
-  font-size: 0.8rem;                /* Tamanho pequeno e discreto para o menu de luxo */
-  font-weight: 500;                 /* Peso médio de leitura */
-  letter-spacing: 0.15em;           /* Aumenta o espaçamento das letras */
-  transition: var(--transition);    /* Ativa a transição suave de cores ao passar o mouse */
-  text-transform: uppercase;        /* Transforma em letras maiúsculas */
+  color: var(--text-secondary);       /* Define a cor bege/cinza secundária para os links */
+  text-decoration: none;              /* Remove o sublinhado padrão de links */
+  font-size: 0.8rem;                  /* Tamanho pequeno e discreto para o menu de luxo */
+  font-weight: 500;                   /* Peso médio de leitura */
+  letter-spacing: 0.15em;             /* Aumenta o espaçamento das letras */
+  transition: var(--transition);      /* Ativa a transição suave de cores ao passar o mouse */
+  text-transform: uppercase;          /* Transforma em letras maiúsculas */
 }
 
 .nav-menu a:hover,
 .header__link:hover {
-  color: var(--accent);             /* Muda a cor do link para dourado ao passar o mouse */
+  color: var(--accent);               /* Muda a cor do link para dourado ao passar o mouse */
 }
 
 .btn-nav {
-  background: transparent;          /* Fundo transparente para o botão do topo */
-  border: 1px solid var(--accent);  /* Borda com tom bronze/dourado */
-  color: var(--accent);             /* Texto na mesma cor da borda */
-  padding: 0.6rem 1.6rem;           /* Espaçamento interno do botão */
-  border-radius: 6px;               /* Cantos levemente arredondados */
-  font-size: 0.75rem;               /* Tamanho de fonte pequeno e minimalista */
-  font-weight: 600;                 /* Peso negrito */
-  letter-spacing: 0.12em;           /* Espaçamento entre letras */
-  cursor: pointer;                  /* Mostra a mãozinha de clique ao passar o mouse */
-  transition: var(--transition);    /* Anima a transição de fundo/cor */
-  text-transform: uppercase;        /* Letras maiúsculas */
+  background: transparent;            /* Fundo transparente para o botão do topo */
+  border: 1px solid var(--accent);    /* Borda com tom bronze/dourado */
+  color: var(--accent);               /* Texto na mesma cor da borda */
+  padding: 0.6rem 1.6rem;             /* Espaçamento interno do botão */
+  border-radius: 6px;                 /* Cantos levemente arredondados */
+  font-size: 0.75rem;                 /* Tamanho de fonte pequeno e minimalista */
+  font-weight: 600;                   /* Peso negrito */
+  letter-spacing: 0.12em;             /* Espaçamento entre letras */
+  cursor: pointer;                    /* Mostra a mãozinha de clique ao passar o mouse */
+  transition: var(--transition);      /* Anima a transição de fundo/cor */
+  text-transform: uppercase;          /* Letras maiúsculas */
 }
 
 .btn-nav:hover {
-  background: var(--accent);        /* Preenche o botão de dourado ao passar o mouse */
-  color: #12100E;                   /* Muda a cor do texto para o fundo escuro (alto contraste) */
+  background: var(--accent);          /* Preenche o botão de dourado ao passar o mouse */
+  color: #12100E;                     /* Muda a cor do texto para o fundo escuro (alto contraste) */
 }
 
 /* 📌 7. CONTEÚDO PRINCIPAL (.main-container) */
 .main-container {
-  max-width: 1180px;                /* Define a largura máxima centralizada do site */
-  margin: 0 auto;                   /* Centraliza o container horizontalmente */
-  padding: 0 5%;                    /* Adiciona espaçamento de respiro nas laterais */
+  max-width: 1180px;                  /* Define a largura máxima centralizada do site */
+  margin: 0 auto;                     /* Centraliza o container horizontalmente */
+  padding: 0 5%;                      /* Adiciona espaçamento de respiro nas laterais */
 }
 
 /* 📌 8. SEÇÃO HERO / APRESENTAÇÃO (.hero-section) */
 .hero-section,
 .hero {
-  padding: 4.5rem 0 5.5rem;         /* Define o espaçamento vertical superior e inferior */
+  padding: 4.5rem 0 5.5rem;           /* Define o espaçamento vertical superior e inferior */
 }
 
 .hero-card {
-  display: grid;                    /* Layout em Grid de duas colunas */
-  grid-template-columns: 1.05fr 1fr;/* Coluna da imagem é levemente maior que a de texto */
-  background: var(--bg-card);       /* Fundo escuro tom chocolate do card */
-  border-radius: var(--radius);     /* Bordas arredondadas em 12px */
-  overflow: hidden;                 /* Impede que a imagem ultrapasse as bordas do card */
-  box-shadow: var(--shadow);        /* Aplica a sombra profunda para destacar do fundo */
-  border: 1px solid var(--border);  /* Borda fina metálica em volta do card */
+  display: grid;                      /* Layout em Grid de duas colunas */
+  grid-template-columns: 1.05fr 1fr;  /* Coluna da imagem é levemente maior que a de texto */
+  background: var(--bg-card);         /* Fundo escuro tom chocolate do card */
+  border-radius: var(--radius);       /* Bordas arredondadas em 12px */
+  overflow: hidden;                   /* Impede que a imagem ultrapasse as bordas do card */
+  box-shadow: var(--shadow);          /* Aplica a sombra profunda para destacar do fundo */
+  border: 1px solid var(--border);    /* Borda fina metálica em volta do card */
 }
 
 .hero-image-wrapper,
 .hero__image-wrapper {
-  position: relative;               /* Permite posicionamento interno se necessário */
-  min-height: 520px;                /* Altura mínima para a imagem da cafeteira */
+  position: relative;                 /* Permite posicionamento interno se necessário */
+  min-height: 520px;                  /* Altura mínima para a imagem da cafeteira */
 }
 
 .hero-img,
 .hero__img {
-  width: 100%;                      /* Garante que a imagem ocupe toda a largura */
-  height: 100%;                     /* Garante que a imagem ocupe toda a altura do contêiner */
-  object-fit: cover;                /* Corta a imagem com precisão sem deformá-la */
-  display: block;                   /* Remove espaços vazios padrão de imagens */
+  width: 100%;                        /* Garante que a imagem ocupe toda a largura */
+  height: 100%;                       /* Garante que a imagem ocupe toda a altura do contêiner */
+  object-fit: cover;                  /* Corta a imagem com precisão sem deformá-la */
+  display: block;                     /* Remove espaços vazios padrão de imagens */
 }
 
 .hero-details,
 .hero__content {
-  padding: 3.5rem 3rem;             /* Espaçamento interno confortável de texto */
-  display: flex;                    /* Flexbox para alinhar os elementos verticalmente */
-  flex-direction: column;           /* Empilha os textos e botões um abaixo do outro */
-  justify-content: center;          /* Centraliza o conteúdo no eixo vertical */
+  padding: 3.5rem 3rem;               /* Espaçamento interno confortável de texto */
+  display: flex;                      /* Flexbox para alinhar os elementos verticalmente */
+  flex-direction: column;             /* Empilha os textos e botões um abaixo do outro */
+  justify-content: center;            /* Centraliza o conteúdo no eixo vertical */
 }
 
 .badge,
 .tag {
-  display: inline-block;            /* Ajusta o tamanho do fundo exatamente ao tamanho do texto */
+  display: inline-block;              /* Ajusta o tamanho do fundo exatamente ao tamanho do texto */
   background: rgba(196, 164, 130, 0.12); /* Fundo translúcido bronze suave */
-  color: var(--accent);             /* Cor dourada do texto */
-  font-size: 0.7rem;                /* Tamanho pequeno e elegante */
-  font-weight: 600;                 /* Peso negrito */
-  letter-spacing: 0.18em;           /* Aumenta o espaço entre letras */
-  padding: 0.4rem 0.9rem;           /* Preenchimento do retângulo do selo */
-  border-radius: 4px;               /* Cantos levemente arredondados */
-  margin-bottom: 1.4rem;            /* Espaço abaixo da etiqueta */
-  width: fit-content;               /* Garante que a largura se adapte ao conteúdo */
-  text-transform: uppercase;        /* Transforma em maiúsculas */
+  color: var(--accent);               /* Cor dourada do texto */
+  font-size: 0.7rem;                  /* Tamanho pequeno e elegante */
+  font-weight: 600;                   /* Peso negrito */
+  letter-spacing: 0.18em;             /* Aumenta o espaço entre letras */
+  padding: 0.4rem 0.9rem;             /* Preenchimento do retângulo do selo */
+  border-radius: 4px;                 /* Cantos levemente arredondados */
+  margin-bottom: 1.4rem;              /* Espaço abaixo da etiqueta */
+  width: fit-content;                 /* Garante que a largura se adapte ao conteúdo */
+  text-transform: uppercase;          /* Transforma em maiúsculas */
   border: 1px solid rgba(196, 164, 130, 0.25); /* Borda muito fina de destaque */
 }
 
 /* 📌 TÍTULO PRINCIPAL COM DEGRADÊ METÁLICO */
 .hero-title,
 .hero__title {
-  font-size: 3.2rem;                /* Tamanho grande para o título do produto */
-  font-weight: 500;                 /* Peso médio */
-  letter-spacing: 0.02em;           /* Ajuste leve no espaço das letras */
-  line-height: 1.1;                 /* Entrelinha justa para título */
-  margin-bottom: 1.8rem;            /* Espaçamento abaixo do título */
+  font-size: 3.2rem;                  /* Tamanho grande para o título do produto */
+  font-weight: 500;                   /* Peso médio */
+  letter-spacing: 0.02em;             /* Ajuste leve no espaço das letras */
+  line-height: 1.1;                   /* Entrelinha justa para título */
+  margin-bottom: 1.8rem;              /* Espaçamento abaixo do título */
 
   /* Efeito de Texto em Gradiente */
   background: linear-gradient(135deg, #F7F4F0 0%, #D8B998 50%, #C4A482 100%); /* Degradê de branco a ouro */
-  -webkit-background-clip: text;    /* Corta o fundo no formato exato do texto (Chrome/Safari) */
-  background-clip: text;            /* Corta o fundo no formato das letras (Padrão CSS3) */
+  -webkit-background-clip: text;      /* Corta o fundo no formato exato do texto (Chrome/Safari) */
+  background-clip: text;              /* Corta o fundo no formato das letras (Padrão CSS3) */
   -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente */
-  color: transparent;               /* Garante transparência em outros navegadores */
+  color: transparent;                 /* Garante transparência em outros navegadores */
 }
 
 .hero-features {
-  list-style: none;                 /* Remove as marcadores normais da lista */
-  margin-bottom: 2.2rem;            /* Espaço abaixo da lista de itens */
+  list-style: none;                   /* Remove os marcadores normais da lista */
+  margin-bottom: 2.2rem;              /* Espaço abaixo da lista de itens */
 }
 
 .hero-features li {
-  position: relative;               /* Permite posicionar o ponto dourado customizado */
-  padding-left: 1.4rem;             /* Dá espaço na esquerda para o ponto customizado */
-  margin-bottom: 0.75rem;           /* Espaçamento entre cada item da lista */
-  color: var(--text-secondary);     /* Cor bege suave */
-  font-size: 0.95rem;               /* Tamanho de leitura de itens */
+  position: relative;                 /* Permite posicionar o ponto dourado customizado */
+  padding-left: 1.4rem;               /* Dá espaço na esquerda para o ponto customizado */
+  margin-bottom: 0.75rem;             /* Espaçamento entre cada item da lista */
+  color: var(--text-secondary);       /* Cor bege suave */
+  font-size: 0.95rem;                 /* Tamanho de leitura de itens */
 }
 
 /* Ponto dourado minimalista antes de cada item */
 .hero-features li::before {
-  content: "";                      /* Cria um elemento visual sem texto */
-  position: absolute;               /* Posiciona o marcador com precisão */
-  left: 0;                          /* Alinha à extrema esquerda */
-  top: 0.6rem;                      /* Centraliza no topo relativo ao texto */
-  width: 5px;                       /* Diâmetro do marcador */
-  height: 5px;                      /* Altura do marcador */
-  background: var(--accent);        /* Cor bronze/ouro */
-  border-radius: 50%;               /* Torna o quadrado em um círculo perfeito */
+  content: "";                        /* Cria um elemento visual sem texto */
+  position: absolute;                 /* Posiciona o marcador com precisão */
+  left: 0;                            /* Alinha à extrema esquerda */
+  top: 0.6rem;                        /* Centraliza no topo relativo ao texto */
+  width: 5px;                         /* Diâmetro do marcador */
+  height: 5px;                        /* Altura do marcador */
+  background: var(--accent);          /* Cor bronze/ouro */
+  border-radius: 50%;                 /* Torna o quadrado em um círculo perfeito */
 }
 
 .price-tag {
-  font-size: 2rem;                  /* Tamanho destacado para o preço */
-  font-family: var(--font-serif);   /* Aplica a fonte clássica no preço */
-  font-weight: 600;                 /* Peso negrito */
-  color: var(--accent);             /* Cor ouro/bronze */
-  margin-bottom: 2.2rem;            /* Espaço abaixo do preço */
+  font-size: 2rem;                    /* Tamanho destacado para o preço */
+  font-family: var(--font-serif);     /* Aplica a fonte clássica no preço */
+  font-weight: 600;                   /* Peso negrito */
+  color: var(--accent);               /* Cor ouro/bronze */
+  margin-bottom: 2.2rem;              /* Espaço abaixo do preço */
 }
 
 .hero-actions,
 .hero__cta-group {
-  display: flex;                    /* Alinha os botões "Garantir o Meu" e "Saber Mais" lado a lado */
-  gap: 1rem;                        /* Espaço entre os botões */
-  flex-wrap: wrap;                  /* Quebra a linha em telas muito pequenas */
+  display: flex;                      /* Alinha os botões "Garantir o Meu" e "Saber Mais" lado a lado */
+  gap: 1rem;                          /* Espaço entre os botões */
+  flex-wrap: wrap;                    /* Quebra a linha em telas muito pequenas */
 }
 
 /* 📌 9. BOTÕES REUTILIZÁVEIS DA PÁGINA */
 .btn {
-  display: inline-flex;             /* Modelo flexbox inline para centralizar o texto interno */
-  align-items: center;              /* Centraliza verticalmente o texto do botão */
-  justify-content: center;          /* Centraliza horizontalmente o texto do botão */
-  font-weight: 600;                 /* Texto com peso negrito */
-  text-decoration: none;            /* Remove sublinhado se for link `<a>` */
-  border-radius: 6px;               /* Cantos suavemente arredondados */
-  border: none;                     /* Remove bordas nativas do sistema */
-  cursor: pointer;                  /* Ponteiro de clique */
-  transition: var(--transition);    /* Ativa a transição suave de efeitos */
-  text-transform: uppercase;        /* Letras maiúsculas */
-  letter-spacing: 0.12em;           /* Espaçamento entre letras */
+  display: inline-flex;               /* Modelo flexbox inline para centralizar o texto interno */
+  align-items: center;                /* Centraliza verticalmente o texto do botão */
+  justify-content: center;            /* Centraliza horizontalmente o texto do botão */
+  font-weight: 600;                   /* Texto com peso negrito */
+  text-decoration: none;              /* Remove sublinhado se for link `<a>` */
+  border-radius: 6px;                 /* Cantos suavemente arredondados */
+  border: none;                       /* Remove bordas nativas do sistema */
+  cursor: pointer;                    /* Ponteiro de clique */
+  transition: var(--transition);      /* Ativa a transição suave de efeitos */
+  text-transform: uppercase;          /* Letras maiúsculas */
+  letter-spacing: 0.12em;             /* Espaçamento entre letras */
 }
 
 .btn--sm {
-  padding: 0.6rem 1.6rem;           /* Tamanho pequeno de botão */
+  padding: 0.6rem 1.6rem;             /* Tamanho pequeno de botão */
   font-size: 0.75rem;
 }
 
 .btn--lg {
-  padding: 1rem 2rem;               /* Tamanho grande de botão */
+  padding: 1rem 2rem;                 /* Tamanho grande de botão */
   font-size: 0.8rem;
 }
 
 .btn-primary,
 .btn--primary {
-  padding: 1rem 2rem;               /* Preenchimento confortável */
-  border-radius: 6px;               /* Cantos arredondados */
-  font-size: 0.8rem;                /* Tamanho de fonte do botão principal */
-  font-weight: 600;                 /* Negrito */
-  letter-spacing: 0.12em;           /* Espaçamento entre letras */
-  cursor: pointer;                  /* Mostra mãozinha no mouse */
-  transition: var(--transition);    /* Animações fluidas */
-  border: none;                     /* Sem borda */
-  text-transform: uppercase;        /* Transforma em maiúsculas */
-  background: var(--accent);        /* Preenchimento dourado/bronze */
-  color: #12100E;                   /* Texto escuro para alto contraste */
+  padding: 1rem 2rem;                 /* Preenchimento confortável */
+  border-radius: 6px;                 /* Cantos arredondados */
+  font-size: 0.8rem;                  /* Tamanho de fonte do botão principal */
+  font-weight: 600;                   /* Negrito */
+  letter-spacing: 0.12em;             /* Espaçamento entre letras */
+  cursor: pointer;                    /* Mostra mãozinha no mouse */
+  transition: var(--transition);      /* Animações fluidas */
+  border: none;                       /* Sem borda */
+  text-transform: uppercase;          /* Transforma em maiúsculas */
+  background: var(--accent);          /* Preenchimento dourado/bronze */
+  color: #12100E;                     /* Texto escuro para alto contraste */
 }
 
 .btn-primary:hover,
 .btn--primary:hover {
-  background: var(--accent-hover);  /* Ilumina a cor do botão ao passar o mouse */
-  transform: translateY(-2px);      /* Efeito de elevação (sobe 2 pixels) */
+  background: var(--accent-hover);    /* Ilumina a cor do botão ao passar o mouse */
+  transform: translateY(-2px);        /* Efeito de elevação (sobe 2 pixels) */
   box-shadow: 0 10px 20px rgba(196, 164, 130, 0.2); /* Sombra luminosa na cor ouro */
 }
 
 .btn-secondary,
 .btn--outline {
-  padding: 1rem 2rem;               /* Mesma dimensão do botão principal */
-  border-radius: 6px;               /* Cantos arredondados */
-  font-size: 0.8rem;                /* Tamanho da fonte */
-  font-weight: 600;                 /* Negrito */
-  letter-spacing: 0.12em;           /* Espaçamento das letras */
-  cursor: pointer;                  /* Mostra mão de clique */
-  transition: var(--transition);    /* Transição fluida */
-  text-transform: uppercase;        /* Letras maiúsculas */
-  background: transparent;          /* Fundo vazado/transparente */
-  color: var(--text-primary);       /* Texto na cor marfim */
-  border: 1px solid var(--border);  /* Borda sutil */
+  padding: 1rem 2rem;                 /* Mesma dimensão do botão principal */
+  border-radius: 6px;                 /* Cantos arredondados */
+  font-size: 0.8rem;                  /* Tamanho da fonte */
+  font-weight: 600;                   /* Negrito */
+  letter-spacing: 0.12em;             /* Espaçamento das letras */
+  cursor: pointer;                    /* Mostra mão de clique */
+  transition: var(--transition);      /* Transição fluida */
+  text-transform: uppercase;          /* Letras maiúsculas */
+  background: transparent;            /* Fundo vazado/transparente */
+  color: var(--text-primary);         /* Texto na cor marfim */
+  border: 1px solid var(--border);    /* Borda sutil */
 }
 
 .btn-secondary:hover,
 .btn--outline:hover {
-  border-color: var(--accent);      /* Ilumina a borda com tom dourado */
-  color: var(--accent);             /* Muda a cor do texto para dourado */
+  border-color: var(--accent);        /* Ilumina a borda com tom dourado */
+  color: var(--accent);               /* Muda a cor do texto para dourado */
   background: rgba(196, 164, 130, 0.05); /* Aplica fundo muito leve translúcido */
 }
 
-/* 📌 10. SEÇÃO DE BENEFÍCIOS E CARACTERÍSTICAS (.beneficios) */
+/* ==========================================================================
+   📌 10. SEÇÃO DE BENEFÍCIOS (CSS GRID DINÂMICO + FLEXBOX INTERNO)
+   ========================================================================== */
+
+/* Container externo da seção */
 .features-section,
 .beneficios {
-  padding: 2rem 0 6rem;             /* Espaçamento da seção */
+  padding: 80px 8%;                   /* Espaçamento interno vertical e horizontal da seção */
+  background-color: var(--bg-dark);   /* Define a cor de fundo escura usando a variável do tema */
 }
 
-.section-title {
-  text-align: center;               /* Centraliza o título da seção */
-  font-size: 2rem;                  /* Tamanho do título da seção */
-  font-weight: 500;                 /* Peso médio */
-  letter-spacing: 0.08em;           /* Aumenta o espaçamento das letras */
-  margin-bottom: 3.5rem;            /* Espaço abaixo do título */
-  color: var(--text-primary);       /* Cor marfim */
+.beneficios__header {
+  text-align: center;                 /* Centraliza o título e o subtítulo da seção */
+  margin-bottom: 48px;                /* Define o espaçamento inferior até os cartões */
 }
 
-.section-subtitle {
-  text-align: center;               /* Centraliza o subtítulo */
-  color: var(--text-secondary);     /* Cor secundária */
-  font-size: 1rem;                  /* Tamanho do subtítulo */
-  margin-top: -2.5rem;              /* Recua para ficar próximo ao título principal */
-  margin-bottom: 3rem;              /* Espaço até os cartões */
+.section-title,
+.beneficios__title {
+  font-size: 2.25rem;                 /* Tamanho grande e destacado para o título principal da seção */
+  font-weight: 700;                   /* Peso negrito */
+  color: var(--text-primary);         /* Aplica a cor marfim para alto contraste */
+  margin-bottom: 12px;                /* Espaçamento entre o título e o subtítulo */
 }
 
+.section-subtitle,
+.beneficios__subtitle {
+  color: var(--text-secondary);       /* Aplica a cor bege suave para o subtítulo */
+  font-size: 1.1rem;                  /* Tamanho levemente menor que o título */
+  margin-top: -0.5rem;                /* Ajusta a aproximação em relação ao título */
+  margin-bottom: 2.5rem;              /* Espaçamento inferior */
+}
+
+/* 🧱 1. O CSS GRID RESPONSIVO (Layout Externo dos Cards) */
 .cards-grid,
 .beneficios__grid {
-  display: grid;                    /* Layout Grid para os cartões de benefícios */
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanhos rigorosamente iguais */
-  gap: 1.5rem;                      /* Espaço entre cada cartão */
+  display: grid;                      /* Ativa o modelo CSS Grid para organizar os cartões */
+  /* Adapta a quantidade de colunas automaticamente:
+     - minmax(280px, 1fr): Cada card tem no mínimo 280px e no máximo 1 fração do espaço.
+     - auto-fit: Quebra os cards para a linha de baixo sozinho conforme a tela diminui! */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;                          /* Espaçamento igual entre os cards */
 }
 
+/* 📦 2. FLEXBOX INTERNO (Organização interna dentro de cada Card) */
 .feature-card,
 .card {
-  background: var(--bg-card);       /* Fundo chocolate do card */
-  border: 1px solid var(--border);  /* Borda fina metálica */
-  border-radius: var(--radius);     /* Arredondamento em 12px */
-  padding: 2.5rem 2rem;             /* Preenchimento interno */
-  transition: var(--transition);    /* Transição suave para interação */
+  background-color: var(--bg-card);   /* Define a cor do card (Chocolate escuro) */
+  border: 1px solid var(--border);    /* Borda fina metálica metálica translúcida */
+  border-radius: var(--radius);       /* Arredondamento elegante das bordas (12px) */
+  padding: 32px;                      /* Preenchimento interno confortável */
+ 
+  /* Flexbox interno para alinhar o ícone, título e texto verticalmente */
+  display: flex;                      /* Ativa o flexbox dentro do próprio cartão */
+  flex-direction: column;             /* Empilha os itens verticalmente (ícone -> título -> texto) */
+  align-items: flex-start;            /* Alinha todos os elementos à esquerda */
+ 
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave no hover */
 }
 
+/* Efeito Hover interativo */
 .feature-card:hover,
 .card:hover {
-  background: var(--bg-card-hover); /* Ilumina o fundo ao passar o mouse */
-  border-color: rgba(196, 164, 130, 0.4); /* Destaca a borda metálica */
-  transform: translateY(-6px);      /* Eleva o cartão em 6px (efeito de flutuação) */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Aumenta a sombra profunda */
+  transform: translateY(-8px);        /* Eleva o cartão em 8px para o efeito de flutuação */
+  border-color: var(--accent);        /* Destaque a borda com tom dourado ao passar o mouse */
+  box-shadow: 0 12px 30px rgba(196, 164, 130, 0.2); /* Sombra luminosa dourada */
 }
 
+/* Card em Destaque */
 .card--featured {
-  border-color: var(--accent);      /* Borda em dourado para o card de destaque */
-  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(196, 164, 130, 0.08) 100%); /* Degradê sutil no card */
+  border-color: var(--accent);        /* Borda dourada fixa para o cartão destacado */
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(196, 164, 130, 0.08) 100%); /* Degradê suave de destaque */
 }
 
 .icon-wrapper,
 .card__icon {
-  width: 52px;                      /* Largura do quadrado do ícone */
-  height: 52px;                     /* Altura do quadrado do ícone */
-  background: rgba(196, 164, 130, 0.1); /* Fundo dourado translúcido */
-  border: 1px solid var(--border);  /* Borda do ícone */
-  border-radius: 10px;              /* Cantos levemente arredondados */
-  display: flex;                    /* Flexbox para centralizar o ícone/emoji */
-  align-items: center;              /* Centralização vertical */
-  justify-content: center;          /* Centralização horizontal */
-  color: var(--accent);             /* Cor do ícone */
-  font-size: 1.5rem;                /* Tamanho da fonte ou emoji dentro da caixa */
-  margin-bottom: 1.6rem;            /* Espaço abaixo do ícone */
+  width: 52px;                        /* Largura fixa da caixa do ícone */
+  height: 52px;                       /* Altura fixa da caixa do ícone */
+  background: rgba(196, 164, 130, 0.1);/* Fundo translúcido bronze */
+  border: 1px solid var(--border);    /* Borda fina metálica */
+  border-radius: 10px;                /* Arredondamento suave */
+  display: flex;                      /* Flexbox para centralizar o emoji ou ícone SVG */
+  align-items: center;                /* Centraliza verticalmente */
+  justify-content: center;            /* Centraliza horizontalmente */
+  color: var(--accent);               /* Cor do ícone */
+  font-size: 2.5rem;                  /* Tamanho grande do emoji/ícone */
+  margin-bottom: 16px;                /* Espaçamento inferior até o título do card */
 }
 
 .card-title,
 .card__title {
-  font-size: 1.15rem;               /* Tamanho do título do card */
-  font-weight: 600;                 /* Peso negrito */
-  margin-bottom: 1rem;              /* Espaço abaixo do título do card */
+  font-size: 1.25rem;                 /* Tamanho do título do cartão */
+  font-weight: 600;                   /* Peso semi-negrito */
+  color: var(--text-primary);         /* Cor de texto principal marfim */
+  margin-bottom: 12px;                /* Espaçamento inferior até a descrição */
 }
 
 .card-list {
-  list-style: none;                 /* Remove os marcadores de lista */
+  list-style: none;                   /* Remove marcadores de lista */
 }
 
 .card-list li {
-  color: var(--text-secondary);     /* Cor cinza/bege das opções de bebida */
-  font-size: 0.9rem;                /* Tamanho dos itens */
-  padding: 0.3rem 0;                /* Espaçamento vertical entre opções */
+  color: var(--text-secondary);       /* Cor de texto bege atenuado */
+  font-size: 0.95rem;                 /* Tamanho pequeno dos itens */
+  padding: 0.3rem 0;                  /* Espaçamento vertical interno */
 }
 
 .card-description,
 .card__description {
-  color: var(--text-secondary);     /* Cor de texto secundária */
-  font-size: 0.92rem;               /* Tamanho da descrição */
-  line-height: 1.7;                 /* Espaçamento de linhas suave */
+  color: var(--text-secondary);       /* Cor bege suave para o texto descritivo */
+  font-size: 0.95rem;                 /* Tamanho de leitura ideal */
+  line-height: 1.6;                   /* Entrelinha confortável */
 }
 
 /* 📌 11. CAPTURA DE LEADS E NEWSLETTER (.newsletter) */
 .newsletter,
 .newsletter-section {
-  padding: 4rem 0 6rem;             /* Espaçamento vertical */
+  padding: 4rem 0 6rem;               /* Espaçamento vertical */
 }
 
 .newsletter__container,
 .newsletter-container {
-  background: var(--bg-card);       /* Fundo do contêiner do formulário */
-  border: 1px solid var(--border);  /* Borda sutil em volta */
-  border-radius: var(--radius);     /* Arredondamento */
-  padding: 3.5rem 2rem;             /* Espaçamento interno */
-  text-align: center;               /* Centraliza os títulos e formulário */
-  max-width: 800px;                 /* Largura máxima centralizada */
-  margin: 0 auto;                   /* Centralização horizontal */
-  box-shadow: var(--shadow);        /* Sombra profunda */
+  background: var(--bg-card);         /* Fundo do contêiner do formulário */
+  border: 1px solid var(--border);    /* Borda sutil em volta */
+  border-radius: var(--radius);       /* Arredondamento de bordas em 12px */
+  padding: 3.5rem 2rem;               /* Espaçamento interno */
+  text-align: center;                 /* Centraliza os títulos e formulário */
+  max-width: 800px;                   /* Largura máxima centralizada */
+  margin: 0 auto;                     /* Centralização horizontal */
+  box-shadow: var(--shadow);          /* Sombra profunda */
 }
 
 .newsletter__form,
 .newsletter-form {
-  display: flex;                    /* Coloca o campo de entrada e botão lado a lado */
-  gap: 12px;                        /* Espaço de 12px entre input e botão */
-  margin-top: 2rem;                 /* Espaço acima do formulário */
-  justify-content: center;          /* Centraliza os elementos */
+  display: flex;                      /* Coloca o campo de entrada e botão lado a lado */
+  gap: 12px;                          /* Espaço de 12px entre input e botão */
+  margin-top: 2rem;                   /* Espaço acima do formulário */
+  justify-content: center;            /* Centraliza os elementos */
 }
 
 .newsletter__field,
 .newsletter-field {
-  flex: 1;                          /* Faz o campo ocupar todo o espaço disponível */
-  max-width: 400px;                 /* Limita a largura máxima do campo em 400px */
+  flex: 1;                            /* Faz o campo ocupar todo o espaço disponível */
+  max-width: 400px;                   /* Limita a largura máxima do campo em 400px */
 }
 
 .newsletter__input,
 .newsletter-input {
-  width: 100%;                      /* Ocupa toda a largura do contêiner pai */
-  padding: 1rem 1.2rem;             /* Altura e espaçamento do campo de texto */
-  border-radius: 6px;               /* Arredondamento suave dos cantos */
-  border: 1px solid var(--border);  /* Borda fina metálica */
-  background-color: var(--bg-dark); /* Fundo escuro profundo para o campo */
-  color: var(--text-primary);       /* Cor do texto digitado pelo usuário */
-  font-size: 0.95rem;               /* Tamanho do texto */
-  outline: none;                    /* Remove a borda azul padrão dos navegadores ao clicar */
-  transition: var(--transition);    /* Transição de destaque */
+  width: 100%;                        /* Ocupa toda a largura do contêiner pai */
+  padding: 1rem 1.2rem;               /* Altura e espaçamento do campo de texto */
+  border-radius: 6px;                 /* Arredondamento suave dos cantos */
+  border: 1px solid var(--border);    /* Borda fina metálica */
+  background-color: var(--bg-dark);   /* Fundo escuro profundo para o campo */
+  color: var(--text-primary);         /* Cor do texto digitado pelo usuário */
+  font-size: 0.95rem;                 /* Tamanho do texto */
+  outline: none;                      /* Remove a borda azul padrão dos navegadores ao clicar */
+  transition: var(--transition);      /* Transição de destaque */
 }
 
 .newsletter__input:focus,
 .newsletter-input:focus {
-  border-color: var(--accent);      /* Ilumina a borda com tom dourado ao focar/digitar */
+  border-color: var(--accent);        /* Ilumina a borda com tom dourado ao focar/digitar */
   box-shadow: 0 0 0 3px rgba(196, 164, 130, 0.2); /* Cria um brilho suave dourado ao redor */
 }
 
 .btn--form {
-  padding: 1rem 1.8rem;             /* Preenchimento sob medida para o botão do formulário */
+  padding: 1rem 1.8rem;               /* Preenchimento sob medida para o botão do formulário */
 }
 
 /* 📌 12. RODAPÉ DA PÁGINA (.footer) */
 .footer {
-  text-align: center;               /* Centraliza o texto do rodapé */
-  padding: 3rem 5%;                 /* Espaçamento interno do rodapé */
-  border-top: 1px solid var(--border); /* Divisória metálica na parte superior */
-  color: var(--text-secondary);     /* Cor de texto secundária */
-  font-size: 0.85rem;               /* Fonte em tamanho reduzido */
-  letter-spacing: 0.05em;           /* Ajuste sutil do espaço entre letras */
-  opacity: 0.8;                     /* Opacidade para ficar elegante e discreto */
+  text-align: center;                 /* Centraliza o texto do rodapé */
+  padding: 3rem 5%;                   /* Espaçamento interno do rodapé */
+  border-top: 1px solid var(--border);/* Divisória metálica na parte superior */
+  color: var(--text-secondary);       /* Cor de texto secundária */
+  font-size: 0.85rem;                 /* Fonte em tamanho reduzido */
+  letter-spacing: 0.05em;             /* Ajuste sutil do espaço entre letras */
+  opacity: 0.8;                       /* Opacidade para ficar elegante e discreto */
 }
 
 /* 📌 13. RESPONSIVIDADE & ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS */
@@ -528,25 +561,25 @@ body {
 @media (max-width: 960px) {
   .hero-card,
   .hero {
-    grid-template-columns: 1fr;    /* Muda a Hero de 2 colunas para 1 única coluna */
-    flex-direction: column;         /* Empilha o conteúdo */
-    text-align: center;             /* Centraliza os textos */
+    grid-template-columns: 1fr;      /* Muda a Hero de 2 colunas para 1 única coluna */
+    flex-direction: column;           /* Empilha o conteúdo */
+    text-align: center;               /* Centraliza os textos */
   }
 
   .hero-image-wrapper {
-    min-height: 380px;              /* Ajusta a altura da imagem em telas menores */
+    min-height: 380px;                /* Ajusta a altura da imagem em telas menores */
   }
 
   .cards-grid,
   .beneficios__grid {
-    grid-template-columns: 1fr;    /* Transforma a grade de 3 cards em 1 card por linha */
-    max-width: 480px;               /* Limita a largura para visualização ideal */
-    margin: 0 auto;                 /* Centraliza a grade */
+    grid-template-columns: 1fr;      /* Transforma a grade de 3 cards em 1 card por linha */
+    max-width: 480px;                 /* Limita a largura para visualização ideal */
+    margin: 0 auto;                   /* Centraliza a grade */
   }
 
   .nav-menu,
   .header__nav {
-    display: none;                  /* Oculta os links do menu em telas menores para não quebrar */
+    display: none;                    /* Oculta os links do menu em telas menores para não quebrar */
   }
 }
 
@@ -554,33 +587,33 @@ body {
 @media (max-width: 600px) {
   .hero-title,
   .hero__title {
-    font-size: 2.4rem;              /* Reduz o tamanho do título principal para caber na tela */
+    font-size: 2.4rem;                /* Reduz o tamanho do título principal para caber na tela */
   }
 
   .hero-actions,
   .hero__cta-group {
-    flex-direction: column;         /* Empilha os botões no celular */
+    flex-direction: column;           /* Empilha os botões no celular */
   }
 
   .btn-primary,
   .btn-secondary,
   .btn--primary,
   .btn--outline {
-    width: 100%;                    /* Botões ocupam 100% da largura da tela no celular */
+    width: 100%;                      /* Botões ocupam 100% da largura da tela no celular */
   }
 
   .newsletter__form,
   .newsletter-form {
-    flex-direction: column;         /* Empilha o campo de e-mail e o botão na captura de leads */
-    align-items: center;            /* Centraliza os campos */
+    flex-direction: column;           /* Empilha o campo de e-mail e o botão na captura de leads */
+    align-items: center;              /* Centraliza os campos */
   }
 
   .newsletter__field,
   .newsletter-field {
-    width: 100%;                    /* Campo ocupa toda a largura no celular */
+    width: 100%;                      /* Campo ocupa toda a largura no celular */
   }
 
   .header {
-    padding: 1rem 5%;               /* Reduz o padding do cabeçalho em celulares */
+    padding: 1rem 5%;                 /* Reduz o padding do cabeçalho em celulares */
   }
 }

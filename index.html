@@ -89,62 +89,92 @@
             </div>
         </section>
 
-        <!-- ⚡ SEÇÃO DE BENEFÍCIOS DO PRODUTO -->
-        <section class="features-section" id="beneficios"> <!-- Seção semântica com o id="beneficios" acionado pelo menu -->
-            <h2 class="section-title">Por que escolher o nosso produto?</h2> <!-- Título secundário (Heading 2) para a seção de benefícios -->
+        <!-- 🎁 SEÇÃO DE BENEFÍCIOS (LAYOUT HÍBRIDO INTEGRADOR) -->
+        <section id="beneficios" class="features-section beneficios"> <!-- Seção identificada pelo ID 'beneficios' combinando as classes 'features-section' e 'beneficios' -->
+            <div class="beneficios__header"> <!-- Contêiner centralizado para agrupar o título e o subtítulo explicativo da seção -->
+                <h2 class="section-title beneficios__title">Por que escolher o Aura Deluxe com TechFlow?</h2> <!-- Título da seção unindo as classes de tipografia 'section-title' e 'beneficios__title' -->
+                <p class="section-subtitle beneficios__subtitle">Tudo o que você precisa em um único lugar para crescer com alta performance e elegância.</p> <!-- Subtítulo explicativo unindo as classes 'section-subtitle' e 'beneficios__subtitle' -->
+            </div>
 
-            <!-- Grade com os Cartões de Benefícios -->
-            <div class="cards-grid"> <!-- Container usando CSS Grid para organizar os 3 cartões lado a lado -->
+            <!-- Container Grid onde a mágica acontece -->
+            <div class="cards-grid beneficios__grid"> <!-- Grade flexível em CSS Grid integrando as classes 'cards-grid' e 'beneficios__grid' -->
 
-                <!-- Card 01: Menu de Bebidas -->
-                <article class="feature-card"> <!-- Elemento semântico <article> representando um conteúdo autônomo da página -->
-                    <div class="icon-wrapper"> <!-- Caixa estilizada contendo o ícone em desenho vetorial SVG -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
-                            <line x1="6" y1="2" x2="6" y2="4"></line>
-                            <line x1="10" y1="2" x2="10" y2="4"></line>
-                            <line x1="14" y1="2" x2="14" y2="4"></line>
-                        </svg> <!-- Desenho vetorial de uma xícara de café -->
-                    </div>
-                    <h3 class="card-title">Menu de Bebidas</h3> <!-- Título de nível 3 para o cartão -->
-                    <ul class="card-list"> <!-- Lista contendo os tipos de bebidas extraídas -->
-                        <li>Expressos</li>
-                        <li>Cappuccino</li>
-                        <li>Flat White</li>
-                        <li>Mocha</li>
-                    </ul>
-                </article>
-
-                <!-- Card 02: Design Feito à Mão (Card de Destaque) -->
-                <article class="feature-card feature-card--featured"> <!-- Artigo que possui uma classe modificadora de destaque visual -->
-                    <div class="icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 15 10-15-10-5z"></path>
-                            <path d="M2 7l10 5 10-5"></path>
-                            <path d="M12 22V12"></path>
-                        </svg> <!-- Desenho vetorial de um diamante/pedra esculpida -->
-                    </div>
-                    <h3 class="card-title">Design Único Feito à Mão</h3>
-                    <p class="card-description"> <!-- Texto explicativo contínuo -->
-                        Laterais esculpidas em pedra basalto natural com manípulos em nogueira nobre.
+                <!-- Card 1: Alta Performance (Tecnologia TechFlow) -->
+                <article class="feature-card card"> <!-- Cartão de benefício utilizando as classes semânticas 'feature-card' e 'card' -->
+                    <div class="icon-wrapper card__icon">⚡</div> <!-- Ícone de raio em emoji indicando velocidade e processamento instantâneo -->
+                    <h3 class="card-title card__title">Alta Performance</h3> <!-- Título de nível 3 para o cartão de Alta Performance -->
+                    <p class="card-description card__description"> <!-- Parágrafo descritivo do benefício de alta velocidade -->
+                        Processamento em tempo real com taxa de resposta de milissegundos para não travar sua rotina. <!-- Descrição da taxa de resposta super rápida -->
                     </p>
                 </article>
 
-                <!-- Card 03: Tecnologia PID -->
-                <article class="feature-card">
-                    <div class="icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 12l3-3"></path>
-                            <path d="M12 6v2"></path>
-                            <path d="M6 12h2"></path>
-                            <path d="M18 12h-2"></path>
-                        </svg> <!-- Desenho vetorial de manômetro/medidor de pressão -->
+                <!-- Card 2: Segurança de Ponta (Tecnologia TechFlow em Destaque) -->
+                <article class="feature-card card card--featured"> <!-- Cartão com a classe modificadora 'card--featured' para aplicação da borda e fundo em destaque -->
+                    <div class="icon-wrapper card__icon">🛡️</div> <!-- Ícone de escudo indicando proteção e criptografia avançada -->
+                    <h3 class="card-title card__title">Segurança de Ponta</h3> <!-- Título de nível 3 para o cartão de Segurança -->
+                    <p class="card-description card__description"> <!-- Parágrafo descritivo sobre a proteção total de dados -->
+                        Criptografia de ponta a ponta e backups automáticos diários para proteção total dos seus dados. <!-- Descrição das rotinas de backup e segurança -->
+                    </p>
+                </article>
+
+                <!-- Card 3: Relatórios Detalhados (Tecnologia TechFlow) -->
+                <article class="feature-card card"> <!-- Cartão de benefício individual para relatórios analíticos -->
+                    <div class="icon-wrapper card__icon">📊</div> <!-- Ícone de gráfico indicando métricas e estatísticas -->
+                    <h3 class="card-title card__title">Relatórios Detalhados</h3> <!-- Título de nível 3 para o cartão de Relatórios -->
+                    <p class="card-description card__description"> <!-- Parágrafo descritivo da inteligência e análise de métricas -->
+                        Métricas claras e exportáveis em um clique para você tomar as melhores decisões estratégicas. <!-- Descrição sobre a tomada de decisão com métricas claras -->
+                    </p>
+                </article>
+
+                <!-- Card 4: Menu de Bebidas (Aura Deluxe Artesanal) -->
+                <article class="feature-card card"> <!-- Cartão dedicado ao menu diversificado de extrações de café artesanal -->
+                    <div class="icon-wrapper card__icon"> <!-- Invólucro para o ícone vetorial da xícara de café -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- Desenho vetorial SVG de uma xícara de café -->
+                            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path> <!-- Traçado da asa da xícara -->
+                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path> <!-- Traçado do corpo da xícara -->
+                            <line x1="6" y1="2" x2="6" y2="4"></line> <!-- Vapor 1 -->
+                            <line x1="10" y1="2" x2="10" y2="4"></line> <!-- Vapor 2 -->
+                            <line x1="14" y1="2" x2="14" y2="4"></line> <!-- Vapor 3 -->
+                        </svg>
                     </div>
-                    <h3 class="card-title">Pressão & Temperatura PID</h3>
-                    <p class="card-description">
-                        Estabilidade térmica digital e bomba rotativa de 15 BAR para extração perfeita.
+                    <h3 class="card-title card__title">Menu de Bebidas</h3> <!-- Título do cartão de bebidas -->
+                    <ul class="card-list"> <!-- Lista com as opções variadas de receitas de café -->
+                        <li>Expressos</li> <!-- Café Expresso puro -->
+                        <li>Cappuccino</li> <!-- Cappuccino aveludado -->
+                        <li>Flat White</li> <!-- Flat White especial -->
+                        <li>Mocha</li> <!-- Mocha com chocolate nobre -->
+                    </ul>
+                </article>
+
+                <!-- Card 5: Design Único Feito à Mão (Aura Deluxe Basalto) -->
+                <article class="feature-card card"> <!-- Cartão destacando o acabamento nobre esculpido em basalto -->
+                    <div class="icon-wrapper card__icon"> <!-- Invólucro para o ícone vetorial de diamante/pedra natural -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- Desenho vetorial SVG de uma estrutura lapidada -->
+                            <path d="M12 2L2 7l10 15 10-15-10-5z"></path> <!-- Facetas do topo -->
+                            <path d="M2 7l10 5 10-5"></path> <!-- Faceta central -->
+                            <path d="M12 22V12"></path> <!-- Eixo vertical -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Design Único Feito à Mão</h3> <!-- Título do acabamento artesanal -->
+                    <p class="card-description card__description"> <!-- Descrição da rocha de basalto natural e madeira nogueira -->
+                        Laterais esculpidas em pedra basalto natural com manípulos em nogueira nobre. <!-- Detalhes da construção artesanal em pedra e madeira -->
+                    </p>
+                </article>
+
+                <!-- Card 6: Pressão & Temperatura PID (Aura Deluxe Tecnologia) -->
+                <article class="feature-card card"> <!-- Cartão destacando a engenharia de precisão e controle digital PID -->
+                    <div class="icon-wrapper card__icon"> <!-- Invólucro para o ícone vetorial do manômetro de pressão -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- Desenho vetorial SVG do medidor de escala -->
+                            <circle cx="12" cy="12" r="10"></circle> <!-- Círculo do manômetro -->
+                            <path d="M12 12l3-3"></path> <!-- Ponteiro analógico -->
+                            <path d="M12 6v2"></path> <!-- Marcação superior -->
+                            <path d="M6 12h2"></path> <!-- Marcação esquerda -->
+                            <path d="M18 12h-2"></path> <!-- Marcação direita -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Pressão & Temperatura PID</h3> <!-- Título sobre estabilidade térmica e pressão -->
+                    <p class="card-description card__description"> <!-- Descrição da bomba rotativa profissional de 15 BAR -->
+                        Estabilidade térmica digital e bomba rotativa de 15 BAR para extração perfeita. <!-- Detalhes do sistema de extração profissional -->
                     </p>
                 </article>
 
@@ -154,12 +184,12 @@
         <!-- ✉️ SEÇÃO DE CAPTURA DE LEADS / NEWSLETTER -->
         <section class="newsletter-section" id="newsletter"> <!-- Seção identificada com id="newsletter" -->
             <div class="newsletter-container"> <!-- Caixa interna estilizada com fundo de cartão e sombra -->
-                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2>
-                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
+                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2> <!-- Título secundário do formulário -->
+                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p> <!-- Subtítulo incentivando a inscrição -->
 
                 <!-- Formulário de Captura de E-mail -->
                 <form class="newsletter-form" action="#" method="POST"> <!-- Formulário configurado para envio de dados via método POST -->
-                    <div class="newsletter-field"> <!-- invólucro do campo de entrada -->
+                    <div class="newsletter-field"> <!-- Invólucro do campo de entrada de texto -->
                         <!-- Rótulo invisível na tela, mas lido por programas de leitores de tela para pessoas com deficiência visual (Acessibilidade) -->
                         <label for="email-input" class="sr-only">Seu e-mail principal</label> 
                         <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required> <!-- Campo de entrada do e-mail com validação obrigatória (required) -->
