@@ -20,14 +20,6 @@ a {
   --accent-hover: #D8B998;            /* Cor de destaque quando houver interação/hover */
   --border: rgba(196, 164, 130, 0.15); /* Cor das bordas metálicas translúcidas */
 
-  /* Mapeamento de Atalhos de Cores (Compatibilidade TechFlow & Aura Deluxe) */
-  --bg-main: var(--bg-dark);          /* Mapeia a variável do tema principal para o fundo escuro */
-  --color-text: var(--text-primary);  /* Mapeia a cor do texto principal para marfim */
-  --color-text-muted: var(--text-secondary); /* Mapeia a cor de texto atenuado para bege */
-  --color-primary: var(--accent);     /* Mapeia a cor primária para o tom ouro/bronze */
-  --color-primary-hover: var(--accent-hover); /* Mapeia o estado de hover para ouro iluminado */
-  --color-border: var(--border);      /* Mapeia as bordas para a transparência metálica */
-
   /* Tipografia & Fontes */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif; /* Fonte padrão sem serifa */
   --font-serif: 'Cormorant Garamond', Georgia, serif;         /* Fonte clássica serifada para títulos */
@@ -42,11 +34,9 @@ a {
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transição suave e fluida de animação */
 }
 
-/* 🎨 PARTE 2 - RECURSO 1: MODO CLARO / ESCURO AUTOMÁTICO E DINÂMICO */
-/* Suporta detecção do sistema via `prefers-color-scheme: light` e alternância por botão via `[data-theme="light"]` */
-[data-theme="light"],
+/* 🌗 RECURSO DE ADAPTABILIDADE 1: MODO CLARO AUTOMÁTICO (prefers-color-scheme: light) */
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
+  :root {
     /* Redefinição dinâmica das variáveis para paleta clara mantendo o tom nobre e sofisticado */
     --bg-dark: #F7F4F0;               /* Fundo principal passa a ser Creme / Marfim suave */
     --bg-card: #FFFFFF;               /* Cartões ganham fundo branco puro para alto contraste */
@@ -60,16 +50,13 @@ a {
   }
 
   /* Ajuste no efeito de vidro fosco do cabeçalho no modo claro */
-  html:not([data-theme="dark"]) .header,
-  [data-theme="light"] .header {
+  .header {
     background: rgba(247, 244, 240, 0.88); /* Fundo claro translúcido */
   }
 
   /* Ajuste no gradiente do título principal no modo claro */
-  html:not([data-theme="dark"]) .hero-title,
-  html:not([data-theme="dark"]) .hero__title,
-  [data-theme="light"] .hero-title,
-  [data-theme="light"] .hero__title {
+  .hero-title,
+  .hero__title {
     background: linear-gradient(135deg, #1A1714 0%, #7F6343 50%, #9A7B56 100%); /* Degradê ajustado para fundo claro */
     -webkit-background-clip: text;    /* Preserva o recorte das letras */
     background-clip: text;            /* Preserva o recorte das letras */
@@ -115,7 +102,6 @@ body {
 .hero-title,
 .hero__title,
 .section-title,
-.beneficios__title,
 .logo-text {
   font-family: var(--font-serif);     /* Aplica a fonte Cormorant Garamond nos títulos da página */
 }
@@ -202,34 +188,6 @@ body {
 .nav-menu a:hover,
 .header__link:hover {
   color: var(--accent);               /* Muda a cor do link para dourado ao passar o mouse */
-}
-
-/* Grupo de Ações do Cabeçalho e Botão de Alternar Tema */
-.header-actions {
-  display: flex;                      /* Coloca o botão de alternar tema e o botão comprar lado a lado */
-  align-items: center;                /* Alinha ambos verticalmente ao centro */
-  gap: 1rem;                          /* Espaçamento entre os botões */
-}
-
-.btn-theme-toggle {
-  background: rgba(196, 164, 130, 0.12); /* Fundo translúcido em tom bronze */
-  border: 1px solid var(--border);    /* Borda sutil em acabamento metálico */
-  color: var(--text-primary);         /* Cor do texto/ícone do botão */
-  width: 38px;                        /* Largura do botão circular */
-  height: 38px;                       /* Altura do botão circular */
-  border-radius: 50%;                 /* Torna o botão em um círculo perfeito */
-  display: inline-flex;               /* Flexbox para centralizar o emoji do sol/lua */
-  align-items: center;                /* Centralização vertical */
-  justify-content: center;            /* Centralização horizontal */
-  cursor: pointer;                    /* Exibe o ponteiro de clique */
-  font-size: 1.1rem;                  /* Tamanho do emoji do tema */
-  transition: var(--transition);      /* Transição de cores e transformações */
-}
-
-.btn-theme-toggle:hover {
-  border-color: var(--accent);        /* Destaca a borda em dourado ao passar o mouse */
-  background: rgba(196, 164, 130, 0.25); /* Intensifica o fundo translúcido no hover */
-  transform: scale(1.08);             /* Leve ampliação ao passar o mouse para dar feedback tátil */
 }
 
 .btn-nav {
@@ -444,31 +402,29 @@ body {
   padding: 2rem 0 6rem;               /* Espaçamento da seção */
 }
 
-.section-title,
-.beneficios__title {
+.section-title {
   text-align: center;                 /* Centraliza o título da seção */
-  font-size: 2.25rem;                 /* Tamanho do título da seção */
-  font-weight: 700;                   /* Peso negrito */
+  font-size: 2rem;                    /* Tamanho do título da seção */
+  font-weight: 500;                   /* Peso médio */
   letter-spacing: 0.08em;             /* Aumenta o espaçamento das letras */
-  margin-bottom: 12px;                /* Espaço abaixo do título */
+  margin-bottom: 3.5rem;              /* Espaço abaixo do título */
   color: var(--text-primary);         /* Cor marfim */
 }
 
-.section-subtitle,
-.beneficios__subtitle {
+.section-subtitle {
   text-align: center;                 /* Centraliza o subtítulo */
   color: var(--text-secondary);       /* Cor secundária */
-  font-size: 1.1rem;                  /* Tamanho do subtítulo */
-  margin-top: -0.5rem;                /* Ajuste relativo ao título */
-  margin-bottom: 2.5rem;              /* Espaço até os cartões */
+  font-size: 1rem;                    /* Tamanho do subtítulo */
+  margin-top: -2.5rem;                /* Recua para ficar próximo ao título principal */
+  margin-bottom: 3rem;                /* Espaço até os cartões */
 }
 
-/* 📱 PARTE 1 - RECURSO 1: LAYOUT HÍBRIDO FLEXÍVEL (CSS GRID DINÂMICO) */
+/* 📱 RECURSO DE RESPONSIVIDADE 1: LAYOUT HÍBRIDO FLEXÍVEL COM CSS GRID DINÂMICO */
 .cards-grid,
 .beneficios__grid {
   display: grid;                                      /* Modelo CSS Grid para organizar os cartões de benefícios */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Redistribui os cards automaticamente sem quebrar em telas menores */
-  gap: 32px;                                          /* Espaçamento igual de 32px entre os cartões */
+  gap: 1.5rem;                                        /* Espaçamento uniforme e elegante entre os cartões */
 }
 
 .feature-card,
@@ -476,22 +432,16 @@ body {
   background: var(--bg-card);         /* Fundo chocolate do card */
   border: 1px solid var(--border);    /* Borda fina metálica */
   border-radius: var(--radius);       /* Arredondamento em 12px */
-  padding: 32px;                      /* Preenchimento interno */
-  
-  /* Flexbox interno para organizar ícone, título e texto */
-  display: flex;                      /* Flexbox interno para o cartão */
-  flex-direction: column;             /* Empilha elementos verticalmente */
-  align-items: flex-start;            /* Alinha conteúdo à esquerda */
-  
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+  padding: 2.5rem 2rem;               /* Preenchimento interno */
+  transition: var(--transition);      /* Transição suave para interação */
 }
 
 .feature-card:hover,
 .card:hover {
   background: var(--bg-card-hover);   /* Ilumina o fundo ao passar o mouse */
-  border-color: var(--accent);        /* Destaca a borda metálica em tom dourado */
-  transform: translateY(-8px);        /* Eleva o cartão em 8px (efeito de flutuação) */
-  box-shadow: 0 12px 30px rgba(196, 164, 130, 0.2); /* Aumenta a sombra luminosa */
+  border-color: rgba(196, 164, 130, 0.4); /* Destaca a borda metálica */
+  transform: translateY(-6px);        /* Eleva o cartão em 6px (efeito de flutuação) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Aumenta a sombra profunda */
 }
 
 .card--featured {
@@ -510,16 +460,15 @@ body {
   align-items: center;                /* Centralização vertical */
   justify-content: center;            /* Centralização horizontal */
   color: var(--accent);               /* Cor do ícone */
-  font-size: 2.5rem;                  /* Tamanho destacado para emojis e ícones */
-  margin-bottom: 16px;                /* Espaço abaixo do ícone */
+  font-size: 1.5rem;                  /* Tamanho da fonte ou emoji dentro da caixa */
+  margin-bottom: 1.6rem;              /* Espaço abaixo do ícone */
 }
 
 .card-title,
 .card__title {
-  font-size: 1.25rem;                 /* Tamanho do título do card */
+  font-size: 1.15rem;                 /* Tamanho do título do card */
   font-weight: 600;                   /* Peso negrito */
-  color: var(--text-primary);         /* Cor de texto principal */
-  margin-bottom: 12px;                /* Espaço abaixo do título do card */
+  margin-bottom: 1rem;                /* Espaço abaixo do título do card */
 }
 
 .card-list {
@@ -528,18 +477,18 @@ body {
 
 .card-list li {
   color: var(--text-secondary);       /* Cor cinza/bege das opções de bebida */
-  font-size: 0.95rem;                 /* Tamanho dos itens */
+  font-size: 0.9rem;                  /* Tamanho dos itens */
   padding: 0.3rem 0;                  /* Espaçamento vertical entre opções */
 }
 
 .card-description,
 .card__description {
   color: var(--text-secondary);       /* Cor de texto secundária */
-  font-size: 0.95rem;                 /* Tamanho da descrição */
-  line-height: 1.6;                   /* Espaçamento de linhas suave */
+  font-size: 0.92rem;                 /* Tamanho da descrição */
+  line-height: 1.7;                   /* Espaçamento de linhas suave */
 }
 
-/* 🎨 PARTE 2 - RECURSO 2: FAQ SANFONADA COM ECONOMIA DE ESPAÇO (<details> & <summary>) */
+/* 🌗 RECURSO DE ADAPTABILIDADE 2: ESTILIZAÇÃO DA FAQ SANFONADA (<details> & <summary>) */
 .faq-section {
   padding: 3rem 0 5rem;               /* Espaçamento da seção de perguntas frequentes */
 }
@@ -684,10 +633,11 @@ body {
   opacity: 0.8;                       /* Opacidade para ficar elegante e discreto */
 }
 
-/* 📱 PARTE 1 - RECURSO 2: BREAKPOINTS COM MEDIA QUERIES (@media max-width: 768px) */
-/* Garante suporte a telas de desktop, tablet e smartphones a partir de 360px sem barra de rolagem horizontal */
+/* 📌 13. RESPONSIVIDADE & ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS (360px a 960px) */
+
+/* 📱 RECURSO DE RESPONSIVIDADE 2: BREAKPOINT MEDIA QUERY (max-width: 768px) */
 @media (max-width: 768px) {
-  /* Reorganiza o Card Hero de 2 colunas para empilhado em 1 coluna vertical */
+  /* Reorganiza o Card Hero de 2 colunas para empilhado em 1 coluna */
   .hero-card,
   .hero {
     grid-template-columns: 1fr;      /* Transforma o layout em uma única coluna vertical */
@@ -714,7 +664,7 @@ body {
     margin-right: auto;              /* Alinha horizontalmente a badge no centro */
   }
 
-  /* Remove os pontos da lista para texto centralizado */
+  /* Remove os pontos da lista ou ajusta o espaçamento para texto centralizado */
   .hero-features li {
     padding-left: 0;                 /* Remove o recuo da esquerda para alinhar ao centro */
   }
@@ -737,7 +687,7 @@ body {
   }
 }
 
-/* Ajustes finos para telas muito pequenas (Suporte nativo a 360px de largura sem overflow horizontal) */
+/* Telas de Celulares Pequenos (Ajuste adicional para rodar suavemente em até 360px sem rolagem horizontal) */
 @media (max-width: 600px) {
   .hero-title,
   .hero__title {

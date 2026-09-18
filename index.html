@@ -1,168 +1,234 @@
 <!DOCTYPE html> <!-- Declaração que informa ao navegador que este documento usa a versão moderna do HTML5 -->
-<html lang="pt-BR"> <!-- Tag raiz do documento HTML; o atributo 'lang="pt-BR"' define o idioma como Português do Brasil para tradutores e leitores de tela -->
-<head> <!-- Cabeçalho invisível do documento; contém metadados, links de fontes, estilos e configurações de redes sociais -->
-    <meta charset="UTF-8"> <!-- Define o mapa de caracteres como UTF-8, garantindo suporte correto a acentos, ç e emojis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração de responsividade: faz a página se ajustar à largura de qualquer tela (celular, tablet ou PC) -->
-    <title>Aura Deluxe — Aurora Coffee</title> <!-- Título do site que é exibido na aba do navegador e nos resultados de busca do Google -->
+<html lang="pt-BR"> <!-- Tag raiz do documento HTML; o atributo 'lang="pt-BR"' define o idioma como Português do Brasil -->
+<head> <!-- Cabeçalho invisível do documento; contém metadados, links de fontes, estilos e configurações -->
+    <meta charset="UTF-8"> <!-- Define o mapa de caracteres como UTF-8, garantindo suporte correto a acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração de responsividade para ajuste automático na tela do dispositivo -->
+    <title>Aura Deluxe — Aurora Coffee</title> <!-- Título do site exibido na aba do navegador -->
 
-    <!-- ☕ META TAGS OPEN GRAPH (Responsáveis por criar o card com foto e texto ao compartilhar o link no WhatsApp, LinkedIn, etc.) -->
-    <meta property="og:type" content="website"> <!-- Define o tipo de conteúdo da página como um site comum -->
-    <meta property="og:title" content="Aura Deluxe — Aurora Coffee | Cafeteira de Expresso Artesanal"> <!-- Título exibido no card de pré-visualização das redes sociais -->
-    <meta property="og:description" content="Conheça a Aurora Coffee. Estética rústica em basalto natural, certificação SCA e a extração perfeita para o seu café de luxo."> <!-- Descrição exibida abaixo do título no compartilhamento -->
-    <meta property="og:image" content="Gemini_Generated_Image_.png"> <!-- Caminho da imagem que ilustra o card de compartilhamento -->
-    <meta property="og:url" content="https://auradeluxe.com.br"> <!-- URL oficial de destino da página -->
+    <!-- Meta Tags para pré-visualização em redes sociais (Open Graph / WhatsApp / LinkedIn) -->
+    <meta property="og:type" content="website"> <!-- Define o tipo de conteúdo como um site -->
+    <meta property="og:title" content="Aura Deluxe — Aurora Coffee | Cafeteira de Expresso Artesanal"> <!-- Título no compartilhamento -->
+    <meta property="og:description" content="Conheça a Aurora Coffee. Estética rústica em basalto natural, certificação SCA e a extração perfeita para o seu café de luxo."> <!-- Descrição no compartilhamento -->
+    <meta property="og:image" content="Gemini_Generated_Image_.png"> <!-- Imagem do card de compartilhamento -->
+    <meta property="og:url" content="https://auradeluxe.com.br"> <!-- URL oficial da página -->
 
-    <!-- Meta Tags para Twitter / X (Específicas para gerar o visual correto de pré-visualização na rede social X/Twitter) -->
-    <meta name="twitter:card" content="summary_large_image"> <!-- Define que o card do Twitter exibirá uma imagem grande em destaque -->
-    <meta name="twitter:title" content="Aura Deluxe — Aurora Coffee"> <!-- Título do card no Twitter -->
-    <meta name="twitter:description" content="Cafeteira de Expresso Artesanal de Luxo com estética em basalto natural e controle PID."> <!-- Descrição do card no Twitter -->
-    <meta name="twitter:image" content="Gemini_Generated_Image_.png"> <!-- Imagem do card no Twitter -->
-
-    <!-- Configuração de Favicon (Ícone personalizado que fica ao lado do título na aba do navegador, gerado via código SVG com o emoji de café) -->
+    <!-- Configuração de Favicon (Ícone na aba do navegador) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
 
-    <!-- Conexão Prévia com os Servidores de Fontes do Google (Otimiza a velocidade de carregamento) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conecta ao servidor das fontes -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conecta ao servidor estático de arquivos das fontes -->
-    <!-- Importação das fontes 'Cormorant Garamond' (estilo clássico) e 'Inter' (estilo moderno) com variações de espessura -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Conexão e Importação de Fontes do Google (Cormorant Garamond e Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conecta ao servidor de fontes -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conecta ao servidor estático -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> <!-- Importa as fontes do projeto -->
     
-    <!-- Link para Conexão com a Folha de Estilos Externa (style.css) -->
-    <link rel="stylesheet" href="style.css"> <!-- Importa as regras de cores, fontes e layouts do arquivo CSS -->
+    <!-- Link para a Folha de Estilos CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- Conecta o arquivo CSS externo -->
 </head>
-<body> <!-- Corpo visível do site; todo o conteúdo exposto ao usuário na tela fica dentro do <body> -->
+<body> <!-- Corpo visível do site -->
 
-    <!-- 📌 HEADER / CABEÇALHO FIXO DO SITE -->
-    <header class="header"> <!-- Elemento semântico de cabeçalho; fixado no topo com efeito de vidro (Glassmorphism) -->
-        <a href="#home" class="logo"> <!-- Link do logo que leva o usuário de volta ao topo da página (#home) -->
-            <div class="logo-icon"> <!-- Container quadrado estilizado para o ícone da logo -->
-                <img src="Gemini_Generated_Image_ (1).png" alt="Logo Aura Deluxe"> <!-- Imagem da logo com texto alternativo de acessibilidade (alt) -->
+    <!-- 📌 HEADER / CABEÇALHO FIXO -->
+    <header class="header"> <!-- Elemento de cabeçalho fixado no topo com efeito glassmorphism -->
+        <a href="#home" class="logo"> <!-- Link da logo para retornar ao topo -->
+            <div class="logo-icon"> <!-- Caixa do ícone da logo -->
+                <img src="Gemini_Generated_Image_ (1).png" alt="Logo Aura Deluxe"> <!-- Imagem da logo com texto alternativo -->
             </div>
-            <span class="logo-text">AURA DELUXE</span> <!-- Texto estilizado em maiúsculo da marca -->
+            <span class="logo-text">AURA DELUXE</span> <!-- Nome da marca -->
         </a>
 
-        <!-- Menu de Navegação Principal -->
-        <nav class="nav-menu"> <!-- Elemento semântico de navegação -->
-            <ul> <!-- Lista não-ordenada que agrupa os itens do menu -->
-                <li><a href="#home">Home</a></li> <!-- Item da lista com link âncora que rola até a seção 'home' -->
-                <li><a href="#beneficios">Benefícios</a></li> <!-- Item da lista com link âncora que rola até a seção 'beneficios' -->
-                <li><a href="#newsletter">Novidades</a></li> <!-- Item da lista com link âncora que rola até a seção 'newsletter' -->
+        <!-- Menu de Navegação -->
+        <nav class="nav-menu"> <!-- Navegação principal -->
+            <ul> <!-- Lista de links do menu -->
+                <li><a href="#home">Home</a></li> <!-- Link para a seção inicial -->
+                <li><a href="#beneficios">Benefícios</a></li> <!-- Link para os benefícios -->
+                <li><a href="#faq">Dúvidas</a></li> <!-- Link para a seção de FAQ -->
+                <li><a href="#newsletter">Novidades</a></li> <!-- Link para a newsletter -->
             </ul>
         </nav>
 
-        <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão de ação rápida no cabeçalho apontando para o formulário/oferta -->
+        <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão de ação rápida -->
     </header>
 
     <!-- 📌 CONTEÚDO PRINCIPAL DO SITE -->
-    <main class="main-container"> <!-- Tag semântica <main> indicando o conteúdo primário e exclusivo da página -->
+    <main class="main-container"> <!-- Contêiner principal da página -->
 
-        <!-- ☕ SEÇÃO HERO / DESTAQUE PRINCIPAL -->
-        <section class="hero-section" id="home"> <!-- Seção identificada com id="home" para a navegação por âncora do menu -->
-            <div class="hero-card"> <!-- Card principal que divide a tela em duas colunas (Imagem + Detalhes) -->
+        <!-- ☕ SEÇÃO HERO (DESTAQUE PRINCIPAL) -->
+        <section class="hero-section" id="home"> <!-- Seção de destaque do produto -->
+            <div class="hero-card"> <!-- Card em grid dividido entre Imagem e Detalhes -->
                 
-                <!-- Coluna da Imagem -->
-                <div class="hero-image-wrapper"> <!-- Envolvente da imagem principal do produto -->
-                    <img src="Gemini_Generated_Image_.png" alt="Cafeteira Aurora Coffee" class="hero-img"> <!-- Fotografia principal da cafeteira -->
+                <!-- Imagem do Produto -->
+                <div class="hero-image-wrapper"> <!-- Envolvente da fotografia principal -->
+                    <img src="Gemini_Generated_Image_.png" alt="Cafeteira Aurora Coffee" class="hero-img"> <!-- Fotografia em destaque da cafeteira -->
                 </div>
 
-                <!-- Coluna dos Detalhes e Ações -->
-                <div class="hero-details"> <!-- Painel contendo as informações e preço -->
-                    <span class="badge">✦ Novo Lançamento 2026</span> <!-- Etiqueta/Selo de destaque acima do título -->
-                    <h1 class="hero-title">Aurora Coffee</h1> <!-- Título principal de maior nível hierárquico (Heading 1) da página -->
+                <!-- Conteúdo Descritivo -->
+                <div class="hero-details"> <!-- Detalhes do produto -->
+                    <span class="badge">✦ Novo Lançamento 2026</span> <!-- Selo de lançamento -->
+                    <h1 class="hero-title">Aurora Coffee</h1> <!-- Título principal do produto -->
 
-                    <!-- Lista de Características Principais -->
-                    <ul class="hero-features"> <!-- Lista marcada de tópicos rápidos -->
-                        <li>Cafeteira de Expresso Artesanal de Luxo</li> <!-- Tópico 1 -->
-                        <li>Garantia de 5 Anos</li> <!-- Tópico 2 -->
-                        <li>Estética Rústica em Basalto Natural</li> <!-- Tópico 3 -->
-                        <li>Certificação Profissional SCA</li> <!-- Tópico 4 -->
+                    <!-- Características Principais -->
+                    <ul class="hero-features"> <!-- Lista de diferenciais do produto -->
+                        <li>Cafeteira de Expresso Artesanal de Luxo</li> <!-- Característica 1 -->
+                        <li>Garantia de 5 Anos</li> <!-- Característica 2 -->
+                        <li>Estética Rústica em Basalto Natural</li> <!-- Característica 3 -->
+                        <li>Certificação Profissional SCA</li> <!-- Característica 4 -->
                     </ul>
 
-                    <div class="price-tag">R$ 4.998,90</div> <!-- Bloco de exibição do valor comercial do produto -->
+                    <div class="price-tag">R$ 4.998,90</div> <!-- Preço do produto -->
 
-                    <!-- Grupo de Botões de Chamada para Ação (CTA) -->
-                    <div class="hero-actions"> <!-- Container flexível para alinhar os botões -->
-                        <a href="#newsletter" class="btn-primary">Garantir o Meu ☕</a> <!-- Botão principal em destaque dourado/bronze -->
-                        <a href="#beneficios" class="btn-secondary">Saber Mais</a> <!-- Botão secundário estilizado com fundo vazado -->
+                    <!-- Botões de Ação (CTA) -->
+                    <div class="hero-actions"> <!-- Agrupador de botões -->
+                        <a href="#newsletter" class="btn-primary">Garantir o Meu ☕</a> <!-- Botão primário -->
+                        <a href="#beneficios" class="btn-secondary">Saber Mais</a> <!-- Botão secundário -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ⚡ SEÇÃO DE BENEFÍCIOS DO PRODUTO -->
-        <section class="features-section" id="beneficios"> <!-- Seção semântica com o id="beneficios" acionado pelo menu -->
-            <h2 class="section-title">Por que escolher o nosso produto?</h2> <!-- Título secundário (Heading 2) para a seção de benefícios -->
+        <!-- 🎁 SEÇÃO DE BENEFÍCIOS (GRID HÍBRIDO RESPONSIVO) -->
+        <section id="beneficios" class="features-section beneficios"> <!-- Seção de benefícios do produto -->
+            <div class="beneficios__header"> <!-- Cabeçalho da seção de benefícios -->
+                <h2 class="section-title beneficios__title">Por que escolher o Aura Deluxe?</h2> <!-- Título da seção -->
+                <p class="section-subtitle beneficios__subtitle">Tudo o que você precisa para uma extração artesanal com alta performance e elegância.</p> <!-- Subtítulo explicativo -->
+            </div>
 
-            <!-- Grade com os Cartões de Benefícios -->
-            <div class="cards-grid"> <!-- Container usando CSS Grid para organizar os 3 cartões lado a lado -->
+            <!-- Grade Dinâmica de Cartões -->
+            <div class="cards-grid beneficios__grid"> <!-- Grade CSS Grid que se reorganiza automaticamente -->
 
-                <!-- Card 01: Menu de Bebidas -->
-                <article class="feature-card"> <!-- Elemento semântico <article> representando um conteúdo autônomo da página -->
-                    <div class="icon-wrapper"> <!-- Caixa estilizada contendo o ícone em desenho vetorial SVG -->
+                <!-- Card 1 -->
+                <article class="feature-card card"> <!-- Cartão de benefício individual -->
+                    <div class="icon-wrapper card__icon">⚡</div> <!-- Ícone representativo em emoji -->
+                    <h3 class="card-title card__title">Alta Performance</h3> <!-- Título do cartão -->
+                    <p class="card-description card__description"> <!-- Descrição do benefício -->
+                        Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas do primeiro ao último xícara.
+                    </p>
+                </article>
+
+                <!-- Card 2 (Em Destaque) -->
+                <article class="feature-card card card--featured"> <!-- Cartão com estilo de destaque estético -->
+                    <div class="icon-wrapper card__icon">🛡️</div> <!-- Ícone de proteção -->
+                    <h3 class="card-title card__title">Garantia Premium</h3> <!-- Título do cartão -->
+                    <p class="card-description card__description"> <!-- Descrição da garantia estendida -->
+                        Suporte técnico VIP com 5 anos de cobertura total para componentes de precisão e estrutura de pedra.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="feature-card card"> <!-- Cartão de precisão técnica -->
+                    <div class="icon-wrapper card__icon">📊</div> <!-- Ícone de métricas -->
+                    <h3 class="card-title card__title">Precisão Digital PID</h3> <!-- Título sobre controle térmico -->
+                    <p class="card-description card__description"> <!-- Descrição do controle de temperatura -->
+                        Controlador digital avançado de temperatura ajustável com precisão de ±0,5°C para perfis aromáticos exatos.
+                    </p>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="feature-card card"> <!-- Cartão do menu de café -->
+                    <div class="icon-wrapper card__icon"> <!-- Ícone vetorial SVG de xícara -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
                             <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
                             <line x1="6" y1="2" x2="6" y2="4"></line>
                             <line x1="10" y1="2" x2="10" y2="4"></line>
                             <line x1="14" y1="2" x2="14" y2="4"></line>
-                        </svg> <!-- Desenho vetorial de uma xícara de café -->
+                        </svg>
                     </div>
-                    <h3 class="card-title">Menu de Bebidas</h3> <!-- Título de nível 3 para o cartão -->
-                    <ul class="card-list"> <!-- Lista contendo os tipos de bebidas extraídas -->
-                        <li>Expressos</li>
-                        <li>Cappuccino</li>
-                        <li>Flat White</li>
-                        <li>Mocha</li>
+                    <h3 class="card-title card__title">Menu Completo</h3> <!-- Título do menu -->
+                    <ul class="card-list"> <!-- Lista de tipos de bebida preparados -->
+                        <li>Expressos Duplos</li>
+                        <li>Cappuccinos Aveludados</li>
+                        <li>Flat Whites</li>
+                        <li>Lattes Especiais</li>
                     </ul>
                 </article>
 
-                <!-- Card 02: Design Feito à Mão (Card de Destaque) -->
-                <article class="feature-card feature-card--featured"> <!-- Artigo que possui uma classe modificadora de destaque visual -->
-                    <div class="icon-wrapper">
+                <!-- Card 5 -->
+                <article class="feature-card card"> <!-- Cartão do design de basalto -->
+                    <div class="icon-wrapper card__icon"> <!-- Ícone vetorial de pedra lapidada -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 15 10-15-10-5z"></path>
                             <path d="M2 7l10 5 10-5"></path>
                             <path d="M12 22V12"></path>
-                        </svg> <!-- Desenho vetorial de um diamante/pedra esculpida -->
+                        </svg>
                     </div>
-                    <h3 class="card-title">Design Único Feito à Mão</h3>
-                    <p class="card-description"> <!-- Texto explicativo contínuo -->
-                        Laterais esculpidas em pedra basalto natural com manípulos em nogueira nobre.
+                    <h3 class="card-title card__title">Basalto Natural</h3> <!-- Título do acabamento -->
+                    <p class="card-description card__description"> <!-- Descrição da pedra natural -->
+                        Estrutura única em rocha vulcânica de basalto polida à mão com acabamento em nogueira nobre.
                     </p>
                 </article>
 
-                <!-- Card 03: Tecnologia PID -->
-                <article class="feature-card">
-                    <div class="icon-wrapper">
+                <!-- Card 6 -->
+                <article class="feature-card card"> <!-- Cartão sobre bomba rotativa -->
+                    <div class="icon-wrapper card__icon"> <!-- Ícone vetorial do manômetro -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M12 12l3-3"></path>
                             <path d="M12 6v2"></path>
                             <path d="M6 12h2"></path>
                             <path d="M18 12h-2"></path>
-                        </svg> <!-- Desenho vetorial de manômetro/medidor de pressão -->
+                        </svg>
                     </div>
-                    <h3 class="card-title">Pressão & Temperatura PID</h3>
-                    <p class="card-description">
-                        Estabilidade térmica digital e bomba rotativa de 15 BAR para extração perfeita.
+                    <h3 class="card-title card__title">Bomba 15 BAR</h3> <!-- Título da pressão de extração -->
+                    <p class="card-description card__description"> <!-- Descrição da bomba rotativa -->
+                        Bomba de pressão profissional com pré-infusão programável para garantir crema densa e consistente.
                     </p>
                 </article>
 
             </div>
         </section>
 
-        <!-- ✉️ SEÇÃO DE CAPTURA DE LEADS / NEWSLETTER -->
-        <section class="newsletter-section" id="newsletter"> <!-- Seção identificada com id="newsletter" -->
-            <div class="newsletter-container"> <!-- Caixa interna estilizada com fundo de cartão e sombra -->
-                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2>
-                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
+        <!-- ❓ SEÇÃO FAQ SANFONADA (<details> e <summary>) -->
+        <section class="faq-section" id="faq"> <!-- Seção semântica de FAQ com ID para navegação -->
+            <div class="faq-container"> <!-- Contêiner centralizado para limitar largura -->
+                <h2 class="section-title">Perguntas Frequentes</h2> <!-- Título da seção -->
+                <p class="section-subtitle">Tudo o que você precisa saber sobre a sua cafeteira Aurora Coffee.</p> <!-- Subtítulo explicativo -->
 
-                <!-- Formulário de Captura de E-mail -->
-                <form class="newsletter-form" action="#" method="POST"> <!-- Formulário configurado para envio de dados via método POST -->
-                    <div class="newsletter-field"> <!-- invólucro do campo de entrada -->
-                        <!-- Rótulo invisível na tela, mas lido por programas de leitores de tela para pessoas com deficiência visual (Acessibilidade) -->
-                        <label for="email-input" class="sr-only">Seu e-mail principal</label> 
-                        <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required> <!-- Campo de entrada do e-mail com validação obrigatória (required) -->
+                <div class="faq-accordion"> <!-- Agrupador dos itens expansíveis da FAQ -->
+
+                    <!-- Pergunta 1 -->
+                    <details class="faq-item"> <!-- Elemento HTML5 para abrir e fechar conteúdo de forma nativa -->
+                        <summary class="faq-question">Quais tipos de grãos posso utilizar na Aurora Coffee?</summary> <!-- Pergunta visível e clicável -->
+                        <div class="faq-answer"> <!-- Resposta oculta que é revelada ao clicar -->
+                            <p>Você pode utilizar qualquer grão de café especial de sua preferência. Recomendamos grãos com torra média ou clara e moagem fina para expresso, aproveitando todo o potencial sensorial e crema perfeita.</p>
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 2 -->
+                    <details class="faq-item"> <!-- Item 2 da FAQ -->
+                        <summary class="faq-question">Como funciona a Garantia de 5 Anos?</summary> <!-- Gatilho da Pergunta 2 -->
+                        <div class="faq-answer"> <!-- Resposta da Pergunta 2 -->
+                            <p>A garantia cobre qualquer defeito de fabricação na bomba rotativa de 15 BAR, no controlador térmico PID e no acabamento em basalto. Nosso suporte exclusivo inclui coleta e devolução sem custo adicional.</p>
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 3 -->
+                    <details class="faq-item"> <!-- Item 3 da FAQ -->
+                        <summary class="faq-question">O controle de temperatura PID é pré-configurado?</summary> <!-- Gatilho da Pergunta 3 -->
+                        <div class="faq-answer"> <!-- Resposta da Pergunta 3 -->
+                            <p>Sim! O sistema PID vem calibrado de fábrica para a extração ideal a 93°C com estabilidade de ±0,5°C, mas permite que você ajuste a temperatura digitalmente conforme o perfil do seu grão.</p>
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 4 -->
+                    <details class="faq-item"> <!-- Item 4 da FAQ -->
+                        <summary class="faq-question">Qual o prazo de entrega e como o produto é embalado?</summary> <!-- Gatilho da Pergunta 4 -->
+                        <div class="faq-answer"> <!-- Resposta da Pergunta 4 -->
+                            <p>Entregamos em todo o Brasil no prazo de 3 a 7 dias úteis. A máquina é enviada em uma caixa de madeira de reflorestamento com proteção em espuma de alta densidade sob medida.</p>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ✉️ SEÇÃO DE NEWSLETTER -->
+        <section class="newsletter-section" id="newsletter"> <!-- Seção do formulário de inscrição -->
+            <div class="newsletter-container"> <!-- Caixa do formulário -->
+                <h2 class="section-title">Receba Convites & Ofertas Exclusivas</h2> <!-- Título do formulário -->
+                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p> <!-- Subtítulo do formulário -->
+
+                <form class="newsletter-form" action="#" method="POST"> <!-- Formulário HTML -->
+                    <div class="newsletter-field"> <!-- Invólucro do campo de texto -->
+                        <label for="email-input" class="sr-only">Seu e-mail principal</label> <!-- Rótulo de acessibilidade para leitores de tela -->
+                        <input type="email" id="email-input" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required> <!-- Campo de entrada com validação obrigatória -->
                     </div>
                     <button type="submit" class="btn-primary btn-form">Garantir Desconto ☕</button> <!-- Botão de submissão do formulário -->
                 </form>
@@ -172,8 +238,8 @@
     </main>
 
     <!-- 📌 RODAPÉ DA PÁGINA -->
-    <footer class="footer"> <!-- Elemento semântico de rodapé -->
-        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p> <!-- Parágrafo de copyright com o símbolo de direito autoral (&copy;) e nome em negrito (<strong>) -->
+    <footer class="footer"> <!-- Elemento de rodapé -->
+        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p> <!-- Direitos autorais -->
     </footer>
 
 </body>
