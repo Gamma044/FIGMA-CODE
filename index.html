@@ -35,6 +35,16 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"></noscript> <!-- Plano B para quem desativou JavaScript -->
 
+    <!-- Aplica o tema escolhido antes de pintar a página (evita piscar claro/escuro). Sem defer de propósito -->
+    <script>
+        try {
+            var temaSalvo = localStorage.getItem('aura-theme');
+            if (temaSalvo === 'light' || temaSalvo === 'dark') {
+                document.documentElement.classList.add('theme-' + temaSalvo);
+            }
+        } catch (e) { /* localStorage indisponível: segue o tema do sistema */ }
+    </script>
+
     <!-- CSS externo com todo o visual e a responsividade -->
     <link rel="stylesheet" href="style.css">
 
@@ -53,7 +63,7 @@
             <span class="logo-text">AURA DELUXE</span>
         </a>
 
-        <nav class="nav-menu" aria-label="Navegação principal"> <!-- Menu: aria-label identifica a navegação para leitores de tela -->
+        <nav class="nav-menu" id="menu-principal" aria-label="Navegação principal"> <!-- Menu: aria-label identifica a navegação para leitores de tela -->
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#beneficios">Benefícios</a></li>
@@ -62,7 +72,17 @@
             </ul>
         </nav>
 
-        <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão do cabeçalho -->
+        <div class="header-actions"> <!-- Grupo de botões à direita -->
+            <!-- Alternador manual de tema: o script.js troca a classe do <html> e atualiza o ícone -->
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">🌙</button>
+
+            <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão do cabeçalho -->
+
+            <!-- Hambúrguer: só aparece no mobile; aria-expanded informa se o menu está aberto -->
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
