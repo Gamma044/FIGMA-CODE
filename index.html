@@ -88,9 +88,10 @@
                 <p class="section-subtitle beneficios__subtitle">Tudo o que você precisa para uma extração artesanal com alta performance e elegância.</p>
             </div>
 
-            <div class="cards-grid beneficios__grid"> <!-- Grade que se adapta à largura -->
+            <!-- CSS Grid (layout externo): auto-fit + minmax(280px, 1fr) redistribui os cards conforme a largura da tela -->
+            <div class="cards-grid beneficios__grid">
 
-                <article class="feature-card card"> <!-- Card 1 -->
+                <article class="feature-card card"> <!-- Card 1 (Flexbox interno alinha ícone, título e texto em coluna) -->
                     <div class="icon-wrapper card__icon" aria-hidden="true">⚡</div> <!-- aria-hidden: emoji decorativo -->
                     <h3 class="card-title card__title">Alta Performance</h3>
                     <p class="card-description card__description">Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas da primeira à última xícara.</p>

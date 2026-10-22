@@ -320,7 +320,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* 10. TÍTULOS E SUBTÍTULOS DE SEÇÃO */
 .section-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.65rem, 5vw, 2rem); /* fluido: 1.65rem no celular, 2rem no desktop */
   font-weight: 500;
   letter-spacing: .08em;
   margin-bottom: 1rem;                /* margem simples (sem valores negativos) */
@@ -348,6 +348,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .feature-card {
   min-width: 0;                       /* permite encolher dentro do grid */
   overflow-wrap: break-word;
+  display: flex;                      /* FLEXBOX INTERNO: organiza ícone, título e texto em coluna */
+  flex-direction: column;
+  align-items: flex-start;            /* conteúdo alinhado à esquerda dentro do card */
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -530,10 +533,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
   .cards-grid { gap: 1rem; }
   .feature-card { padding: 1.5rem 1.25rem; }
-  .section-title { font-size: 1.65rem; }
   .newsletter-container { padding: 2rem 1rem; }
   .faq-question { padding: 1.2rem 1rem; font-size: .95rem; }
   .faq-answer { margin: 0 1rem; }
+}
+
+/* Telas muito pequenas (até 320px): 1 coluna garante que o card de 280px não estoure */
+@media (max-width: 320px) {
+  .cards-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Para quem prefere menos movimento (acessibilidade) */
