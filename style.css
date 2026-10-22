@@ -89,9 +89,9 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
   border: 0;
 }
 
-a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 2px solid var(--accent);   /* contorno visível ao navegar pelo teclado */
-  outline-offset: 3px;
+:focus-visible {                     /* aparece só para quem navega com TAB (não no clique do mouse) */
+  outline: 3px solid var(--accent);   /* contorno dourado bem visível */
+  outline-offset: 4px;                /* afastado do elemento para não cobrir o texto */
 }
 
 /* 5. TIPOGRAFIA: fonte serifada nos títulos e na marca */
@@ -548,4 +548,67 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   html { scroll-behavior: auto; }                        /* sem rolagem animada */
   *, *::before, *::after { transition-duration: .01ms !important; } /* sem transições */
   .feature-card:hover, .btn-primary:hover { transform: none; }      /* sem "pulinhos" */
+}
+
+/* ==========================================================
+   IMPRESSÃO / PDF — layout limpo, em preto e branco, sem gastar tinta
+   ========================================================== */
+@media print {
+  /* Redefine as variáveis: assim todo o site vira preto sobre branco, mesmo se o tema do sistema for escuro */
+  :root {
+    --bg-dark: #fff;
+    --bg-card: #fff;
+    --bg-card-hover: #fff;
+    --text-primary: #000;
+    --text-secondary: #333;           /* cinza escuro: legível no papel */
+    --accent: #000;
+    --accent-soft: transparent;
+    --border: #ccc;
+    --border-strong: #999;
+    --shadow: none;
+    --shadow-hover: none;
+    --title-gradient: none;
+  }
+
+  /* Esconde o que não faz sentido no papel: menu, botões, newsletter e o "+" do FAQ */
+  .header,
+  .btn,
+  .newsletter-section,
+  .faq-question::after {
+    display: none !important;
+  }
+
+  body {
+    background-color: #fff !important; /* fundo branco */
+    color: #000 !important;            /* texto preto */
+  }
+
+  /* O título usa texto transparente + gradiente; no papel isso sumiria, então volta a preto sólido */
+  .hero-title {
+    background: none;
+    -webkit-text-fill-color: #000;
+    color: #000;
+  }
+
+  /* Hero empilhado e sem sombra, para caber bem na folha */
+  .hero-card {
+    display: block;
+    box-shadow: none;
+    break-inside: avoid;               /* não corta o bloco entre duas páginas */
+  }
+
+  .hero-image-wrapper {
+    min-height: 0;
+    height: 260px;
+  }
+
+  /* Cards e perguntas com borda simples e sem cortes de página */
+  .feature-card,
+  .faq-item {
+    border: 1px solid #ccc !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    break-inside: avoid;
+  }
 }
