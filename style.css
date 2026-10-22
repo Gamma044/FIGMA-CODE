@@ -340,7 +340,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%,280px), 1fr)); /* colunas automáticas; min() evita estouro no celular */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* RECURSO 1: colunas automáticas, cada card com no mínimo 280px */
   gap: 1.5rem;
 }
 
@@ -488,7 +488,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* 14. RESPONSIVIDADE */
 
-/* Tablets e celulares (até 768px) */
+/* RECURSO 2: Tablets e celulares (até 768px) — Hero empilhado e centralizado */
 @media (max-width: 768px) {
   html { scroll-padding-top: 140px; } /* cabeçalho em 2 linhas é mais alto */
 
@@ -503,7 +503,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .hero-image-wrapper { min-height: 0; height: 320px; }
   .hero-details { align-items: center; padding: 2rem 1.25rem; }
   .hero-title { font-size: clamp(1.8rem, 5vw, 2.2rem); } /* tamanho fluido */
-  .hero-features { width: 100%; text-align: left; }      /* lista continua alinhada à esquerda */
+  .hero-features li { padding-left: 0; }                 /* lista centralizada: tira o recuo... */
+  .hero-features li::before { display: none; }           /* ...e a bolinha, que ficaria desalinhada */
   .hero-actions { justify-content: center; }
 
   .newsletter-form { flex-direction: column; align-items: stretch; } /* campo acima do botão */
