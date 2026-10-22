@@ -5,6 +5,7 @@
 
 /* 1. VARIÁVEIS DE COR, FONTE E EFEITOS (modo escuro é o padrão) */
 :root {
+  color-scheme: dark light;           /* barras de rolagem e controles nativos acompanham o tema do sistema */
   --bg-dark: #12100E;                 /* fundo geral da página */
   --bg-card: #1A1714;                 /* fundo de cards e blocos */
   --bg-card-hover: #24201C;           /* fundo do card ao passar o mouse */
