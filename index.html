@@ -1,289 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
     <title>Aura Deluxe — Aurora Coffee</title>
- 
+
     <meta name="description" content="Conheça a Aurora Coffee, uma cafeteira de expresso artesanal de luxo com design sofisticado e acabamento premium.">
- 
-    <!-- Open Graph (a imagem precisa de URL absoluta) -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aura Deluxe — Aurora Coffee">
     <meta property="og:description" content="Descubra uma nova experiência de café com a Aurora Coffee.">
-    <meta property="og:image" content="https://auradeluxe.com.br/hero.png">
+    <meta property="og:image" content="Gemini_Generated_Image_.png">
     <meta property="og:url" content="https://auradeluxe.com.br">
- 
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
- 
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
- 
+
     <!-- CSS principal -->
     <link rel="stylesheet" href="style.css">
- 
-    <!-- Responsividade aprimorada (vem depois do style.css para sobrescrevê-lo) -->
-    <style>
-        /* ==========================================
-           AURA DELUXE — RESPONSIVIDADE APRIMORADA
-           Mobile (360px), Tablet e Desktop
-           ========================================== */
- 
-        /* 0. BASE */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
- 
-        /* Texto só para leitores de tela */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
- 
-        /* 1. PREVENÇÃO DE ROLAGEM HORIZONTAL */
-        html,
-        body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden; /* fallback para navegadores sem suporte a clip */
-            overflow-x: clip;
-        }
- 
-        img,
-        video,
-        iframe {
-            max-width: 100%;
-        }
- 
-        img {
-            height: auto;
-        }
- 
-        /* 2. GRID DINÂMICO DE BENEFÍCIOS */
-        .cards-grid,
-        .beneficios__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 1.5rem;
-            width: 100%;
-            min-width: 0;
-        }
- 
-        .feature-card,
-        .card {
-            min-width: 0;
-            overflow-wrap: break-word;
-        }
- 
-        /* 3. HERO — DESKTOP: IMAGEM E TEXTO LADO A LADO */
-        .hero-card {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-            width: 100%;
-            min-width: 0;
-        }
- 
-        .hero-image-wrapper,
-        .hero-details {
-            min-width: 0;
-        }
- 
-        .hero-image-wrapper {
-            overflow: hidden;
-        }
- 
-        .hero-img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
- 
-        /* 4. TABLETS E CELULARES — ATÉ 768px */
-        @media (max-width: 768px) {
-            .main-container {
-                width: 100%;
-                max-width: 100%;
-                padding-right: 16px;
-                padding-left: 16px;
-            }
- 
-            /* Hero empilhado */
-            .hero-card {
-                grid-template-columns: minmax(0, 1fr);
-            }
- 
-            .hero-section {
-                padding: 2.5rem 0 3.5rem;
-            }
- 
-            .hero-image-wrapper {
-                width: 100%;
-                min-height: 0;
-                height: 320px;
-            }
- 
-            .hero-details {
-                width: 100%;
-                padding: 2rem 1.25rem;
-                align-items: center;
-                text-align: center;
-            }
- 
-            .hero-title {
-                max-width: 100%;
-                font-size: clamp(1.8rem, 5vw, 2.2rem);
-                overflow-wrap: break-word;
-            }
- 
-            .hero-features {
-                width: 100%;
-                text-align: left;
-            }
- 
-            .hero-actions {
-                justify-content: center;
-            }
- 
-            /* Navegação: logo + botão na 1ª linha, menu na 2ª */
-            .header {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
- 
-            .nav-menu {
-                order: 3;
-                width: 100%;
-            }
- 
-            .nav-menu ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-        }
- 
-        /* 5. SMARTPHONES ESTREITOS — ATÉ 480px */
-        @media (max-width: 480px) {
-            .header {
-                padding: 1rem;
-            }
- 
-            .logo {
-                gap: 0.5rem;
-                min-width: 0;
-            }
- 
-            .logo-text {
-                font-size: 0.9rem;
-                letter-spacing: 0.12em;
-            }
- 
-            .nav-menu ul {
-                gap: 0.75rem;
-            }
- 
-            .nav-menu a {
-                font-size: 0.7rem;
-                letter-spacing: 0.08em;
-            }
- 
-            .btn-nav {
-                padding: 0.55rem 0.8rem;
-                font-size: 0.7rem;
-            }
- 
-            .hero-image-wrapper {
-                height: 240px;
-            }
- 
-            .hero-details {
-                padding: 1.75rem 1rem;
-            }
- 
-            .price-tag {
-                font-size: 1.7rem;
-            }
- 
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-            }
- 
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 100%;
-                padding: 0.9rem 1rem;
-                overflow-wrap: break-word;
-            }
- 
-            .cards-grid,
-            .beneficios__grid {
-                gap: 1rem;
-            }
- 
-            .feature-card,
-            .card {
-                padding: 1.5rem 1.25rem;
-            }
- 
-            .section-title {
-                font-size: 1.65rem;
-                overflow-wrap: break-word;
-            }
- 
-            .newsletter-container {
-                padding: 2rem 1rem;
-            }
- 
-            .faq-question {
-                padding: 1.2rem 1rem;
-                font-size: 0.95rem;
-            }
- 
-            .faq-answer {
-                padding-right: 1rem;
-                padding-left: 1rem;
-            }
-        }
-    </style>
 </head>
- 
+
 <body>
- 
+
     <!-- CABEÇALHO -->
     <header class="header">
- 
+
         <a href="#home" class="logo" aria-label="Aura Deluxe - Página inicial">
             <div class="logo-icon">
                 <img
-                    src="logo.png"
-                    alt=""
+                    src="Gemini_Generated_Image_ (1).png"
+                    alt="Logo Aura Deluxe"
                     width="40"
                     height="40"
                 >
             </div>
- 
+
             <span class="logo-text">AURA DELUXE</span>
         </a>
- 
+
         <nav class="nav-menu" aria-label="Navegação principal">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -292,146 +57,144 @@
                 <li><a href="#newsletter">Novidades</a></li>
             </ul>
         </nav>
- 
+
         <a href="#newsletter" class="btn-nav">Comprar</a>
- 
+
     </header>
- 
+
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-container">
- 
+
         <!-- HERO -->
         <section class="hero-section" id="home">
- 
+
             <div class="hero-card">
- 
+
                 <!-- Imagem do produto -->
                 <div class="hero-image-wrapper">
                     <img
-                        src="hero.png"
+                        src="Gemini_Generated_Image_.png"
                         alt="Cafeteira Aurora Coffee com design premium"
                         class="hero-img"
-                        width="800"
-                        height="800"
                         fetchpriority="high"
                     >
                 </div>
- 
+
                 <!-- Informações do produto -->
                 <div class="hero-details">
- 
+
                     <span class="badge">
                         ✦ Novo Lançamento 2026
                     </span>
- 
+
                     <h1 class="hero-title">Aurora Coffee</h1>
- 
+
                     <ul class="hero-features">
                         <li>Cafeteira de Expresso Artesanal de Luxo</li>
                         <li>Garantia de 5 Anos</li>
                         <li>Estética Rústica em Basalto Natural</li>
                         <li>Certificação Profissional SCA</li>
                     </ul>
- 
+
                     <p class="price-tag">R$ 4.998,90</p>
- 
+
                     <div class="hero-actions">
                         <a href="#newsletter" class="btn btn-primary">
                             Garantir o Meu ☕
                         </a>
- 
+
                         <a href="#beneficios" class="btn btn-secondary">
                             Saber Mais
                         </a>
                     </div>
- 
+
                 </div>
- 
+
             </div>
- 
+
         </section>
- 
+
         <!-- BENEFÍCIOS -->
         <section
             id="beneficios"
             class="features-section beneficios"
             aria-labelledby="beneficios-title"
         >
- 
+
             <div class="beneficios__header">
- 
+
                 <h2
                     id="beneficios-title"
                     class="section-title beneficios__title"
                 >
                     Por que escolher o Aura Deluxe?
                 </h2>
- 
+
                 <p class="section-subtitle beneficios__subtitle">
                     Tudo o que você precisa para uma extração artesanal
                     com alta performance e elegância.
                 </p>
- 
+
             </div>
- 
+
             <!-- Grid responsivo de benefícios -->
             <div class="cards-grid beneficios__grid">
- 
+
                 <article class="feature-card card">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         ⚡
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Alta Performance
                     </h3>
- 
+
                     <p class="card-description card__description">
                         Aquecimento ultrarrápido com estabilidade térmica
                         contínua para extrações perfeitas da primeira
                         à última xícara.
                     </p>
- 
+
                 </article>
- 
+
                 <article class="feature-card card card--featured">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         🛡️
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Garantia Premium
                     </h3>
- 
+
                     <p class="card-description card__description">
                         Suporte técnico VIP com 5 anos de cobertura
                         para componentes de precisão e estrutura de pedra.
                     </p>
- 
+
                 </article>
- 
+
                 <article class="feature-card card">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         📊
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Precisão Digital PID
                     </h3>
- 
+
                     <p class="card-description card__description">
                         Controlador digital avançado de temperatura,
                         ajustável com precisão de ±0,5°C para perfis
                         aromáticos exatos.
                     </p>
- 
+
                 </article>
- 
+
                 <article class="feature-card card">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         <svg
                             width="24"
@@ -450,22 +213,22 @@
                             <line x1="14" y1="2" x2="14" y2="4"></line>
                         </svg>
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Menu Completo
                     </h3>
- 
+
                     <ul class="card-list">
                         <li>Expressos Duplos</li>
                         <li>Cappuccinos Aveludados</li>
                         <li>Flat Whites</li>
                         <li>Lattes Especiais</li>
                     </ul>
- 
+
                 </article>
- 
+
                 <article class="feature-card card">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         <svg
                             width="24"
@@ -482,20 +245,20 @@
                             <path d="M12 22V12"></path>
                         </svg>
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Basalto Natural
                     </h3>
- 
+
                     <p class="card-description card__description">
                         Estrutura em rocha vulcânica de basalto polida
                         à mão, com acabamento em nogueira nobre.
                     </p>
- 
+
                 </article>
- 
+
                 <article class="feature-card card">
- 
+
                     <div class="icon-wrapper card__icon" aria-hidden="true">
                         <svg
                             width="24"
@@ -514,47 +277,47 @@
                             <path d="M18 12h-2"></path>
                         </svg>
                     </div>
- 
+
                     <h3 class="card-title card__title">
                         Bomba 15 BAR
                     </h3>
- 
+
                     <p class="card-description card__description">
                         Bomba de pressão profissional com pré-infusão
                         programável para uma crema densa e consistente.
                     </p>
- 
+
                 </article>
- 
+
             </div>
- 
+
         </section>
- 
+
         <!-- PERGUNTAS FREQUENTES -->
         <section
             class="faq-section"
             id="faq"
             aria-labelledby="faq-title"
         >
- 
+
             <div class="faq-container">
- 
+
                 <h2 id="faq-title" class="section-title">
                     Perguntas Frequentes
                 </h2>
- 
+
                 <p class="section-subtitle">
                     Tudo o que você precisa saber sobre a sua
                     cafeteira Aurora Coffee.
                 </p>
- 
+
                 <div class="faq-accordion">
- 
+
                     <details class="faq-item">
                         <summary class="faq-question">
                             Quais tipos de grãos posso utilizar na Aurora Coffee?
                         </summary>
- 
+
                         <div class="faq-answer">
                             <p>
                                 Você pode utilizar grãos de café de sua
@@ -564,12 +327,12 @@
                             </p>
                         </div>
                     </details>
- 
+
                     <details class="faq-item">
                         <summary class="faq-question">
                             Como funciona a Garantia de 5 Anos?
                         </summary>
- 
+
                         <div class="faq-answer">
                             <p>
                                 A cobertura, os componentes contemplados
@@ -578,12 +341,12 @@
                             </p>
                         </div>
                     </details>
- 
+
                     <details class="faq-item">
                         <summary class="faq-question">
                             O controle de temperatura PID é pré-configurado?
                         </summary>
- 
+
                         <div class="faq-answer">
                             <p>
                                 Consulte as especificações técnicas do
@@ -592,12 +355,12 @@
                             </p>
                         </div>
                     </details>
- 
+
                     <details class="faq-item">
                         <summary class="faq-question">
                             Qual o prazo de entrega e como o produto é embalado?
                         </summary>
- 
+
                         <div class="faq-answer">
                             <p>
                                 O prazo e as opções de embalagem devem
@@ -606,40 +369,39 @@
                             </p>
                         </div>
                     </details>
- 
+
                 </div>
- 
+
             </div>
- 
+
         </section>
- 
+
         <!-- NEWSLETTER -->
         <section
             class="newsletter-section"
             id="newsletter"
             aria-labelledby="newsletter-title"
         >
- 
+
             <div class="newsletter-container">
- 
+
                 <h2 id="newsletter-title" class="section-title">
                     Receba Convites &amp; Ofertas Exclusivas
                 </h2>
- 
+
                 <p class="section-subtitle">
                     Cadastre seu e-mail para receber novidades
                     sobre a Aurora Coffee.
                 </p>
- 
-                <!-- Troque o action pelo endpoint real (Formspree, Mailchimp, backend próprio) -->
+
                 <form class="newsletter-form" action="#" method="POST">
- 
+
                     <div class="newsletter-field">
- 
+
                         <label for="email-input" class="sr-only">
                             Seu e-mail principal
                         </label>
- 
+
                         <input
                             type="email"
                             id="email-input"
@@ -649,24 +411,24 @@
                             autocomplete="email"
                             required
                         >
- 
+
                     </div>
- 
+
                     <button
                         type="submit"
                         class="btn btn-primary btn--form"
                     >
-                        Quero Receber Novidades ☕
+                        Garantir Desconto ☕
                     </button>
- 
+
                 </form>
- 
+
             </div>
- 
+
         </section>
- 
+
     </main>
- 
+
     <!-- RODAPÉ -->
     <footer class="footer">
         <p>
@@ -674,7 +436,6 @@
             Todos os direitos reservados.
         </p>
     </footer>
- 
+
 </body>
 </html>
- 

@@ -3,19 +3,16 @@
    Mobile (360px), Tablet e Desktop
    ========================================== */
 
-/* 0. BASE */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* 1. PREVENÇÃO DE ROLAGEM HORIZONTAL */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
-/* 1. PREVENÇÃO DE ROLAGEM HORIZONTAL */
-html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* fallback para navegadores sem suporte a clip */
   overflow-x: clip;
 }
 
@@ -25,15 +22,11 @@ iframe {
   max-width: 100%;
 }
 
-img {
-  height: auto;
-}
-
-/* 2. GRID DINÂMICO DE BENEFÍCIOS */
+/* 2. LAYOUT HÍBRIDO — GRID DINÂMICO DE BENEFÍCIOS */
 .cards-grid,
 .beneficios__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   width: 100%;
   min-width: 0;
@@ -54,15 +47,19 @@ img {
 }
 
 .hero-image-wrapper,
-.hero-details {
+.hero__image-wrapper,
+.hero-details,
+.hero__content {
   min-width: 0;
 }
 
-.hero-image-wrapper {
+.hero-image-wrapper,
+.hero__image-wrapper {
   overflow: hidden;
 }
 
-.hero-img {
+.hero-img,
+.hero__img {
   display: block;
   width: 100%;
   height: 100%;
@@ -78,29 +75,33 @@ img {
     padding-left: 16px;
   }
 
-  /* Hero empilhado */
+  /* Empilhamento vertical da seção Hero */
   .hero-card {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .hero-section {
+  .hero-section,
+  .hero {
     padding: 2.5rem 0 3.5rem;
   }
 
-  .hero-image-wrapper {
+  .hero-image-wrapper,
+  .hero__image-wrapper {
     width: 100%;
     min-height: 0;
     height: 320px;
   }
 
-  .hero-details {
+  .hero-details,
+  .hero__content {
     width: 100%;
     padding: 2rem 1.25rem;
     align-items: center;
     text-align: center;
   }
 
-  .hero-title {
+  .hero-title,
+  .hero__title {
     max-width: 100%;
     font-size: clamp(1.8rem, 5vw, 2.2rem);
     overflow-wrap: break-word;
@@ -111,26 +112,30 @@ img {
     text-align: left;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero__cta-group {
     justify-content: center;
   }
 
-  /* Navegação: logo + botão na primeira linha, menu na segunda */
+  /* Navegação adaptável */
   .header {
     flex-wrap: wrap;
     gap: 1rem;
   }
 
-  .nav-menu {
-    order: 3;
-    width: 100%;
+  .nav-menu ul,
+  .header__nav {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  .nav-menu ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  /* Cards de benefícios */
+  .cards-grid,
+  .beneficios__grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 280px), 1fr)
+    );
   }
 }
 
@@ -140,7 +145,8 @@ img {
     padding: 1rem;
   }
 
-  .logo {
+  .logo,
+  .header__logo {
     gap: 0.5rem;
     min-width: 0;
   }
@@ -150,11 +156,13 @@ img {
     letter-spacing: 0.12em;
   }
 
-  .nav-menu ul {
+  .nav-menu ul,
+  .header__nav {
     gap: 0.75rem;
   }
 
-  .nav-menu a {
+  .nav-menu a,
+  .header__link {
     font-size: 0.7rem;
     letter-spacing: 0.08em;
   }
@@ -164,33 +172,45 @@ img {
     font-size: 0.7rem;
   }
 
-  .hero-image-wrapper {
+  .hero-image-wrapper,
+  .hero__image-wrapper {
     height: 240px;
   }
 
-  .hero-details {
+  .hero-details,
+  .hero__content {
     padding: 1.75rem 1rem;
+  }
+
+  .hero-title,
+  .hero__title {
+    font-size: 1.8rem;
   }
 
   .price-tag {
     font-size: 1.7rem;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero__cta-group {
     flex-direction: column;
     width: 100%;
   }
 
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .btn--primary,
+  .btn--outline {
     width: 100%;
     max-width: 100%;
     padding: 0.9rem 1rem;
     overflow-wrap: break-word;
   }
 
+  /* Uma coluna quando não houver espaço para cards de 280px */
   .cards-grid,
   .beneficios__grid {
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
@@ -204,6 +224,7 @@ img {
     overflow-wrap: break-word;
   }
 
+  .newsletter__container,
   .newsletter-container {
     padding: 2rem 1rem;
   }
