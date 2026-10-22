@@ -317,6 +317,15 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 
 .btn--form { padding: 1rem 1.8rem; }  /* variante do botão do formulário */
 
+/* Estado de sucesso do botão (ativado pelo script.js ao enviar a newsletter) */
+.btn-primary.btn--success,
+.btn-primary.btn--success:hover {
+  background: #2F7D4F;                /* verde de confirmação, escuro o bastante para texto branco */
+  color: #fff;
+  transform: none;                    /* sem "pulinho" do hover enquanto confirma */
+  box-shadow: none;
+}
+
 /* 10. TÍTULOS E SUBTÍTULOS DE SEÇÃO */
 .section-title {
   text-align: center;

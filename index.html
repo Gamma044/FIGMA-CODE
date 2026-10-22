@@ -31,10 +31,15 @@
     <!-- Google Fonts: conecta antes para carregar mais rápido -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"> <!-- Só os pesos realmente usados (500/600 no título, 400/500/600 no texto): menos bytes e carregamento mais rápido -->
+    <!-- Fontes carregadas sem bloquear a renderização: o texto aparece com a fonte reserva e troca quando a fonte chega (display=swap) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"></noscript> <!-- Plano B para quem desativou JavaScript -->
 
     <!-- CSS externo com todo o visual e a responsividade -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript: "defer" baixa o arquivo em paralelo e só o executa depois que o HTML inteiro foi lido (o DOM já existe) -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
