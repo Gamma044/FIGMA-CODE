@@ -1,65 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<!-- Documento HTML5 -->
+<html lang="pt-BR"> <!-- Idioma da página: português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coleção Aura Deluxe — Lunar Grinder e Solstício Kettle</title>
+    <meta charset="UTF-8"> <!-- Codificação que suporta acentos e emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a página à largura do celular -->
+    <title>Aura Deluxe — Aurora Coffee</title> <!-- Título da aba e do Google -->
+    <!-- SEO TÉCNICO E INDEXAÇÃO -->
+    <!-- Descrição que aparece nos resultados do Google (ideal: 150 a 160 caracteres) -->
+    <meta name="description" content="Aurora Coffee: cafeteira de expresso artesanal de luxo em basalto natural, com controle PID, bomba 15 BAR e garantia de 5 anos. Conheça e garanta a sua.">
 
-    <!-- SEO: descrição, indexação e URL canônica desta página -->
-    <meta name="description" content="Conheça o Lunar Grinder, moedor artesanal em basalto, e a chaleira Solstício Kettle com controle PID. A coleção que completa a sua Aurora Coffee.">
+    <!-- Palavras-chave (o Google atual as ignora, mas outros buscadores ainda podem ler) -->
+    <meta name="keywords" content="cafeteira de luxo, cafeteira expresso, expresso artesanal, aurora coffee, aura deluxe, cafeteira PID, basalto">
+
+    <!-- Instrui os robôs a indexar a página e seguir os links -->
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://auradeluxe.com.br/produtos.html">
+
+    <!-- URL canônica: evita penalização por conteúdo duplicado (use o endereço real e final do site) -->
+    <link rel="canonical" href="https://auradeluxe.com.br/">
 
     <!-- Open Graph: prévia ao compartilhar em redes sociais -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Coleção Aura Deluxe — Lunar Grinder e Solstício Kettle">
-    <meta property="og:description" content="Moedor artesanal e chaleira de precisão que completam a sua Aurora Coffee.">
-    <meta property="og:url" content="https://auradeluxe.com.br/produtos.html">
+    <meta property="og:title" content="Aura Deluxe — Aurora Coffee | Cafeteira de Expresso Artesanal">
+    <meta property="og:description" content="Conheça a Aurora Coffee. Estética rústica em basalto natural, certificação SCA e a extração perfeita para o seu café de luxo.">
+    <meta property="og:image" content="https://auradeluxe.com.br/Gemini_Generated_Image_.png"> <!-- Precisa ser URL absoluta -->
+    <meta property="og:url" content="https://auradeluxe.com.br/">
 
-    <!-- Favicon: xícara de traço dourado, o mesmo da página inicial -->
+    <!-- Favicon: xícara em SVG de traço dourado, no mesmo estilo dos ícones do site (símbolos < > # codificados) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A482' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 8h1a4 4 0 1 1 0 8h-1'/%3E%3Cpath d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z'/%3E%3C/svg%3E">
 
-    <!-- Fontes do Google, carregadas sem bloquear a renderização -->
+    <!-- Google Fonts: conecta antes para carregar mais rápido -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontes carregadas sem bloquear a renderização: o texto aparece com a fonte reserva e troca quando a fonte chega (display=swap) -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"></noscript>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"></noscript> <!-- Plano B para quem desativou JavaScript -->
 
-    <!-- Aplica o tema salvo antes de pintar a página (evita piscar claro/escuro) -->
+    <!-- Aplica o tema escolhido antes de pintar a página (evita piscar claro/escuro). Sem defer de propósito -->
     <script>
         try {
             var temaSalvo = localStorage.getItem('aura-theme');
             if (temaSalvo === 'light' || temaSalvo === 'dark') {
                 document.documentElement.classList.add('theme-' + temaSalvo);
             }
-        } catch (e) { /* sem localStorage: segue o tema do sistema */ }
+        } catch (e) { /* localStorage indisponível: segue o tema do sistema */ }
     </script>
 
-    <!-- Mesmo CSS e mesmo JavaScript da página inicial: identidade e comportamento idênticos -->
+    <!-- CSS externo com todo o visual e a responsividade -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript: "defer" baixa o arquivo em paralelo e só o executa depois que o HTML inteiro foi lido (o DOM já existe) -->
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- CABEÇALHO (igual ao da página inicial; os links apontam para o index.html) -->
+    <!-- CABEÇALHO FIXO -->
     <header class="header">
-        <a href="index.html" class="logo" aria-label="Aura Deluxe - Página inicial">
+        <a href="#home" class="logo"> <!-- Logo: leva ao topo -->
             <div class="logo-icon">
-                <img src="Gemini_Generated_Image_%20(1).png" alt="" width="40" height="40" decoding="async">
+                <!-- alt vazio: o nome "AURA DELUXE" já está escrito ao lado; width/height evitam "pulo" no carregamento -->
+                <img src="Gemini_Generated_Image_%20(1).png" alt="" width="40" height="40" decoding="async"> <!-- Sem loading="lazy": está no topo da tela e precisa carregar já -->
             </div>
             <span class="logo-text">AURA DELUXE</span>
         </a>
 
-        <nav class="nav-menu" id="menu-principal" aria-label="Navegação principal">
+        <nav class="nav-menu" id="menu-principal" aria-label="Navegação principal"> <!-- Menu: aria-label identifica a navegação para leitores de tela -->
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="produtos.html" aria-current="page">Produtos</a></li> <!-- aria-current: marca a página atual -->
-                <li><a href="index.html#faq">Dúvidas</a></li>
-                <li><a href="index.html#newsletter">Novidades</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+                <li><a href="#newsletter">Novidades</a></li>
             </ul>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-actions"> <!-- Grupo de botões à direita -->
+            <!-- Alternador manual de tema: o script.js troca a classe do <html> e atualiza o ícone -->
             <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
                 <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-sun">
                     <circle cx="12" cy="12" r="5"></circle>
@@ -77,105 +91,200 @@
                 </svg>
             </button>
 
-            <a href="index.html#newsletter" class="btn-nav">Comprar</a>
+            <a href="#newsletter" class="btn-nav">Comprar</a> <!-- Botão do cabeçalho -->
 
+            <!-- Hambúrguer: só aparece no mobile; aria-expanded informa se o menu está aberto -->
             <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-container">
 
-        <!-- INTRODUÇÃO DA PÁGINA -->
-        <section class="products-intro" aria-labelledby="produtos-title">
-            <h1 id="produtos-title" class="section-title">A Coleção Aura Deluxe</h1>
-            <p class="section-subtitle">Dois companheiros de bancada, na mesma linguagem de basalto e nogueira da Aurora Coffee, para uma extração completa do grão à xícara.</p>
-        </section>
+        <!-- HERO: produto em destaque -->
+        <section class="hero-section" id="home">
+            <div class="hero-card">
 
-        <!-- GRADE DE PRODUTOS: auto-fit coloca 2 cards lado a lado no desktop e empilha no celular -->
-        <section class="products-grid" aria-label="Produtos da coleção">
-
-            <!-- PRODUTO 1: MOEDOR -->
-            <article class="product-card">
-                <div class="product-image"> <!-- "Imagem" do produto: ilustração SVG de traço dourado -->
-                    <svg class="product-art" viewBox="0 0 240 240" role="img" aria-label="Ilustração do moedor Lunar Grinder em linhas douradas" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M78 36h84"></path>                                   <!-- Tampa do reservatório -->
-                        <path d="M84 36l10 66h52l10-66"></path>                       <!-- Reservatório (funil) -->
-                        <ellipse cx="108" cy="62" rx="8" ry="4.5" transform="rotate(-25 108 62)"></ellipse> <!-- Grão 1 -->
-                        <ellipse cx="132" cy="70" rx="8" ry="4.5" transform="rotate(20 132 70)"></ellipse>  <!-- Grão 2 -->
-                        <ellipse cx="118" cy="86" rx="8" ry="4.5" transform="rotate(-10 118 86)"></ellipse> <!-- Grão 3 -->
-                        <rect x="84" y="102" width="72" height="70" rx="8"></rect>    <!-- Corpo do moedor -->
-                        <circle cx="120" cy="134" r="14"></circle>                    <!-- Seletor de moagem -->
-                        <path d="M120 134l7-7"></path>                                <!-- Ponteiro do seletor -->
-                        <path d="M106 172v12h28v-12"></path>                          <!-- Bico de saída -->
-                        <path d="M98 184h44v14H98z"></path>                           <!-- Copo coletor -->
-                        <rect x="68" y="198" width="104" height="10" rx="4"></rect>   <!-- Base -->
-                    </svg>
+                <div class="hero-image-wrapper"> <!-- Lado da imagem -->
+                    <img src="Gemini_Generated_Image_.png" alt="Cafeteira Aurora Coffee com design premium" class="hero-img" width="800" height="800" fetchpriority="high" decoding="async"> <!-- Imagem principal (LCP): NÃO usar loading="lazy" aqui; fetchpriority="high" a carrega primeiro; width/height evitam o "pulo" de layout (troque pelas dimensões reais do arquivo) -->
                 </div>
 
-                <div class="product-info">
-                    <span class="badge">✦ Combina com a Aurora</span>
-                    <h2 class="product-title">Lunar Grinder</h2>
-                    <p class="product-description">Moedor artesanal de luxo com lâminas cônicas e regulagem micrométrica, para uma moagem uniforme em cada preparo.</p>
+                <div class="hero-details"> <!-- Lado do texto -->
+                    <span class="badge">✦ Novo Lançamento 2026</span> <!-- Selo -->
+                    <h1 class="hero-title">Aurora Coffee</h1> <!-- Único H1 da página -->
 
-                    <ul class="hero-features"> <!-- Reaproveita o estilo da lista do hero -->
-                        <li>Lâminas cônicas de aço de 64 mm</li>
-                        <li>40 níveis de regulagem micrométrica</li>
-                        <li>Corpo em basalto natural e nogueira</li>
+                    <ul class="hero-features"> <!-- Características -->
+                        <li>Cafeteira de Expresso Artesanal de Luxo</li>
                         <li>Garantia de 5 Anos</li>
+                        <li>Estética Rústica em Basalto Natural</li>
+                        <li>Certificação Profissional SCA</li>
                     </ul>
 
-                    <p class="price-tag">R$ 2.490,90</p>
-                    <a href="index.html#newsletter" class="btn btn-primary">Reservar o Meu</a>
+                    <p class="price-tag">R$ 4.998,90</p> <!-- Preço (parágrafo, não div) -->
+
+                    <div class="hero-actions"> <!-- "btn" dá a base do botão: centraliza o texto -->
+                        <a href="#newsletter" class="btn btn-primary">Garantir o Meu</a>
+                        <a href="#beneficios" class="btn btn-secondary">Saber Mais</a>
+                    </div>
                 </div>
-            </article>
-
-            <!-- PRODUTO 2: CHALEIRA -->
-            <article class="product-card">
-                <div class="product-image">
-                    <svg class="product-art" viewBox="0 0 240 240" role="img" aria-label="Ilustração da chaleira Solstício Kettle em linhas douradas" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M98 58q-5-9 0-18"></path>                            <!-- Vapor 1 -->
-                        <path d="M122 58q-5-9 0-18"></path>                           <!-- Vapor 2 -->
-                        <circle cx="110" cy="80" r="6"></circle>                      <!-- Botão da tampa -->
-                        <path d="M80 100v-8h60v8"></path>                             <!-- Tampa -->
-                        <path d="M70 190V114q0-14 14-14h52q14 0 14 14v76z"></path>    <!-- Corpo da chaleira -->
-                        <path d="M70 124c-32 0-32 50 0 50"></path>                    <!-- Alça -->
-                        <path d="M150 172c30 0 38-20 34-40-2-12 6-22 18-26"></path>   <!-- Bico de ganso -->
-                        <rect x="56" y="190" width="108" height="14" rx="5"></rect>   <!-- Base de basalto -->
-                        <circle cx="110" cy="197" r="2"></circle>                     <!-- Indicador de temperatura -->
-                    </svg>
-                </div>
-
-                <div class="product-info">
-                    <span class="badge">✦ Controle de Precisão</span>
-                    <h2 class="product-title">Solstício Kettle</h2>
-                    <p class="product-description">Chaleira elétrica de bico de ganso com controle digital de temperatura, para despejar a água no ponto certo em cada método de filtrado.</p>
-
-                    <ul class="hero-features">
-                        <li>Controle PID com precisão de ±1°C</li>
-                        <li>Capacidade de 0,9 L e base em basalto</li>
-                        <li>Função de manter aquecido por 60 min</li>
-                        <li>Garantia de 5 Anos</li>
-                    </ul>
-
-                    <p class="price-tag">R$ 1.890,00</p>
-                    <a href="index.html#newsletter" class="btn btn-primary">Reservar a Minha</a>
-                </div>
-            </article>
-
+            </div>
         </section>
 
-        <!-- CHAMADA PARA O PRODUTO PRINCIPAL -->
-        <section class="products-cta">
-            <p class="section-subtitle">Ainda não conhece a peça central da coleção?</p>
-            <a href="index.html#home" class="btn btn-secondary">Ver a Aurora Coffee</a>
+        <!-- BENEFÍCIOS -->
+        <section id="beneficios" class="features-section beneficios" aria-labelledby="beneficios-title"> <!-- aria-labelledby: nomeia a seção pelo título -->
+            <div class="beneficios__header">
+                <h2 id="beneficios-title" class="section-title beneficios__title">Por que escolher o Aura Deluxe?</h2>
+                <p class="section-subtitle beneficios__subtitle">Tudo o que você precisa para uma extração artesanal com alta performance e elegância.</p>
+            </div>
+
+            <!-- CSS Grid (layout externo): auto-fit + minmax(280px, 1fr) redistribui os cards conforme a largura da tela -->
+            <div class="cards-grid beneficios__grid">
+
+                <article class="feature-card card"> <!-- Card 1 (Flexbox interno alinha ícone, título e texto em coluna) -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon> <!-- Raio -->
+                        </svg>
+                    </div> <!-- aria-hidden: emoji decorativo -->
+                    <h3 class="card-title card__title">Alta Performance</h3>
+                    <p class="card-description card__description">Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas da primeira à última xícara.</p>
+                </article>
+
+                <article class="feature-card card card--featured"> <!-- Card 2 (destacado) -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path> <!-- Escudo -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Garantia Premium</h3>
+                    <p class="card-description card__description">Suporte técnico VIP com 5 anos de cobertura total para componentes de precisão e estrutura de pedra.</p>
+                </article>
+
+                <article class="feature-card card"> <!-- Card 3 -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line> <!-- Barra 3 -->
+                            <line x1="12" y1="20" x2="12" y2="4"></line> <!-- Barra 2 -->
+                            <line x1="6" y1="20" x2="6" y2="14"></line> <!-- Barra 1 -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Precisão Digital PID</h3>
+                    <p class="card-description card__description">Controlador digital avançado de temperatura ajustável com precisão de ±0,5°C para perfis aromáticos exatos.</p>
+                </article>
+
+                <article class="feature-card card"> <!-- Card 4: ícone de xícara em SVG -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- currentColor: usa a cor dourada do texto -->
+                            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path> <!-- Alça -->
+                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path> <!-- Corpo da xícara -->
+                            <line x1="6" y1="2" x2="6" y2="4"></line> <!-- Vapor 1 -->
+                            <line x1="10" y1="2" x2="10" y2="4"></line> <!-- Vapor 2 -->
+                            <line x1="14" y1="2" x2="14" y2="4"></line> <!-- Vapor 3 -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Menu Completo</h3>
+                    <ul class="card-list"> <!-- Lista de bebidas -->
+                        <li>Expressos Duplos</li>
+                        <li>Cappuccinos Aveludados</li>
+                        <li>Flat Whites</li>
+                        <li>Lattes Especiais</li>
+                    </ul>
+                </article>
+
+                <article class="feature-card card"> <!-- Card 5: ícone de cristal em SVG -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 15 10-15-10-5z"></path> <!-- Contorno -->
+                            <path d="M2 7l10 5 10-5"></path> <!-- Faceta superior -->
+                            <path d="M12 22V12"></path> <!-- Linha central -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Basalto Natural</h3>
+                    <p class="card-description card__description">Estrutura única em rocha vulcânica de basalto polida à mão com acabamento em nogueira nobre.</p>
+                </article>
+
+                <article class="feature-card card"> <!-- Card 6: ícone de manômetro em SVG -->
+                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle> <!-- Mostrador -->
+                            <path d="M12 12l3-3"></path> <!-- Ponteiro -->
+                            <path d="M12 6v2"></path> <!-- Marca superior -->
+                            <path d="M6 12h2"></path> <!-- Marca esquerda -->
+                            <path d="M18 12h-2"></path> <!-- Marca direita -->
+                        </svg>
+                    </div>
+                    <h3 class="card-title card__title">Bomba 15 BAR</h3>
+                    <p class="card-description card__description">Bomba de pressão profissional com pré-infusão programável para garantir crema densa e consistente.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="faq-container">
+                <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tudo o que você precisa saber sobre a sua cafeteira Aurora Coffee.</p>
+
+                <div class="faq-accordion"> <!-- <details> abre/fecha sem JavaScript -->
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Quais tipos de grãos posso utilizar na Aurora Coffee?</summary> <!-- Pergunta clicável -->
+                        <div class="faq-answer"> <!-- Resposta que aparece ao abrir -->
+                            <p>Você pode utilizar qualquer grão de café especial de sua preferência. Recomendamos grãos com torra média ou clara e moagem fina para expresso, aproveitando todo o potencial sensorial e crema perfeita.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Como funciona a Garantia de 5 Anos?</summary>
+                        <div class="faq-answer">
+                            <p>A garantia cobre qualquer defeito de fabricação na bomba rotativa de 15 BAR, no controlador térmico PID e no acabamento em basalto. Nosso suporte exclusivo inclui coleta e devolução sem custo adicional.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">O controle de temperatura PID é pré-configurado?</summary>
+                        <div class="faq-answer">
+                            <p>Sim! O sistema PID vem calibrado de fábrica para a extração ideal a 93°C com estabilidade de ±0,5°C, mas permite que você ajuste a temperatura digitalmente conforme o perfil do seu grão.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Qual o prazo de entrega e como o produto é embalado?</summary>
+                        <div class="faq-answer">
+                            <p>Entregamos em todo o Brasil no prazo de 3 a 7 dias úteis. A máquina é enviada em uma caixa de madeira de reflorestamento com proteção em espuma de alta densidade sob medida.</p>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+            <div class="newsletter-container">
+                <h2 id="newsletter-title" class="section-title">Receba Convites &amp; Ofertas Exclusivas</h2> <!-- &amp; = "&" escrito corretamente em HTML -->
+                <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
+
+                <!-- Troque action="#" pelo endereço real (Formspree, Mailchimp, seu servidor), senão nada é enviado -->
+                <form class="newsletter-form" action="#" method="POST">
+                    <div class="newsletter-field">
+                        <label for="email-input" class="sr-only">Seu e-mail principal</label> <!-- Rótulo invisível, lido por leitores de tela -->
+                        <input type="email" id="email-input" name="email" class="newsletter-input" placeholder="Digite seu melhor e-mail..." autocomplete="email" required> <!-- name: necessário para enviar o dado; required: obrigatório -->
+                    </div>
+                    <button type="submit" class="btn btn-primary btn--form">Garantir Desconto</button> <!-- Envia o formulário -->
+                </form>
+
+            </div>
         </section>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer class="footer">
-        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p>
+        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p> <!-- &copy; = © -->
     </footer>
 
 </body>
