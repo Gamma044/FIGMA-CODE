@@ -1,190 +1,201 @@
 /* ==========================================
    AURA DELUXE — script.js
+   Cada linha tem um comentário dizendo o que ela faz.
    ========================================== */
 
-// ==========================================================================
-// AULA 1: SELEÇÃO DE ELEMENTOS E EVENTOS
-// ==========================================================================
-
-// 1. SELECIONANDO OS ELEMENTOS NO DOM
-// (use as classes que existem no SEU HTML: .newsletter-form e .newsletter-input)
-const formNewsletter = document.querySelector('.newsletter-form'); // o formulário
-const inputEmail = document.querySelector('.newsletter-input');    // o campo de e-mail
-const btnSubmit = document.querySelector('.btn--form');            // o botão de enviar
-
-// Guarda o texto original do botão para poder restaurá-lo depois
-const textoOriginal = btnSubmit.textContent;
-
-// 2. O evento de envio (submit) agora é tratado na AULA 3, com validação por Regex.
+'use strict'; // modo estrito: o navegador acusa erros comuns (como variável não declarada) em vez de ignorá-los
 
 // ==========================================================================
-// AULA 2: classList.toggle() — MENU MOBILE E ALTERNADOR DE TEMA
+// AULA 2: MENU HAMBÚRGUER (classList.toggle)
 // ==========================================================================
+function iniciarMenu() { // agrupa tudo do menu em uma função, para o código ficar organizado
+  const botao = document.querySelector('#menu-toggle');       // "pesca" no HTML o botão hambúrguer pelo id
+  const menu = document.querySelector('#menu-principal');     // "pesca" o <nav> que contém os links
+  if (!botao || !menu) return;                                // se algum não existir, sai sem causar erro no resto do site
 
-// ---------- MENU HAMBÚRGUER ----------
-const menuToggle = document.querySelector('#menu-toggle'); // botão do hambúrguer
-const navMenu = document.querySelector('#menu-principal'); // o <nav> com os links
+  function definirMenu(aberto) {                              // abre (true) ou fecha (false) o menu
+    menu.classList.toggle('is-open', aberto);                 // com 2º argumento: true adiciona a classe, false remove
+    botao.classList.toggle('is-active', aberto);              // liga/desliga a animação do hambúrguer em X
+    botao.setAttribute('aria-expanded', String(aberto));      // leitores de tela: informa "true" (aberto) ou "false" (fechado)
+    botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu'); // atualiza o nome falado do botão
+  }
 
-// Abre ou fecha o menu e mantém a acessibilidade em dia
-function definirMenu(aberto) {
-  // toggle(classe, true/false): adiciona se for true, remove se for false
-  navMenu.classList.toggle('is-open', aberto);       // mostra/esconde o menu
-  menuToggle.classList.toggle('is-active', aberto);  // anima o hambúrguer em X
-  menuToggle.setAttribute('aria-expanded', String(aberto)); // leitores de tela: aberto ou fechado
-  menuToggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-}
-
-// Clique no hambúrguer: inverte o estado atual (é o "interruptor")
-menuToggle.addEventListener('click', function () {
-  definirMenu(!navMenu.classList.contains('is-open'));
-});
-
-// Clicou em um link do menu: fecha para não cobrir a página
-navMenu.querySelectorAll('a').forEach(function (link) {
-  link.addEventListener('click', function () {
-    definirMenu(false);
+  botao.addEventListener('click', function () {               // quando o hambúrguer for clicado...
+    definirMenu(!menu.classList.contains('is-open'));         // ...inverte o estado: aberto fecha, fechado abre
   });
-});
 
-// Tecla Esc fecha o menu e devolve o foco ao botão
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape' && navMenu.classList.contains('is-open')) {
-    definirMenu(false);
-    menuToggle.focus();
-  }
-});
+  menu.querySelectorAll('a').forEach(function (link) {        // para cada link dentro do menu...
+    link.addEventListener('click', function () {              // ...quando ele for clicado...
+      definirMenu(false);                                     // ...fecha o menu, para não cobrir a página
+    });
+  });
 
-// Se a tela crescer além do mobile, volta ao estado fechado
-window.matchMedia('(min-width: 769px)').addEventListener('change', function (evento) {
-  if (evento.matches) definirMenu(false);
-});
+  document.addEventListener('keydown', function (evento) {    // escuta qualquer tecla apertada na página
+    if (evento.key === 'Escape' && menu.classList.contains('is-open')) { // se foi Esc e o menu está aberto
+      definirMenu(false);                                     // fecha o menu
+      botao.focus();                                          // devolve o foco ao botão (quem usa teclado não se perde)
+    }
+  });
 
-// ---------- ALTERNADOR DE TEMA (CLARO / ESCURO) ----------
-const botaoTema = document.querySelector('#theme-toggle');
-const raiz = document.documentElement; // a tag <html>, onde ficam as classes de tema
-
-// Descobre o tema em uso: a classe manual, ou (se não houver) a preferência do sistema
-function temaAtual() {
-  if (raiz.classList.contains('theme-light')) return 'light';
-  if (raiz.classList.contains('theme-dark')) return 'dark';
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  window.matchMedia('(min-width: 769px)').addEventListener('change', function (consulta) { // avisa quando a tela cruza 769px
+    if (consulta.matches) definirMenu(false);                 // se virou desktop, garante o menu fechado
+  });
 }
-
-// Atualiza o texto lido por leitores de tela (o ícone sol/lua é trocado pelo CSS)
-function atualizarBotaoTema() {
-  const claro = temaAtual() === 'light';
-  botaoTema.setAttribute('aria-label', claro ? 'Ativar modo escuro' : 'Ativar modo claro');
-}
-
-// Clique: troca o tema com toggle e guarda a escolha no navegador
-botaoTema.addEventListener('click', function () {
-  const novoTema = temaAtual() === 'light' ? 'dark' : 'light';
-
-  raiz.classList.toggle('theme-light', novoTema === 'light'); // liga/desliga o claro
-  raiz.classList.toggle('theme-dark', novoTema === 'dark');   // liga/desliga o escuro
-
-  try { localStorage.setItem('aura-theme', novoTema); } catch (e) { /* sem armazenamento: vale só nesta visita */ }
-
-  atualizarBotaoTema();
-});
-
-atualizarBotaoTema(); // ajusta o ícone assim que a página abre
 
 // ==========================================================================
-// AULA 3: VALIDAÇÃO COM REGEX E FEEDBACK VISUAL
+// AULA 2: ALTERNADOR DE TEMA CLARO / ESCURO
 // ==========================================================================
+function iniciarTema() {
+  const botao = document.querySelector('#theme-toggle');      // botão com o ícone de sol/lua
+  if (!botao) return;                                         // sem botão, não há o que fazer
+  const raiz = document.documentElement;                      // a tag <html>, onde ficam as classes de tema
 
-// Padrão de e-mail: ^ início | [^\s@]+ nome sem espaço nem @ | @ | [^\s@]+ domínio | \. ponto | [^\s@]+ extensão | $ fim
-const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function temaAtual() {                                      // descobre qual tema está em uso agora
+    if (raiz.classList.contains('theme-light')) return 'light'; // classe manual de claro
+    if (raiz.classList.contains('theme-dark')) return 'dark';   // classe manual de escuro
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; // sem escolha: segue o sistema
+  }
 
-// CRIAÇÃO DINÂMICA DA MENSAGEM: o JavaScript monta o <small> e o insere logo abaixo do campo de e-mail
-const feedbackNewsletter = document.createElement('small');
-feedbackNewsletter.id = 'newsletter-feedback';
-feedbackNewsletter.className = 'newsletter-feedback';        // o visual fica no style.css
-feedbackNewsletter.setAttribute('role', 'status');           // leitores de tela anunciam quando o texto muda
-feedbackNewsletter.setAttribute('aria-live', 'polite');
-inputEmail.parentNode.appendChild(feedbackNewsletter);       // entra logo depois do <input>
-inputEmail.setAttribute('aria-describedby', 'newsletter-feedback'); // liga o campo à mensagem
+  function atualizarRotulo() {                                // atualiza o texto lido por leitores de tela
+    const claro = temaAtual() === 'light';                    // true se o tema atual é o claro
+    botao.setAttribute('aria-label', claro ? 'Ativar modo escuro' : 'Ativar modo claro'); // diz para qual tema vai trocar
+  }
 
-// Desliga o aviso padrão do navegador pelo JS: se o script falhar, a validação nativa continua funcionando
-formNewsletter.noValidate = true;
+  botao.addEventListener('click', function () {               // ao clicar no botão de tema...
+    const novoTema = temaAtual() === 'light' ? 'dark' : 'light'; // ...decide o tema oposto ao atual
+    raiz.classList.toggle('theme-light', novoTema === 'light'); // liga a classe do claro só se o novo tema for claro
+    raiz.classList.toggle('theme-dark', novoTema === 'dark');   // liga a classe do escuro só se o novo tema for escuro
+    try {                                                     // tenta guardar a escolha...
+      localStorage.setItem('aura-theme', novoTema);           // ...no navegador, para lembrar na próxima visita
+    } catch (erro) { /* sem armazenamento disponível: a escolha vale só nesta visita */ }
+    atualizarRotulo();                                        // atualiza o texto do botão para o novo estado
+  });
 
-let usuarioJaInteragiu = false; // só valida "ao vivo" depois que o usuário saiu do campo ou tentou enviar
-let timerBotao;                 // guarda o temporizador que restaura o botão
-
-// Mostra a mensagem e pinta o campo. tipo: 'erro', 'sucesso' ou '' (limpa tudo)
-function mostrarFeedback(tipo, mensagem) {
-  feedbackNewsletter.textContent = mensagem;
-  feedbackNewsletter.classList.toggle('is-error', tipo === 'erro');
-  feedbackNewsletter.classList.toggle('is-success', tipo === 'sucesso');
-  inputEmail.classList.toggle('is-invalid', tipo === 'erro');
-  inputEmail.classList.toggle('is-valid', tipo === 'sucesso');
-  inputEmail.setAttribute('aria-invalid', String(tipo === 'erro')); // avisa leitores de tela
+  atualizarRotulo();                                          // ajusta o rótulo assim que a página abre
 }
 
-// Confere o campo e mostra o resultado; devolve true se o e-mail é válido
-function validarEmail() {
-  const email = inputEmail.value.trim();
+// ==========================================================================
+// AULA 3: NEWSLETTER — VALIDAÇÃO COM REGEX E FEEDBACK VISUAL
+// ==========================================================================
+function iniciarNewsletter() {
+  const form = document.querySelector('.newsletter-form');    // o formulário
+  const input = document.querySelector('.newsletter-input');  // o campo de e-mail
+  const botao = document.querySelector('.btn--form');         // o botão de enviar
+  if (!form || !input || !botao) return;                      // se faltar algum, não faz nada
 
-  if (email === '') {
-    mostrarFeedback('erro', 'Digite seu e-mail para continuar.');
-    return false;
+  const textoOriginal = botao.textContent;                    // guarda o texto do botão para restaurá-lo depois
+  const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;           // ^início | nome sem espaço/@ | @ | domínio | ponto | extensão | fim$
+
+  const feedback = document.createElement('small');           // CRIA um elemento <small> novo (a mensagem)
+  feedback.id = 'newsletter-feedback';                        // dá um id, usado pelo aria-describedby abaixo
+  feedback.className = 'newsletter-feedback';                 // aplica o visual definido no style.css
+  feedback.setAttribute('role', 'status');                    // leitores de tela entendem como mensagem de status
+  feedback.setAttribute('aria-live', 'polite');               // anunciam a mensagem quando ela mudar, sem interromper
+  input.parentNode.appendChild(feedback);                     // INSERE a mensagem logo abaixo do campo de e-mail
+  input.setAttribute('aria-describedby', 'newsletter-feedback'); // liga o campo à sua mensagem para leitores de tela
+  form.noValidate = true;                                     // desliga o aviso padrão do navegador; o nosso JS valida
+
+  let jaInteragiu = false;                                    // só valida "ao vivo" depois da primeira interação
+  let timerBotao;                                             // guarda o temporizador que restaura o botão
+
+  function mostrarFeedback(tipo, mensagem) {                  // tipo: 'erro', 'sucesso' ou '' (limpa tudo)
+    feedback.textContent = mensagem;                          // escreve o texto da mensagem
+    feedback.classList.toggle('is-error', tipo === 'erro');   // cor vermelha só se for erro
+    feedback.classList.toggle('is-success', tipo === 'sucesso'); // cor verde só se for sucesso
+    input.classList.toggle('is-invalid', tipo === 'erro');    // borda vermelha no campo se for erro
+    input.classList.toggle('is-valid', tipo === 'sucesso');   // borda verde no campo se for sucesso
+    input.setAttribute('aria-invalid', String(tipo === 'erro')); // avisa leitores de tela se o campo está inválido
   }
 
-  // .test() devolve true se o texto segue o padrão da Regex
-  if (!REGEX_EMAIL.test(email)) {
-    mostrarFeedback('erro', 'Por favor, digite um e-mail válido (ex: nome@dominio.com).');
-    return false;
+  function validarEmail() {                                   // confere o campo e mostra o resultado
+    const email = input.value.trim();                         // pega o texto digitado, sem espaços nas pontas
+
+    if (email === '') {                                       // campo vazio
+      mostrarFeedback('erro', 'Digite seu e-mail para continuar.'); // mostra o erro
+      return false;                                           // devolve "inválido"
+    }
+
+    if (!REGEX_EMAIL.test(email)) {                           // .test() devolve false se o texto não segue o padrão
+      mostrarFeedback('erro', 'Por favor, digite um e-mail válido (ex: nome@dominio.com).'); // mostra o erro
+      return false;                                           // devolve "inválido"
+    }
+
+    mostrarFeedback('sucesso', 'E-mail válido.');             // passou na Regex
+    return true;                                              // devolve "válido"
   }
 
-  mostrarFeedback('sucesso', 'E-mail válido.');
-  return true;
+  input.addEventListener('input', function () {               // a cada letra digitada...
+    if (jaInteragiu) {                                        // ...se o usuário já interagiu antes...
+      validarEmail();                                         // ...valida em tempo real
+    } else {                                                  // ...senão (ainda digitando pela 1ª vez)...
+      mostrarFeedback('', '');                                // ...não incomoda com avisos
+    }
+  });
+
+  input.addEventListener('blur', function () {                // quando o usuário sai do campo...
+    if (input.value.trim() !== '') {                          // ...e algo foi digitado...
+      jaInteragiu = true;                                     // ...marca que já interagiu...
+      validarEmail();                                         // ...e valida
+    }
+  });
+
+  form.addEventListener('submit', function (evento) {         // quando o formulário for enviado...
+    evento.preventDefault();                                  // ...impede o recarregamento da página
+    jaInteragiu = true;                                       // a partir daqui a validação é ao vivo
+
+    if (!validarEmail()) {                                    // se o e-mail NÃO é válido...
+      input.focus();                                          // ...leva o cursor de volta ao campo...
+      return;                                                 // ...e para aqui: dado incorreto não é enviado
+    }
+
+    const emailDigitado = input.value.trim();                 // guarda o e-mail válido antes de limpar o campo
+
+    botao.textContent = 'Inscrição Confirmada';               // troca o texto do botão
+    botao.classList.add('btn--success');                      // aplica o visual verde (definido no style.css)
+    mostrarFeedback('sucesso', 'Inscrição realizada com sucesso!'); // mostra a mensagem de sucesso
+
+    console.log(`[Sucesso] E-mail cadastrado: ${emailDigitado}`); // só para a aula: remova antes de publicar de verdade
+
+    input.value = '';                                         // limpa o campo
+    jaInteragiu = false;                                      // recomeça sem avisos ao vivo
+
+    clearTimeout(timerBotao);                                 // cancela um temporizador anterior, se houver
+    timerBotao = setTimeout(function () {                     // depois de 4 segundos...
+      botao.textContent = textoOriginal;                      // ...restaura o texto do botão...
+      botao.classList.remove('btn--success');                 // ...remove o visual verde...
+      mostrarFeedback('', '');                                // ...e apaga a mensagem e as bordas
+    }, 4000);                                                 // 4000 milissegundos = 4 segundos
+  });
 }
 
-// Ao digitar: depois da primeira interação, o aviso acompanha em tempo real
-inputEmail.addEventListener('input', function () {
-  if (usuarioJaInteragiu) {
-    validarEmail();
-  } else {
-    mostrarFeedback('', ''); // antes disso, não incomoda quem ainda está digitando
-  }
-});
+// ==========================================================================
+// IMPRESSÃO: ABRE O FAQ INTEIRO NO PDF
+// ==========================================================================
+function iniciarImpressao() {
+  const perguntas = document.querySelectorAll('details.faq-item'); // todas as perguntas do FAQ
+  if (perguntas.length === 0) return;                        // sem FAQ, nada a fazer
+  let estadoAntes = [];                                      // guardará quais estavam abertas
 
-// Ao sair do campo: se algo foi digitado, já valida
-inputEmail.addEventListener('blur', function () {
-  if (inputEmail.value.trim() !== '') {
-    usuarioJaInteragiu = true;
-    validarEmail();
-  }
-});
+  window.addEventListener('beforeprint', function () {       // logo antes de imprimir / salvar em PDF...
+    estadoAntes = Array.from(perguntas).map(function (item) { // ...anota quais perguntas estavam abertas...
+      return item.open;                                      // ...(true = aberta, false = fechada)
+    });
+    perguntas.forEach(function (item) {                      // ...e para cada pergunta...
+      item.open = true;                                      // ...abre, para as respostas saírem no papel
+    });
+  });
 
-// Ao enviar: só confirma se a Regex aprovar
-formNewsletter.addEventListener('submit', function (event) {
-  event.preventDefault();     // impede o recarregamento da página
-  usuarioJaInteragiu = true;
+  window.addEventListener('afterprint', function () {        // depois de imprimir...
+    perguntas.forEach(function (item, indice) {              // ...para cada pergunta...
+      item.open = estadoAntes[indice];                       // ...devolve o estado em que estava
+    });
+  });
+}
 
-  if (!validarEmail()) {
-    inputEmail.focus();       // leva o cursor de volta ao campo com problema
-    return;                   // para aqui: dado incorreto não é enviado
-  }
-
-  const emailDigitado = inputEmail.value.trim();
-
-  // Confirmação no botão (classe definida no style.css)
-  btnSubmit.textContent = 'Inscrição Confirmada';
-  btnSubmit.classList.add('btn--success');
-  mostrarFeedback('sucesso', 'Inscrição realizada com sucesso!');
-
-  console.log(`E-mail cadastrado com sucesso: ${emailDigitado}`);
-
-  inputEmail.value = '';      // limpa o campo
-  usuarioJaInteragiu = false; // recomeça sem avisos ao vivo
-
-  // Depois de 4 segundos o botão e o campo voltam ao normal
-  clearTimeout(timerBotao);
-  timerBotao = setTimeout(function () {
-    btnSubmit.textContent = textoOriginal;
-    btnSubmit.classList.remove('btn--success');
-    mostrarFeedback('', '');
-  }, 4000);
-});
+// ==========================================================================
+// INICIALIZAÇÃO: liga cada recurso (o script tem "defer", então o HTML já existe aqui)
+// ==========================================================================
+iniciarMenu();       // ativa o menu hambúrguer
+iniciarTema();       // ativa o alternador de tema
+iniciarNewsletter(); // ativa a validação do formulário
+iniciarImpressao();  // prepara o FAQ para impressão

@@ -101,6 +101,7 @@ body {
   min-height: 100vh;                  /* ocupa ao menos a altura da tela */
   overflow-x: clip;                   /* impede rolagem lateral sem quebrar o header sticky */
   -webkit-font-smoothing: antialiased;/* texto mais nítido no Mac/iOS */
+  transition: background-color .4s ease, color .4s ease; /* troca de tema suave (desligada para quem prefere menos movimento) */
 }
 
 a { text-decoration: none; }          /* remove sublinhado de todos os links */
