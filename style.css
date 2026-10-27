@@ -237,6 +237,18 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
   color: var(--accent);
 }
 
+/* Ícones SVG do botão de tema: mostra o ícone do tema PARA O QUAL o botão vai trocar (só CSS, sem "piscar") */
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .icon-moon { display: none; }            /* tema escuro (padrão): mostra o sol */
+
+@media (prefers-color-scheme: light) {
+  :root:not(.theme-dark) .theme-toggle .icon-sun { display: none; }
+  :root:not(.theme-dark) .theme-toggle .icon-moon { display: block; }
+}
+
+:root.theme-light .theme-toggle .icon-sun { display: none; }   /* tema claro manual: mostra a lua */
+:root.theme-light .theme-toggle .icon-moon { display: block; }
+
 /* Hambúrguer: escondido no desktop, aparece só no mobile (media query abaixo) */
 .menu-toggle {
   display: none;
@@ -582,6 +594,10 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 
 .newsletter-feedback.is-error { color: var(--error); }
 .newsletter-feedback.is-success { color: var(--success); }
+
+/* Marcas tipográficas em vez de emojis coloridos (✓ e ✕ são símbolos de texto, herdam a cor da mensagem) */
+.newsletter-feedback.is-error::before { content: "✕ "; content: "✕ " / ""; }
+.newsletter-feedback.is-success::before { content: "✓ "; content: "✓ " / ""; }
 
 /* Borda do campo conforme a validação (classes adicionadas pelo script.js) */
 .newsletter-input.is-invalid { border-color: var(--error); }

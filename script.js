@@ -70,10 +70,9 @@ function temaAtual() {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
-// Mostra no botão o ícone do tema PARA O QUAL ele vai trocar
+// Atualiza o texto lido por leitores de tela (o ícone sol/lua é trocado pelo CSS)
 function atualizarBotaoTema() {
   const claro = temaAtual() === 'light';
-  botaoTema.textContent = claro ? '🌙' : '☀️';
   botaoTema.setAttribute('aria-label', claro ? 'Ativar modo escuro' : 'Ativar modo claro');
 }
 
@@ -128,17 +127,17 @@ function validarEmail() {
   const email = inputEmail.value.trim();
 
   if (email === '') {
-    mostrarFeedback('erro', '❌ Digite seu e-mail para continuar.');
+    mostrarFeedback('erro', 'Digite seu e-mail para continuar.');
     return false;
   }
 
   // .test() devolve true se o texto segue o padrão da Regex
   if (!REGEX_EMAIL.test(email)) {
-    mostrarFeedback('erro', '❌ Por favor, digite um e-mail válido (ex: nome@dominio.com).');
+    mostrarFeedback('erro', 'Por favor, digite um e-mail válido (ex: nome@dominio.com).');
     return false;
   }
 
-  mostrarFeedback('sucesso', '✅ E-mail válido.');
+  mostrarFeedback('sucesso', 'E-mail válido.');
   return true;
 }
 
@@ -172,9 +171,9 @@ formNewsletter.addEventListener('submit', function (event) {
   const emailDigitado = inputEmail.value.trim();
 
   // Confirmação no botão (classe definida no style.css)
-  btnSubmit.textContent = 'Inscrição Confirmada! 🎉';
+  btnSubmit.textContent = 'Inscrição Confirmada';
   btnSubmit.classList.add('btn--success');
-  mostrarFeedback('sucesso', '✅ Inscrição realizada com sucesso!');
+  mostrarFeedback('sucesso', 'Inscrição realizada com sucesso!');
 
   console.log(`E-mail cadastrado com sucesso: ${emailDigitado}`);
 
