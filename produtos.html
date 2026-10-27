@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção Aura Deluxe — Lunar Grinder e Solstício Kettle</title>
+
+    <!-- SEO: descrição, indexação e URL canônica desta página -->
+    <meta name="description" content="Conheça o Lunar Grinder, moedor artesanal em basalto, e a chaleira Solstício Kettle com controle PID. A coleção que completa a sua Aurora Coffee.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://auradeluxe.com.br/produtos.html">
+
+    <!-- Open Graph: prévia ao compartilhar em redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Coleção Aura Deluxe — Lunar Grinder e Solstício Kettle">
+    <meta property="og:description" content="Moedor artesanal e chaleira de precisão que completam a sua Aurora Coffee.">
+    <meta property="og:url" content="https://auradeluxe.com.br/produtos.html">
+
+    <!-- Favicon: xícara de traço dourado, o mesmo da página inicial -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A482' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 8h1a4 4 0 1 1 0 8h-1'/%3E%3Cpath d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z'/%3E%3C/svg%3E">
+
+    <!-- Fontes do Google, carregadas sem bloquear a renderização -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+    <!-- Aplica o tema salvo antes de pintar a página (evita piscar claro/escuro) -->
+    <script>
+        try {
+            var temaSalvo = localStorage.getItem('aura-theme');
+            if (temaSalvo === 'light' || temaSalvo === 'dark') {
+                document.documentElement.classList.add('theme-' + temaSalvo);
+            }
+        } catch (e) { /* sem localStorage: segue o tema do sistema */ }
+    </script>
+
+    <!-- Mesmo CSS e mesmo JavaScript da página inicial: identidade e comportamento idênticos -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO (igual ao da página inicial; os links apontam para o index.html) -->
+    <header class="header">
+        <a href="index.html" class="logo" aria-label="Aura Deluxe - Página inicial">
+            <div class="logo-icon">
+                <img src="Gemini_Generated_Image_%20(1).png" alt="" width="40" height="40" decoding="async">
+            </div>
+            <span class="logo-text">AURA DELUXE</span>
+        </a>
+
+        <nav class="nav-menu" id="menu-principal" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produtos.html" aria-current="page">Produtos</a></li> <!-- aria-current: marca a página atual -->
+                <li><a href="index.html#faq">Dúvidas</a></li>
+                <li><a href="index.html#newsletter">Novidades</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+                <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-sun">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-moon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+
+            <a href="index.html#newsletter" class="btn-nav">Comprar</a>
+
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- INTRODUÇÃO DA PÁGINA -->
+        <section class="products-intro" aria-labelledby="produtos-title">
+            <h1 id="produtos-title" class="section-title">A Coleção Aura Deluxe</h1>
+            <p class="section-subtitle">Dois companheiros de bancada, na mesma linguagem de basalto e nogueira da Aurora Coffee, para uma extração completa do grão à xícara.</p>
+        </section>
+
+        <!-- GRADE DE PRODUTOS: auto-fit coloca 2 cards lado a lado no desktop e empilha no celular -->
+        <section class="products-grid" aria-label="Produtos da coleção">
+
+            <!-- PRODUTO 1: MOEDOR -->
+            <article class="product-card">
+                <div class="product-image"> <!-- "Imagem" do produto: ilustração SVG de traço dourado -->
+                    <svg class="product-art" viewBox="0 0 240 240" role="img" aria-label="Ilustração do moedor Lunar Grinder em linhas douradas" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M78 36h84"></path>                                   <!-- Tampa do reservatório -->
+                        <path d="M84 36l10 66h52l10-66"></path>                       <!-- Reservatório (funil) -->
+                        <ellipse cx="108" cy="62" rx="8" ry="4.5" transform="rotate(-25 108 62)"></ellipse> <!-- Grão 1 -->
+                        <ellipse cx="132" cy="70" rx="8" ry="4.5" transform="rotate(20 132 70)"></ellipse>  <!-- Grão 2 -->
+                        <ellipse cx="118" cy="86" rx="8" ry="4.5" transform="rotate(-10 118 86)"></ellipse> <!-- Grão 3 -->
+                        <rect x="84" y="102" width="72" height="70" rx="8"></rect>    <!-- Corpo do moedor -->
+                        <circle cx="120" cy="134" r="14"></circle>                    <!-- Seletor de moagem -->
+                        <path d="M120 134l7-7"></path>                                <!-- Ponteiro do seletor -->
+                        <path d="M106 172v12h28v-12"></path>                          <!-- Bico de saída -->
+                        <path d="M98 184h44v14H98z"></path>                           <!-- Copo coletor -->
+                        <rect x="68" y="198" width="104" height="10" rx="4"></rect>   <!-- Base -->
+                    </svg>
+                </div>
+
+                <div class="product-info">
+                    <span class="badge">✦ Combina com a Aurora</span>
+                    <h2 class="product-title">Lunar Grinder</h2>
+                    <p class="product-description">Moedor artesanal de luxo com lâminas cônicas e regulagem micrométrica, para uma moagem uniforme em cada preparo.</p>
+
+                    <ul class="hero-features"> <!-- Reaproveita o estilo da lista do hero -->
+                        <li>Lâminas cônicas de aço de 64 mm</li>
+                        <li>40 níveis de regulagem micrométrica</li>
+                        <li>Corpo em basalto natural e nogueira</li>
+                        <li>Garantia de 5 Anos</li>
+                    </ul>
+
+                    <p class="price-tag">R$ 2.490,90</p>
+                    <a href="index.html#newsletter" class="btn btn-primary">Reservar o Meu</a>
+                </div>
+            </article>
+
+            <!-- PRODUTO 2: CHALEIRA -->
+            <article class="product-card">
+                <div class="product-image">
+                    <svg class="product-art" viewBox="0 0 240 240" role="img" aria-label="Ilustração da chaleira Solstício Kettle em linhas douradas" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M98 58q-5-9 0-18"></path>                            <!-- Vapor 1 -->
+                        <path d="M122 58q-5-9 0-18"></path>                           <!-- Vapor 2 -->
+                        <circle cx="110" cy="80" r="6"></circle>                      <!-- Botão da tampa -->
+                        <path d="M80 100v-8h60v8"></path>                             <!-- Tampa -->
+                        <path d="M70 190V114q0-14 14-14h52q14 0 14 14v76z"></path>    <!-- Corpo da chaleira -->
+                        <path d="M70 124c-32 0-32 50 0 50"></path>                    <!-- Alça -->
+                        <path d="M150 172c30 0 38-20 34-40-2-12 6-22 18-26"></path>   <!-- Bico de ganso -->
+                        <rect x="56" y="190" width="108" height="14" rx="5"></rect>   <!-- Base de basalto -->
+                        <circle cx="110" cy="197" r="2"></circle>                     <!-- Indicador de temperatura -->
+                    </svg>
+                </div>
+
+                <div class="product-info">
+                    <span class="badge">✦ Controle de Precisão</span>
+                    <h2 class="product-title">Solstício Kettle</h2>
+                    <p class="product-description">Chaleira elétrica de bico de ganso com controle digital de temperatura, para despejar a água no ponto certo em cada método de filtrado.</p>
+
+                    <ul class="hero-features">
+                        <li>Controle PID com precisão de ±1°C</li>
+                        <li>Capacidade de 0,9 L e base em basalto</li>
+                        <li>Função de manter aquecido por 60 min</li>
+                        <li>Garantia de 5 Anos</li>
+                    </ul>
+
+                    <p class="price-tag">R$ 1.890,00</p>
+                    <a href="index.html#newsletter" class="btn btn-primary">Reservar a Minha</a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- CHAMADA PARA O PRODUTO PRINCIPAL -->
+        <section class="products-cta">
+            <p class="section-subtitle">Ainda não conhece a peça central da coleção?</p>
+            <a href="index.html#home" class="btn btn-secondary">Ver a Aurora Coffee</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -604,6 +604,85 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 .newsletter-input.is-invalid { border-color: var(--error); }
 .newsletter-input.is-valid { border-color: var(--success); }
 
+/* PÁGINA DE PRODUTOS (produtos.html) */
+.nav-menu a[aria-current="page"] { color: var(--accent); }  /* destaca o link da página atual */
+
+.products-intro { padding: 4rem 0 1rem; }                   /* topo da página */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); /* 2 colunas no desktop, 1 no celular */
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;             /* imagem em cima, informações embaixo */
+  min-width: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;                   /* corta a área da imagem nos cantos arredondados */
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+@media (hover: hover) {
+  .product-card:hover { border-color: var(--border-strong); transform: translateY(-6px); }
+}
+
+.product-image {                      /* "palco" da ilustração do produto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.product-art {
+  width: min(100%, 260px);            /* nunca passa da largura do card */
+  height: auto;
+  color: var(--accent);               /* o traço do SVG usa currentColor => dourado do tema */
+}
+
+.product-info {                       /* área de texto e compra */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;                            /* ocupa o espaço restante: os dois botões ficam alinhados embaixo */
+  padding: 2rem;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  margin-bottom: .75rem;
+}
+
+.product-description {
+  color: var(--text-secondary);
+  font-size: .95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.product-info .price-tag { margin-top: auto; }              /* empurra preço e botão para o fim do card */
+
+.products-cta {                       /* chamada final para a Aurora Coffee */
+  text-align: center;
+  padding: 1rem 0 5rem;
+}
+
+@media (max-width: 480px) {
+  .product-image { padding: 2rem 1rem; }
+  .product-info { padding: 1.5rem 1.25rem; }
+  .product-info .btn { width: 100%; }                       /* botão em largura total no celular */
+}
+
 /* 13. RODAPÉ */
 .footer {
   text-align: center;
@@ -739,6 +818,7 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 
   /* Cards e perguntas com borda simples e sem cortes de página */
   .feature-card,
+  .product-card,
   .faq-item {
     border: 1px solid #ccc !important;
     background: transparent !important;
