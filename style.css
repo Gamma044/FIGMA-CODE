@@ -26,6 +26,8 @@
   --radius: 12px;                     /* arredondamento padrão */
   --shadow: 0 30px 60px rgba(0,0,0,.6);        /* sombra de blocos grandes */
   --shadow-hover: 0 20px 40px rgba(0,0,0,.4);  /* sombra dos cards no hover */
+  --error: #FF8A80;                   /* vermelho suave para mensagens de erro */
+  --success: #7BD39A;                 /* verde suave para mensagens de sucesso */
   --transition: all .4s cubic-bezier(.16,1,.3,1); /* animação suave padrão */
 }
 
@@ -47,6 +49,8 @@
     --title-gradient: linear-gradient(135deg,#1A1714 0%,#7F6343 50%,#9A7B56 100%);
     --shadow: 0 20px 40px rgba(26,23,20,.08);
     --shadow-hover: 0 20px 40px rgba(26,23,20,.12);
+    --error: #B3261E;                 /* vermelho escuro: contraste no fundo claro */
+    --success: #2F7D4F;               /* verde escuro: contraste no fundo claro */
   }
 }
 
@@ -69,6 +73,8 @@
   --title-gradient: linear-gradient(135deg,#1A1714 0%,#7F6343 50%,#9A7B56 100%);
   --shadow: 0 20px 40px rgba(26,23,20,.08);
   --shadow-hover: 0 20px 40px rgba(26,23,20,.12);
+  --error: #B3261E;                 /* vermelho escuro: contraste no fundo claro */
+  --success: #2F7D4F;               /* verde escuro: contraste no fundo claro */
 }
 
 /* MODO ESCURO MANUAL: as variáveis padrão já são escuras; aqui só avisamos o navegador (barras de rolagem, campos) */
@@ -543,7 +549,7 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
   box-shadow: var(--shadow);
 }
 
-.newsletter-form { display: flex; gap: 12px; justify-content: center; } /* campo + botão lado a lado */
+.newsletter-form { display: flex; align-items: flex-start; gap: 12px; justify-content: center; } /* campo + botão lado a lado; o botão não estica quando a mensagem aparece */
 .newsletter-field { flex: 1; max-width: 400px; }                         /* campo ocupa o espaço sobrante */
 
 .newsletter-input {
@@ -563,6 +569,23 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+
+/* Mensagem de feedback da newsletter (erro ou sucesso) */
+.newsletter-feedback {                /* elemento <small> criado pelo script.js, logo abaixo do campo */
+  display: block;
+  margin-top: .5rem;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.newsletter-feedback:empty { margin-top: 0; } /* sem mensagem, não ocupa espaço */
+
+.newsletter-feedback.is-error { color: var(--error); }
+.newsletter-feedback.is-success { color: var(--success); }
+
+/* Borda do campo conforme a validação (classes adicionadas pelo script.js) */
+.newsletter-input.is-invalid { border-color: var(--error); }
+.newsletter-input.is-valid { border-color: var(--success); }
 
 /* 13. RODAPÉ */
 .footer {
