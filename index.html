@@ -38,7 +38,7 @@
     <!-- Aplica o tema escolhido antes de pintar a página (evita piscar claro/escuro). Sem defer de propósito -->
     <script>
         try {
-            var temaSalvo = localStorage.getItem('aura-theme');
+            var temaSalvo = localStorage.getItem('temaPreferido'); /* mesma chave usada no script.js */
             if (temaSalvo === 'light' || temaSalvo === 'dark') {
                 document.documentElement.classList.add('theme-' + temaSalvo);
             }
@@ -147,7 +147,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon> <!-- Raio -->
                         </svg>
-                    </div> <!-- aria-hidden: emoji decorativo -->
+                    </div>
                     <h3 class="card-title card__title">Alta Performance</h3>
                     <p class="card-description card__description">Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas da primeira à última xícara.</p>
                 </article>

@@ -49,6 +49,17 @@ function iniciarTema() {
   const botao = document.querySelector('#theme-toggle');      // botão com o ícone de sol/lua
   if (!botao) return;                                         // sem botão, não há o que fazer
   const raiz = document.documentElement;                      // a tag <html>, onde ficam as classes de tema
+  const CHAVE_TEMA = 'temaPreferido';                         // nome da chave no localStorage (aparece em DevTools > Application)
+
+  // RECUPERAÇÃO: lê o tema salvo e garante que a classe esteja no <html>
+  // (o script do <head> já faz isso antes de pintar a página; aqui é a rede de segurança)
+  try {                                                       // localStorage pode estar bloqueado, por isso o try/catch
+    const temaSalvo = localStorage.getItem(CHAVE_TEMA);       // getItem devolve 'light', 'dark' ou null (nada salvo ainda)
+    if (temaSalvo === 'light' || temaSalvo === 'dark') {      // só aceita valores válidos (ignora lixo no storage)
+      raiz.classList.toggle('theme-light', temaSalvo === 'light'); // liga o claro só se foi o salvo
+      raiz.classList.toggle('theme-dark', temaSalvo === 'dark');   // liga o escuro só se foi o salvo
+    }
+  } catch (erro) { /* sem armazenamento: segue o tema do sistema */ }
 
   function temaAtual() {                                      // descobre qual tema está em uso agora
     if (raiz.classList.contains('theme-light')) return 'light'; // classe manual de claro
@@ -66,10 +77,13 @@ function iniciarTema() {
     raiz.classList.toggle('theme-light', novoTema === 'light'); // liga a classe do claro só se o novo tema for claro
     raiz.classList.toggle('theme-dark', novoTema === 'dark');   // liga a classe do escuro só se o novo tema for escuro
     try {                                                     // tenta guardar a escolha...
-      localStorage.setItem('aura-theme', novoTema);           // ...no navegador, para lembrar na próxima visita
+      localStorage.setItem(CHAVE_TEMA, novoTema);             // ...no navegador, para lembrar na próxima visita
+      console.log(`[LocalStorage] Preferência atualizada para: ${novoTema}`); // confirma no Console (remova antes de publicar)
     } catch (erro) { /* sem armazenamento disponível: a escolha vale só nesta visita */ }
     atualizarRotulo();                                        // atualiza o texto do botão para o novo estado
   });
+
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', atualizarRotulo); // se o sistema mudar de tema (sem escolha manual), o rótulo acompanha
 
   atualizarRotulo();                                          // ajusta o rótulo assim que a página abre
 }
