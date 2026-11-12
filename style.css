@@ -827,3 +827,37 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
     break-inside: avoid;
   }
 }
+
+/* ==========================================================
+   MARCA D'ÁGUA: "site de testes / trabalho de sala" (fixa na tela, não bloqueia cliques)
+   ========================================================== */
+.watermark {
+  position: fixed;                    /* fica parada na tela enquanto a página rola */
+  inset: 0;                           /* cobre a janela inteira */
+  display: grid;
+  place-items: center;                /* centraliza o texto */
+  pointer-events: none;               /* cliques passam direto para o site embaixo */
+  z-index: 900;                       /* acima do conteúdo, abaixo do cabeçalho (1000) */
+  overflow: hidden;
+  user-select: none;
+}
+
+.watermark span {
+  display: block;
+  max-width: 90vw;
+  transform: rotate(-24deg);          /* diagonal, como uma marca d'água de verdade */
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: clamp(.8rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1.5;
+  color: var(--text-primary);         /* acompanha o tema claro/escuro */
+  opacity: .1;                        /* discreta: não atrapalha a leitura */
+}
+
+.footer-note { margin-top: .5rem; font-size: .8rem; }
+
+@media print {
+  .watermark span { opacity: .15; }   /* continua aparecendo no PDF */
+}
