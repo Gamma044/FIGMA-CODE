@@ -697,13 +697,15 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 
 /* 14. RESPONSIVIDADE */
 
-/* RECURSO 2: Tablets e celulares (até 768px) — Hero empilhado e centralizado */
-@media (max-width: 768px) {
+/* MENU HAMBÚRGUER (até 1180px): com 5 links o menu horizontal só cabe em telas largas.
+   Abaixo disso o logo era espremido (quebrava em 2 linhas) e o menu invadia o espaço dele.
+   Se mudar este valor, mude também o (min-width: 1181px) no script.js */
+@media (max-width: 1180px) {
   .header { flex-wrap: wrap; gap: 1rem; } /* permite o menu aberto descer para a 2ª linha */
   .menu-toggle { display: inline-flex; }  /* mostra o hambúrguer */
 
   .nav-menu {
-    display: none;                    /* menu fechado por padrão no mobile */
+    display: none;                    /* menu fechado por padrão */
     order: 3;                         /* vai para depois do logo e dos botões */
     width: 100%;
     border-top: 1px solid var(--border);
@@ -714,7 +716,10 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 
   .nav-menu ul { flex-direction: column; align-items: center; gap: .25rem; }
   .nav-menu a { display: block; padding: .75rem 1rem; } /* área de toque maior */
+}
 
+/* RECURSO 2: Tablets e celulares (até 768px) — Hero empilhado e centralizado */
+@media (max-width: 768px) {
   .main-container { padding: 0 16px; }
 
   .hero-section { padding: 2.5rem 0 3.5rem; }

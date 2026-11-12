@@ -37,8 +37,8 @@ function iniciarMenu() { // agrupa tudo do menu em uma função, para o código 
     }
   });
 
-  window.matchMedia('(min-width: 769px)').addEventListener('change', function (consulta) { // avisa quando a tela cruza 769px
-    if (consulta.matches) definirMenu(false);                 // se virou desktop, garante o menu fechado
+  window.matchMedia('(min-width: 1181px)').addEventListener('change', function (consulta) { // avisa quando a tela cruza 1181px (igual ao CSS)
+    if (consulta.matches) definirMenu(false);                 // se virou desktop largo, garante o menu fechado
   });
 }
 
