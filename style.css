@@ -829,35 +829,70 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 }
 
 /* ==========================================================
-   MARCA D'ÁGUA: "site de testes / trabalho de sala" (fixa na tela, não bloqueia cliques)
+   MARCA D'ÁGUA PROFISSIONAL — aviso de "site de testes / trabalho de sala"
+   1) .watermark: textura diagonal repetida (ocupa a tela toda, quase invisível)
+   2) .env-badge: selo pequeno e elegante no canto inferior esquerdo
+   Nada disso bloqueia cliques (pointer-events: none)
    ========================================================== */
 .watermark {
-  position: fixed;                    /* fica parada na tela enquanto a página rola */
+  position: fixed;
   inset: 0;                           /* cobre a janela inteira */
-  display: grid;
-  place-items: center;                /* centraliza o texto */
-  pointer-events: none;               /* cliques passam direto para o site embaixo */
   z-index: 900;                       /* acima do conteúdo, abaixo do cabeçalho (1000) */
-  overflow: hidden;
-  user-select: none;
+  pointer-events: none;               /* cliques passam direto */
+  background-color: var(--text-primary); /* a cor segue o tema: claro ou escuro */
+  opacity: .055;                      /* quase imperceptível, sem atrapalhar a leitura */
+  /* O texto vira uma "máscara": só onde há letra a cor aparece. Assim o padrão herda a cor do tema */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='440'%20height='240'%3E%3Ctext%20x='220'%20y='120'%20text-anchor='middle'%20transform='rotate(-24%20220%20120)'%20font-family='Arial,Helvetica,sans-serif'%20font-size='12'%20font-weight='600'%20letter-spacing='2.5'%20fill='black'%3EAMBIENTE%20DE%20TESTES%20%C2%B7%20PROJETO%20ACAD%C3%8AMICO%3C/text%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='440'%20height='240'%3E%3Ctext%20x='220'%20y='120'%20text-anchor='middle'%20transform='rotate(-24%20220%20120)'%20font-family='Arial,Helvetica,sans-serif'%20font-size='12'%20font-weight='600'%20letter-spacing='2.5'%20fill='black'%3EAMBIENTE%20DE%20TESTES%20%C2%B7%20PROJETO%20ACAD%C3%8AMICO%3C/text%3E%3C/svg%3E");
+  -webkit-mask-size: 440px 240px;
+  mask-size: 440px 240px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
 }
 
-.watermark span {
-  display: block;
-  max-width: 90vw;
-  transform: rotate(-24deg);          /* diagonal, como uma marca d'água de verdade */
-  text-align: center;
-  font-family: var(--font-sans);
-  font-size: clamp(.8rem, 3.4vw, 2.6rem);
+.env-badge {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 950;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: calc(100vw - 32px);
+  padding: .45rem .85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;               /* formato de pílula */
+  background: var(--header-bg);       /* mesmo vidro fosco do cabeçalho */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--text-secondary);
+  font-size: .68rem;
   font-weight: 600;
-  letter-spacing: .08em;
-  line-height: 1.5;
-  color: var(--text-primary);         /* acompanha o tema claro/escuro */
-  opacity: .1;                        /* discreta: não atrapalha a leitura */
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  pointer-events: none;
+  user-select: none;
+  opacity: .92;
 }
+
+.env-badge__dot {                    /* pontinho de "status" */
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.env-badge__sep { opacity: .5; }
 
 .footer-note { margin-top: .5rem; font-size: .8rem; }
 
+@media (max-width: 480px) {
+  .env-badge { left: 10px; bottom: 10px; padding: .35rem .7rem; font-size: .6rem; letter-spacing: .06em; }
+}
+
 @media print {
-  .watermark span { opacity: .15; }   /* continua aparecendo no PDF */
+  .env-badge { display: none; }     /* no papel, só a textura diagonal fica */
+  .watermark { opacity: .12; }
 }
