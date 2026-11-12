@@ -24,6 +24,12 @@
     <meta property="og:description" content="Conheça a Aurora Coffee. Estética rústica em basalto natural, certificação SCA e a extração perfeita para o seu café de luxo.">
     <meta property="og:image" content="https://auroracoffee-auradeluxe.netlify.app/Gemini_Generated_Image_.png"> <!-- Precisa ser URL absoluta -->
     <meta property="og:url" content="https://auroracoffee-auradeluxe.netlify.app/">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image:alt" content="Cafeteira Aurora Coffee com design premium">
+    <meta name="twitter:card" content="summary_large_image"> <!-- Prévia grande ao compartilhar no X/Twitter -->
+    <!-- Cor da barra do navegador no celular (acompanha o tema do sistema) -->
+    <meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F7F4F0" media="(prefers-color-scheme: light)">
 
     <!-- Favicon: xícara em SVG de traço dourado, no mesmo estilo dos ícones do site (símbolos < > # codificados) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A482' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 8h1a4 4 0 1 1 0 8h-1'/%3E%3Cpath d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z'/%3E%3C/svg%3E">
@@ -45,6 +51,20 @@
         } catch (e) { /* localStorage indisponível: segue o tema do sistema */ }
     </script>
 
+        <!-- Dados estruturados (JSON-LD): ajudam o Google a entender o produto e o preço -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Aurora Coffee",
+      "brand": { "@type": "Brand", "name": "Aura Deluxe" },
+      "description": "Cafeteira de expresso artesanal de luxo em basalto natural, com controle PID, bomba 15 BAR e garantia de 5 anos.",
+      "image": "https://auroracoffee-auradeluxe.netlify.app/Gemini_Generated_Image_.png",
+      "url": "https://auroracoffee-auradeluxe.netlify.app/",
+      "offers": { "@type": "Offer", "price": "4998.90", "priceCurrency": "BRL", "url": "https://auroracoffee-auradeluxe.netlify.app/" }
+    }
+    </script>
+
     <!-- CSS externo com todo o visual e a responsividade -->
     <link rel="stylesheet" href="style.css">
 
@@ -52,6 +72,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+
+    <!-- Link "pular para o conteúdo": aparece só para quem navega com TAB (teclado e leitores de tela) -->
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <!-- MARCA D'ÁGUA PROFISSIONAL: (1) textura diagonal repetida e quase invisível + (2) selo discreto no canto.
          Ambos são decorativos (aria-hidden); o aviso em texto fica no rodapé, para leitores de tela. -->
@@ -73,6 +96,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#especificacoes">Especificações</a></li>
                 <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#newsletter">Novidades</a></li>
             </ul>
@@ -107,7 +131,7 @@
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main-container">
+    <main class="main-container" id="conteudo" tabindex="-1">
 
         <!-- HERO: produto em destaque -->
         <section class="hero-section" id="home">
@@ -139,49 +163,49 @@
         </section>
 
         <!-- BENEFÍCIOS -->
-        <section id="beneficios" class="features-section beneficios" aria-labelledby="beneficios-title"> <!-- aria-labelledby: nomeia a seção pelo título -->
-            <div class="beneficios__header">
-                <h2 id="beneficios-title" class="section-title beneficios__title">Por que escolher o Aura Deluxe?</h2>
-                <p class="section-subtitle beneficios__subtitle">Tudo o que você precisa para uma extração artesanal com alta performance e elegância.</p>
+        <section id="beneficios" class="features-section" aria-labelledby="beneficios-title"> <!-- aria-labelledby: nomeia a seção pelo título -->
+            <div>
+                <h2 id="beneficios-title" class="section-title">Por que escolher o Aura Deluxe?</h2>
+                <p class="section-subtitle">Tudo o que você precisa para uma extração artesanal com alta performance e elegância.</p>
             </div>
 
             <!-- CSS Grid (layout externo): auto-fit + minmax(280px, 1fr) redistribui os cards conforme a largura da tela -->
-            <div class="cards-grid beneficios__grid">
+            <div class="cards-grid">
 
-                <article class="feature-card card"> <!-- Card 1 (Flexbox interno alinha ícone, título e texto em coluna) -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card"> <!-- Card 1 (Flexbox interno alinha ícone, título e texto em coluna) -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon> <!-- Raio -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Alta Performance</h3>
-                    <p class="card-description card__description">Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas da primeira à última xícara.</p>
+                    <h3 class="card-title">Alta Performance</h3>
+                    <p class="card-description">Aquecimento ultrarrápido com estabilidade térmica contínua para extrações perfeitas da primeira à última xícara.</p>
                 </article>
 
-                <article class="feature-card card card--featured"> <!-- Card 2 (destacado) -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card card--featured"> <!-- Card 2 (destacado) -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path> <!-- Escudo -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Garantia Premium</h3>
-                    <p class="card-description card__description">Suporte técnico VIP com 5 anos de cobertura total para componentes de precisão e estrutura de pedra.</p>
+                    <h3 class="card-title">Garantia Premium</h3>
+                    <p class="card-description">Suporte técnico VIP com 5 anos de cobertura total para componentes de precisão e estrutura de pedra.</p>
                 </article>
 
-                <article class="feature-card card"> <!-- Card 3 -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card"> <!-- Card 3 -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="20" x2="18" y2="10"></line> <!-- Barra 3 -->
                             <line x1="12" y1="20" x2="12" y2="4"></line> <!-- Barra 2 -->
                             <line x1="6" y1="20" x2="6" y2="14"></line> <!-- Barra 1 -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Precisão Digital PID</h3>
-                    <p class="card-description card__description">Controlador digital avançado de temperatura ajustável com precisão de ±0,5°C para perfis aromáticos exatos.</p>
+                    <h3 class="card-title">Precisão Digital PID</h3>
+                    <p class="card-description">Controlador digital avançado de temperatura ajustável com precisão de ±0,5°C para perfis aromáticos exatos.</p>
                 </article>
 
-                <article class="feature-card card"> <!-- Card 4: ícone de xícara em SVG -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card"> <!-- Card 4: ícone de xícara em SVG -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- currentColor: usa a cor dourada do texto -->
                             <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path> <!-- Alça -->
                             <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path> <!-- Corpo da xícara -->
@@ -190,7 +214,7 @@
                             <line x1="14" y1="2" x2="14" y2="4"></line> <!-- Vapor 3 -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Menu Completo</h3>
+                    <h3 class="card-title">Menu Completo</h3>
                     <ul class="card-list"> <!-- Lista de bebidas -->
                         <li>Expressos Duplos</li>
                         <li>Cappuccinos Aveludados</li>
@@ -199,20 +223,20 @@
                     </ul>
                 </article>
 
-                <article class="feature-card card"> <!-- Card 5: ícone de cristal em SVG -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card"> <!-- Card 5: ícone de cristal em SVG -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 15 10-15-10-5z"></path> <!-- Contorno -->
                             <path d="M2 7l10 5 10-5"></path> <!-- Faceta superior -->
                             <path d="M12 22V12"></path> <!-- Linha central -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Basalto Natural</h3>
-                    <p class="card-description card__description">Estrutura única em rocha vulcânica de basalto polida à mão com acabamento em nogueira nobre.</p>
+                    <h3 class="card-title">Basalto Natural</h3>
+                    <p class="card-description">Estrutura única em rocha vulcânica de basalto polida à mão com acabamento em nogueira nobre.</p>
                 </article>
 
-                <article class="feature-card card"> <!-- Card 6: ícone de manômetro em SVG -->
-                    <div class="icon-wrapper card__icon" aria-hidden="true">
+                <article class="feature-card"> <!-- Card 6: ícone de manômetro em SVG -->
+                    <div class="icon-wrapper" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle> <!-- Mostrador -->
                             <path d="M12 12l3-3"></path> <!-- Ponteiro -->
@@ -221,11 +245,27 @@
                             <path d="M18 12h-2"></path> <!-- Marca direita -->
                         </svg>
                     </div>
-                    <h3 class="card-title card__title">Bomba 15 BAR</h3>
-                    <p class="card-description card__description">Bomba de pressão profissional com pré-infusão programável para garantir crema densa e consistente.</p>
+                    <h3 class="card-title">Bomba 15 BAR</h3>
+                    <p class="card-description">Bomba de pressão profissional com pré-infusão programável para garantir crema densa e consistente.</p>
                 </article>
 
             </div>
+        </section>
+
+                <!-- ESPECIFICAÇÕES: lista de definição (<dl>) = termo + descrição, semântica ideal para fichas técnicas -->
+        <section class="specs-section" id="especificacoes" aria-labelledby="specs-title">
+            <h2 id="specs-title" class="section-title">Especificações Técnicas</h2>
+            <p class="section-subtitle">Os números e materiais por trás da extração da Aurora Coffee.</p>
+
+            <dl class="specs">
+                <div class="specs__row"><dt>Bomba</dt><dd>15 BAR, com pré-infusão programável</dd></div>
+                <div class="specs__row"><dt>Temperatura</dt><dd>Controle digital PID ajustável, precisão de ±0,5°C (calibrado de fábrica em 93°C)</dd></div>
+                <div class="specs__row"><dt>Estrutura</dt><dd>Basalto natural polido à mão, com acabamento em nogueira nobre</dd></div>
+                <div class="specs__row"><dt>Certificação</dt><dd>Profissional SCA</dd></div>
+                <div class="specs__row"><dt>Bebidas</dt><dd>Expressos duplos, cappuccinos, flat whites e lattes especiais</dd></div>
+                <div class="specs__row"><dt>Garantia</dt><dd>5 anos para a bomba, o controlador PID e o acabamento em basalto</dd></div>
+                <div class="specs__row"><dt>Entrega</dt><dd>Todo o Brasil em 3 a 7 dias úteis, em caixa de madeira de reflorestamento</dd></div>
+            </dl>
         </section>
 
         <!-- FAQ -->
@@ -274,14 +314,19 @@
                 <h2 id="newsletter-title" class="section-title">Receba Convites &amp; Ofertas Exclusivas</h2> <!-- &amp; = "&" escrito corretamente em HTML -->
                 <p class="section-subtitle">Cadastre seu e-mail e receba um cupom exclusivo para a compra da sua Aurora Coffee.</p>
 
-                <!-- Troque action="#" pelo endereço real (Formspree, Mailchimp, seu servidor), senão nada é enviado -->
-                <form class="newsletter-form" action="#" method="POST">
+                <!-- Netlify Forms: data-netlify="true" faz o Netlify guardar cada cadastro (painel do site > Forms).
+                     O campo oculto "bot-field" é uma armadilha: robôs preenchem, pessoas não, e o Netlify descarta o spam. -->
+                <form class="newsletter-form" name="newsletter" action="/" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="newsletter"> <!-- obrigatório no Netlify: identifica o formulário -->
+                    <p class="hp-field" hidden><label>Não preencha este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                     <div class="newsletter-field">
                         <label for="email-input" class="sr-only">Seu e-mail principal</label> <!-- Rótulo invisível, lido por leitores de tela -->
                         <input type="email" id="email-input" name="email" class="newsletter-input" placeholder="Digite seu melhor e-mail..." autocomplete="email" required> <!-- name: necessário para enviar o dado; required: obrigatório -->
                     </div>
                     <button type="submit" class="btn btn-primary btn--form">Garantir Desconto</button> <!-- Envia o formulário -->
                 </form>
+
+                <p class="newsletter-consent">Ao se inscrever, você aceita receber e-mails da Aura Deluxe. Este é um site de testes (trabalho de sala de aula): o e-mail informado é usado apenas para demonstração.</p>
 
             </div>
         </section>
@@ -290,6 +335,15 @@
 
     <!-- RODAPÉ -->
     <footer class="footer">
+        <nav class="footer-nav" aria-label="Rodapé">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#especificacoes">Especificações</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+                <li><a href="#newsletter">Novidades</a></li>
+            </ul>
+        </nav>
         <p>&copy; 2026 <strong>Aura Deluxe</strong>. Todos os direitos reservados.</p> <!-- &copy; = © -->
         <p class="footer-note">Site de testes — trabalho realizado em sala de aula. Não é uma loja real.</p>
     </footer>

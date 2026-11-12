@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Página 404: o Netlify a mostra sozinho quando o endereço não existe. Caminhos com "/" no início funcionam em qualquer endereço -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada — Aura Deluxe</title>
+    <meta name="robots" content="noindex"> <!-- Páginas de erro não devem aparecer no Google -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A482' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 8h1a4 4 0 1 1 0 8h-1'/%3E%3Cpath d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+
+    <!-- Mesmo tema escolhido pelo visitante no site principal -->
+    <script>
+        try {
+            var temaSalvo = localStorage.getItem('temaPreferido');
+            if (temaSalvo === 'light' || temaSalvo === 'dark') {
+                document.documentElement.classList.add('theme-' + temaSalvo);
+            }
+        } catch (e) { /* localStorage indisponível: segue o tema do sistema */ }
+    </script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="watermark" aria-hidden="true"></div>
+    <div class="env-badge" aria-hidden="true"><span class="env-badge__dot"></span>Ambiente de testes <span class="env-badge__sep">·</span> Projeto de sala de aula</div>
+
+    <main class="notfound">
+        <p class="notfound__code" aria-hidden="true">404</p>
+        <h1 class="section-title">Página não encontrada</h1>
+        <p class="section-subtitle">O endereço que você acessou não existe ou foi movido.</p>
+        <a class="btn btn-primary" href="/">Voltar ao início</a>
+    </main>
+</body>
+</html>

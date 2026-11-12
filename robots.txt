@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://auroracoffee-auradeluxe.netlify.app/sitemap.xml

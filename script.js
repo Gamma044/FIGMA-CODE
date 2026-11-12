@@ -153,6 +153,29 @@ function iniciarNewsletter() {
     }
   });
 
+  function restaurarBotao() {                                 // devolve o botão e o campo ao estado inicial
+    botao.textContent = textoOriginal;                        // texto original do botão
+    botao.classList.remove('btn--success');                   // remove o visual verde
+    mostrarFeedback('', '');                                  // apaga a mensagem e as bordas
+  }
+
+  // Envia o e-mail de verdade. No Netlify, o formulário com data-netlify recebe este POST em "/"
+  // e guarda o cadastro (painel do site > Forms). Abrindo o arquivo direto no PC (file://) não existe
+  // servidor para receber, então o envio é simulado só para você conseguir testar o visual.
+  function enviarFormulario() {
+    if (location.protocol === 'file:') {                      // teste local
+      console.log('[Modo local] Envio simulado: o Netlify só recebe os cadastros com o site no ar.');
+      return Promise.resolve();                               // finge que deu certo
+    }
+    return fetch('/', {                                       // envio real, sem recarregar a página
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString() // inclui form-name e o campo-armadilha
+    }).then(function (resposta) {
+      if (!resposta.ok) throw new Error('Falha no envio: ' + resposta.status); // 4xx/5xx vira erro
+    });
+  }
+
   form.addEventListener('submit', function (evento) {         // quando o formulário for enviado...
     evento.preventDefault();                                  // ...impede o recarregamento da página
     jaInteragiu = true;                                       // a partir daqui a validação é ao vivo
@@ -162,23 +185,23 @@ function iniciarNewsletter() {
       return;                                                 // ...e para aqui: dado incorreto não é enviado
     }
 
-    const emailDigitado = input.value.trim();                 // guarda o e-mail válido antes de limpar o campo
+    botao.disabled = true;                                    // evita clique duplo durante o envio
+    botao.textContent = 'Enviando...';                        // avisa que está trabalhando
 
-    botao.textContent = 'Inscrição Confirmada';               // troca o texto do botão
-    botao.classList.add('btn--success');                      // aplica o visual verde (definido no style.css)
-    mostrarFeedback('sucesso', 'Inscrição realizada com sucesso!'); // mostra a mensagem de sucesso
-
-    console.log(`[Sucesso] E-mail cadastrado: ${emailDigitado}`); // só para a aula: remova antes de publicar de verdade
-
-    input.value = '';                                         // limpa o campo
-    jaInteragiu = false;                                      // recomeça sem avisos ao vivo
-
-    clearTimeout(timerBotao);                                 // cancela um temporizador anterior, se houver
-    timerBotao = setTimeout(function () {                     // depois de 4 segundos...
-      botao.textContent = textoOriginal;                      // ...restaura o texto do botão...
-      botao.classList.remove('btn--success');                 // ...remove o visual verde...
-      mostrarFeedback('', '');                                // ...e apaga a mensagem e as bordas
-    }, 4000);                                                 // 4000 milissegundos = 4 segundos
+    enviarFormulario().then(function () {                     // deu certo:
+      botao.textContent = 'Inscrição Confirmada';             // troca o texto do botão
+      botao.classList.add('btn--success');                    // aplica o visual verde
+      mostrarFeedback('sucesso', 'Inscrição realizada com sucesso!'); // mostra a mensagem de sucesso
+      input.value = '';                                       // limpa o campo
+      jaInteragiu = false;                                    // recomeça sem avisos ao vivo
+      clearTimeout(timerBotao);                               // cancela um temporizador anterior, se houver
+      timerBotao = setTimeout(restaurarBotao, 4000);          // depois de 4 segundos volta ao normal
+    }).catch(function () {                                    // deu errado (sem internet, servidor fora...):
+      botao.textContent = textoOriginal;                      // devolve o texto do botão
+      mostrarFeedback('erro', 'Não foi possível enviar agora. Tente novamente em instantes.'); // o e-mail digitado é mantido
+    }).finally(function () {                                  // em qualquer caso:
+      botao.disabled = false;                                 // libera o botão de novo
+    });
   });
 }
 
