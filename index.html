@@ -66,10 +66,10 @@
     </script>
 
     <!-- CSS externo com todo o visual e a responsividade -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 
     <!-- JavaScript: "defer" baixa o arquivo em paralelo e só o executa depois que o HTML inteiro foi lido (o DOM já existe) -->
-    <script src="script.js?v=2" defer></script>
+    <script src="script.js?v=3" defer></script>
 </head>
 <body>
 
@@ -268,6 +268,62 @@
             </dl>
         </section>
 
+                <!-- DEPOIMENTOS: <figure> + <blockquote> + <figcaption> é a semântica correta para citações com autor.
+             Conteúdo FICTÍCIO (exemplo de layout do trabalho de sala): por isso o aviso visível abaixo e
+             NÃO há dados estruturados de avaliação (JSON-LD Review/aggregateRating) para o Google. -->
+        <section class="testimonials-section" id="depoimentos" aria-labelledby="depoimentos-title">
+            <p class="testimonials-flag"><span class="badge">Conteúdo fictício · exemplo de layout</span></p>
+            <h2 id="depoimentos-title" class="section-title">Depoimentos de Clientes</h2>
+            <p class="section-subtitle">Depoimentos fictícios, criados para ilustrar esta seção no trabalho de sala de aula.</p>
+
+            <div class="testimonials-grid">
+                <figure class="testimonial">
+                    <p class="testimonial__stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                    <blockquote class="testimonial__quote"><p>A estabilidade térmica do controlador PID faz toda a diferença na xícara. Consigo extrair grãos de torra clara exatamente a 93°C sem amargor, e a pré-infusão dos 15 BAR entrega uma crema densa e persistente digna de cafeteria.</p></blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar" aria-hidden="true">HV</span>
+                        <span>
+                            <cite class="testimonial__name">Henrique Vasconcelos</cite>
+                            <span class="testimonial__meta">Torrefador e Entusiasta de Cafés Especiais · Curitiba, PR</span>
+                        </span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial">
+                    <p class="testimonial__stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                    <blockquote class="testimonial__quote"><p>Projetei um espaço gourmet minimalista e a Aurora Coffee se tornou a peça central da bancada. O contraste do basalto natural polido à mão com o acabamento em nogueira traz uma presença escultural que nenhuma máquina de inox comum oferece.</p></blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar" aria-hidden="true">CM</span>
+                        <span>
+                            <cite class="testimonial__name">Camila Menezes</cite>
+                            <span class="testimonial__meta">Arquiteta de Interiores · São Paulo, SP</span>
+                        </span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial">
+                    <p class="testimonial__stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                    <blockquote class="testimonial__quote"><p>O aquecimento ultrarrápido mudou minha rotina matinal. Preparo expressos duplos e cappuccinos aveludados em sequência, sem perda de pressão ou variação de temperatura entre uma extração e outra.</p></blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar" aria-hidden="true">RN</span>
+                        <span>
+                            <cite class="testimonial__name">Rafael Nogueira</cite>
+                            <span class="testimonial__meta">Barista Amador · Belo Horizonte, MG</span>
+                        </span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial">
+                    <p class="testimonial__stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                    <blockquote class="testimonial__quote"><p>Desde a chegada na caixa de madeira de reflorestamento até o primeiro café, tudo transmite cuidado artesanal. Ter certificação SCA e 5 anos de garantia VIP dá total tranquilidade para investir em um equipamento desse porte.</p></blockquote>
+                    <figcaption class="testimonial__author">
+                        <span class="testimonial__avatar" aria-hidden="true">BS</span>
+                        <span>
+                            <cite class="testimonial__name">Beatriz Sampaio</cite>
+                            <span class="testimonial__meta">Apreciadora de Design e Gastronomia · Porto Alegre, RS</span>
+                        </span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
         <!-- FAQ -->
         <section class="faq-section" id="faq" aria-labelledby="faq-title">
             <div class="faq-container">
@@ -340,6 +396,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#beneficios">Benefícios</a></li>
                 <li><a href="#especificacoes">Especificações</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#newsletter">Novidades</a></li>
             </ul>

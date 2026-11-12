@@ -828,6 +828,7 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
   /* Cards e perguntas com borda simples e sem cortes de página */
   .feature-card,
   .product-card,
+  .testimonial,
   .faq-item {
     border: 1px solid #ccc !important;
     background: transparent !important;
@@ -1017,3 +1018,93 @@ img { display: block; height: auto; }   /* remove vão embaixo da imagem; manté
 }
 
 .notfound .section-subtitle { margin-bottom: 2rem; }
+
+/* ==========================================================
+   DEPOIMENTOS (conteúdo fictício, com aviso visível no HTML)
+   ========================================================== */
+.testimonials-section { padding: 2rem 0 5rem; }
+
+.testimonials-flag { text-align: center; }   /* centraliza o selo "Conteúdo fictício" */
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); /* 2x2 no desktop, 1 coluna no celular */
+  gap: 1.5rem;
+}
+
+.testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+  margin: 0;                          /* <figure> vem com margem do navegador */
+  padding: 2.25rem 2rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-wrap: break-word;
+  transition: var(--transition);
+}
+
+.testimonial::after {                 /* aspas decorativas no canto (o "/ ''" as esconde de leitores de tela) */
+  content: "\201D"; content: "\201D" / "";
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .18;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .testimonial:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.testimonial__stars { color: var(--accent); font-size: 1rem; letter-spacing: .2em; line-height: 1; }
+
+.testimonial__quote {
+  flex: 1;                            /* empurra o autor para o fim: os 4 cards ficam alinhados */
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.testimonial__avatar {                /* círculo com as iniciais */
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.testimonial__name { display: block; font-style: normal; font-weight: 600; font-size: .95rem; color: var(--text-primary); }
+.testimonial__meta { display: block; font-size: .8rem; line-height: 1.5; color: var(--text-secondary); }
+
+@media (max-width: 480px) {
+  .testimonial { padding: 2rem 1.25rem 1.5rem; }
+  .testimonial::after { right: 1rem; font-size: 4rem; }
+}
